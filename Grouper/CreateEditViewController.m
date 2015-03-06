@@ -27,9 +27,7 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     addButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewList:)];
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = addButton;
 }
 
 - (void)addNewList:(id)sender {
@@ -37,9 +35,10 @@
     
     NewListViewController *newListViewController = [[NewListViewController alloc] init];
     
-    [self.navigationController setModalPresentationStyle:UIModalPresentationCurrentContext];
     //TODO: Figure out how to present the newList controller modally
+    //[self.navigationController setModalPresentationStyle:UIModalPresentationCurrentContext];
     
+    [self.navigationController pushViewController:newListViewController animated:(YES)];
     
     
 }
