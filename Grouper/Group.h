@@ -12,6 +12,6 @@
 
 @property NSString *groupName;
 @property NSMutableArray *subGroups;
-@property NSInteger *numberOfGroups;
+@property int numberOfGroups;
 
 @end
