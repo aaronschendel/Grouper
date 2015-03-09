@@ -18,7 +18,7 @@
 
 + (GroupStore *)sharedGroupStore;
 
-- (void)removeGroup:(Group *)s;
+- (void)removeGroup:(Group *)g;
 - (void)removeAllGroups;
 
 - (NSMutableArray *)allGroups;
