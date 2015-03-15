@@ -8,6 +8,8 @@
 
 #import "ViewGroupsViewController.h"
 #import "GroupStore.h"
+#import "GroupTableViewCell.h"
+#import "Group.h"
 
 @interface ViewGroupsViewController ()
 
@@ -17,9 +19,17 @@
 
 @synthesize numOfGroups;
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+
+    
+    self.numOfGroups = [[[GroupStore sharedGroupStore] allGroups] count];
+    NSLog(@"%ld", (long)self.numOfGroups);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -35,25 +45,42 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return self.numOfGroups;
+    // There is only one section for this view.
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return self.numOfGroups;
+    // Set the number of rows to the number of groups in the GroupStore
+    return [[[GroupStore sharedGroupStore] allGroups] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GroupCell" forIndexPath:indexPath];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GroupCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    Group *group = [[[GroupStore sharedGroupStore] allGroups] objectAtIndex:[indexPath row]];
     
+    NSString *uniqueIdentifier = @"GroupCell";
+    GroupTableViewCell *cell = nil;
+    cell = (GroupTableViewCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
+    if (!cell) {
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"GroupTableViewCell" owner:nil options:nil];
+        for (id currentObject in topLevelObjects) {
+            cell = (GroupTableViewCell *)currentObject;
+            break;
+        }
+    }
+    
+    [[cell groupName] setText:group.groupName];
     
     
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50.0;
 }
 
 
