@@ -2,7 +2,7 @@
 //  GroupTableViewCell.h
 //  Grouper
 //
-//  Created by Aaron Schendel on 3/9/15.
+//  Created by Aaron Schendel on 3/17/15.
 //  Copyright (c) 2015 Aaron. All rights reserved.
 //
 

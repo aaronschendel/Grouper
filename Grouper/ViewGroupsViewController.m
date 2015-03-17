@@ -10,6 +10,7 @@
 #import "GroupStore.h"
 #import "GroupTableViewCell.h"
 #import "Group.h"
+#import "GroupDetailViewController.h"
 
 @interface ViewGroupsViewController ()
 
@@ -55,9 +56,7 @@
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GroupCell" forIndexPath:indexPath];
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
     Group *group = [[[GroupStore sharedGroupStore] allGroups] objectAtIndex:[indexPath row]];
     
     NSString *uniqueIdentifier = @"GroupCell";
@@ -81,6 +80,17 @@
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50.0;
+}
+
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    GroupDetailViewController *groupDetailViewController = [[GroupDetailViewController alloc] init];
+    Group *selectedGroup = [[[GroupStore sharedGroupStore] allGroups] objectAtIndex:[indexPath row]];
+    
+    [groupDetailViewController setGroup:selectedGroup];
+    
+    [[self navigationController] pushViewController:groupDetailViewController animated:YES];
 }
 
 

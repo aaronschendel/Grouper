@@ -9,19 +9,22 @@
 /* Begin PBXBuildFile section */
 		93474DCA1AA01A95004DFAC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93474DC91AA01A95004DFAC2 /* main.m */; };
 		93474DCD1AA01A95004DFAC2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93474DCC1AA01A95004DFAC2 /* AppDelegate.m */; };
-		93474DD31AA01A95004DFAC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93474DD11AA01A95004DFAC2 /* Main.storyboard */; };
 		93474DD51AA01A95004DFAC2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93474DD41AA01A95004DFAC2 /* Images.xcassets */; };
 		93474DD81AA01A95004DFAC2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93474DD61AA01A95004DFAC2 /* LaunchScreen.xib */; };
 		93474DE41AA01A95004DFAC2 /* GrouperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93474DE31AA01A95004DFAC2 /* GrouperTests.m */; };
 		9350B3B51AB48F160042A85B /* CreateEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350B3A91AB48F160042A85B /* CreateEditViewController.m */; };
 		9350B3B61AB48F160042A85B /* GroupStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350B3AB1AB48F160042A85B /* GroupStore.m */; };
-		9350B3B71AB48F160042A85B /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350B3AD1AB48F160042A85B /* GroupTableViewCell.m */; };
-		9350B3B81AB48F160042A85B /* GroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9350B3AE1AB48F160042A85B /* GroupTableViewCell.xib */; };
-		9350B3B91AB48F160042A85B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350B3B01AB48F160042A85B /* HomeViewController.m */; };
 		9350B3BA1AB48F160042A85B /* NewListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350B3B21AB48F160042A85B /* NewListViewController.m */; };
 		9350B3BB1AB48F160042A85B /* ViewGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350B3B41AB48F160042A85B /* ViewGroupsViewController.m */; };
 		C67413F01AA55D6000F7FC1B /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = C67413EF1AA55D6000F7FC1B /* Group.m */; };
 		C67413F11AA55E0E00F7FC1B /* Group.h in Sources */ = {isa = PBXBuildFile; fileRef = C67413EE1AA55D6000F7FC1B /* Group.h */; };
+		C67F9C6A1AB5D91A00432359 /* GroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67F9C681AB5D91A00432359 /* GroupDetailViewController.m */; };
+		C67F9C761AB5DF3E00432359 /* GroupMemberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C67F9C741AB5DF3E00432359 /* GroupMemberTableViewCell.m */; };
+		C696580B1AB8F60400E84485 /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C69658091AB8F60400E84485 /* GroupTableViewCell.m */; };
+		C696580C1AB8F60400E84485 /* GroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C696580A1AB8F60400E84485 /* GroupTableViewCell.xib */; };
+		C696580E1AB8F6B200E84485 /* ViewGroupsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C696580D1AB8F6B200E84485 /* ViewGroupsViewController.xib */; };
+		C6A9CEEE1AB5E7AD006A1D4B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A9CEEC1AB5E7AD006A1D4B /* HomeViewController.m */; };
+		C6A9CEEF1AB5E7AD006A1D4B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A9CEED1AB5E7AD006A1D4B /* HomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +43,6 @@
 		93474DC91AA01A95004DFAC2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		93474DCB1AA01A95004DFAC2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		93474DCC1AA01A95004DFAC2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		93474DD21AA01A95004DFAC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93474DD41AA01A95004DFAC2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		93474DD71AA01A95004DFAC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		93474DDD1AA01A95004DFAC2 /* GrouperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrouperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,17 +52,23 @@
 		9350B3A91AB48F160042A85B /* CreateEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEditViewController.m; sourceTree = "<group>"; };
 		9350B3AA1AB48F160042A85B /* GroupStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupStore.h; sourceTree = "<group>"; };
 		9350B3AB1AB48F160042A85B /* GroupStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupStore.m; sourceTree = "<group>"; };
-		9350B3AC1AB48F160042A85B /* GroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewCell.h; sourceTree = "<group>"; };
-		9350B3AD1AB48F160042A85B /* GroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewCell.m; sourceTree = "<group>"; };
-		9350B3AE1AB48F160042A85B /* GroupTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupTableViewCell.xib; sourceTree = "<group>"; };
-		9350B3AF1AB48F160042A85B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		9350B3B01AB48F160042A85B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		9350B3B11AB48F160042A85B /* NewListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewListViewController.h; sourceTree = "<group>"; };
 		9350B3B21AB48F160042A85B /* NewListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewListViewController.m; sourceTree = "<group>"; };
 		9350B3B31AB48F160042A85B /* ViewGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewGroupsViewController.h; sourceTree = "<group>"; };
 		9350B3B41AB48F160042A85B /* ViewGroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewGroupsViewController.m; sourceTree = "<group>"; };
 		C67413EE1AA55D6000F7FC1B /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		C67413EF1AA55D6000F7FC1B /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		C67F9C671AB5D91A00432359 /* GroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDetailViewController.h; sourceTree = "<group>"; };
+		C67F9C681AB5D91A00432359 /* GroupDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDetailViewController.m; sourceTree = "<group>"; };
+		C67F9C731AB5DF3E00432359 /* GroupMemberTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMemberTableViewCell.h; sourceTree = "<group>"; };
+		C67F9C741AB5DF3E00432359 /* GroupMemberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupMemberTableViewCell.m; sourceTree = "<group>"; };
+		C69658081AB8F60400E84485 /* GroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewCell.h; sourceTree = "<group>"; };
+		C69658091AB8F60400E84485 /* GroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewCell.m; sourceTree = "<group>"; };
+		C696580A1AB8F60400E84485 /* GroupTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupTableViewCell.xib; sourceTree = "<group>"; };
+		C696580D1AB8F6B200E84485 /* ViewGroupsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewGroupsViewController.xib; sourceTree = "<group>"; };
+		C6A9CEEB1AB5E7AD006A1D4B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Grouper/HomeViewController.h; sourceTree = "<group>"; };
+		C6A9CEEC1AB5E7AD006A1D4B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Grouper/HomeViewController.m; sourceTree = "<group>"; };
+		C6A9CEED1AB5E7AD006A1D4B /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = Grouper/HomeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,9 @@
 		93474DBB1AA01A95004DFAC2 = {
 			isa = PBXGroup;
 			children = (
+				C6A9CEEB1AB5E7AD006A1D4B /* HomeViewController.h */,
+				C6A9CEEC1AB5E7AD006A1D4B /* HomeViewController.m */,
+				C6A9CEED1AB5E7AD006A1D4B /* HomeViewController.xib */,
 				93474DC61AA01A95004DFAC2 /* Grouper */,
 				93474DE01AA01A95004DFAC2 /* GrouperTests */,
 				93474DC51AA01A95004DFAC2 /* Products */,
@@ -102,8 +113,7 @@
 		93474DC61AA01A95004DFAC2 /* Grouper */ = {
 			isa = PBXGroup;
 			children = (
-				9350B3AF1AB48F160042A85B /* HomeViewController.h */,
-				9350B3B01AB48F160042A85B /* HomeViewController.m */,
+				C67F9C7A1AB5E49E00432359 /* TableViewCells */,
 				C67413ED1AA55D3F00F7FC1B /* Models */,
 				C67413EC1AA5583600F7FC1B /* Views */,
 				C67413EB1AA5580900F7FC1B /* MakeGroups */,
@@ -149,6 +159,9 @@
 			children = (
 				9350B3B31AB48F160042A85B /* ViewGroupsViewController.h */,
 				9350B3B41AB48F160042A85B /* ViewGroupsViewController.m */,
+				C696580D1AB8F6B200E84485 /* ViewGroupsViewController.xib */,
+				C67F9C671AB5D91A00432359 /* GroupDetailViewController.h */,
+				C67F9C681AB5D91A00432359 /* GroupDetailViewController.m */,
 			);
 			name = "\U0010ViewGroups";
 			sourceTree = "<group>";
@@ -174,10 +187,6 @@
 		C67413EC1AA5583600F7FC1B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9350B3AC1AB48F160042A85B /* GroupTableViewCell.h */,
-				9350B3AD1AB48F160042A85B /* GroupTableViewCell.m */,
-				9350B3AE1AB48F160042A85B /* GroupTableViewCell.xib */,
-				93474DD11AA01A95004DFAC2 /* Main.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -191,6 +200,18 @@
 				C67413EF1AA55D6000F7FC1B /* Group.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		C67F9C7A1AB5E49E00432359 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				C67F9C731AB5DF3E00432359 /* GroupMemberTableViewCell.h */,
+				C67F9C741AB5DF3E00432359 /* GroupMemberTableViewCell.m */,
+				C69658081AB8F60400E84485 /* GroupTableViewCell.h */,
+				C69658091AB8F60400E84485 /* GroupTableViewCell.m */,
+				C696580A1AB8F60400E84485 /* GroupTableViewCell.xib */,
+			);
+			name = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,10 +294,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93474DD31AA01A95004DFAC2 /* Main.storyboard in Resources */,
 				93474DD81AA01A95004DFAC2 /* LaunchScreen.xib in Resources */,
 				93474DD51AA01A95004DFAC2 /* Images.xcassets in Resources */,
-				9350B3B81AB48F160042A85B /* GroupTableViewCell.xib in Resources */,
+				C696580E1AB8F6B200E84485 /* ViewGroupsViewController.xib in Resources */,
+				C6A9CEEF1AB5E7AD006A1D4B /* HomeViewController.xib in Resources */,
+				C696580C1AB8F60400E84485 /* GroupTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,13 +319,15 @@
 				C67413F11AA55E0E00F7FC1B /* Group.h in Sources */,
 				9350B3BB1AB48F160042A85B /* ViewGroupsViewController.m in Sources */,
 				93474DCD1AA01A95004DFAC2 /* AppDelegate.m in Sources */,
-				9350B3B71AB48F160042A85B /* GroupTableViewCell.m in Sources */,
+				C696580B1AB8F60400E84485 /* GroupTableViewCell.m in Sources */,
 				93474DCA1AA01A95004DFAC2 /* main.m in Sources */,
+				C67F9C761AB5DF3E00432359 /* GroupMemberTableViewCell.m in Sources */,
 				9350B3B61AB48F160042A85B /* GroupStore.m in Sources */,
 				C67413F01AA55D6000F7FC1B /* Group.m in Sources */,
 				9350B3BA1AB48F160042A85B /* NewListViewController.m in Sources */,
 				9350B3B51AB48F160042A85B /* CreateEditViewController.m in Sources */,
-				9350B3B91AB48F160042A85B /* HomeViewController.m in Sources */,
+				C67F9C6A1AB5D91A00432359 /* GroupDetailViewController.m in Sources */,
+				C6A9CEEE1AB5E7AD006A1D4B /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,14 +350,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		93474DD11AA01A95004DFAC2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				93474DD21AA01A95004DFAC2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		93474DD61AA01A95004DFAC2 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

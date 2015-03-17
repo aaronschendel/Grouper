@@ -1,14 +1,14 @@
 //
-//  GroupTableViewCell.m
+//  GroupMemberTableViewCell.m
 //  Grouper
 //
-//  Created by Aaron Schendel on 3/17/15.
+//  Created by Aaron Schendel on 3/15/15.
 //  Copyright (c) 2015 Aaron. All rights reserved.
 //
 
-#import "GroupTableViewCell.h"
+#import "GroupMemberTableViewCell.h"
 
-@implementation GroupTableViewCell
+@implementation GroupMemberTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
