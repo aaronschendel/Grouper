@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
@@ -20,7 +21,8 @@
             </userGuides>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEI-CH-zwd">
-                    <rect key="frame" x="250" y="134" width="101" height="30"/>
+                    <rect key="frame" x="236" y="134" width="129" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="Create Groups">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -29,7 +31,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZI-cT-3BJ">
-                    <rect key="frame" x="250" y="285" width="101" height="30"/>
+                    <rect key="frame" x="236" y="282" width="129" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="View/Edit Lists">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -38,7 +41,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qx-ND-3Lr">
-                    <rect key="frame" x="257" y="434" width="87" height="30"/>
+                    <rect key="frame" x="244" y="433" width="112" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="View Groups">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -46,15 +50,23 @@
                         <action selector="viewGroups:" destination="-1" eventType="touchUpInside" id="gSc-9X-HKq"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grouper" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaI-dY-fF6">
+                    <rect key="frame" x="8" y="558" width="73" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.8070827116" green="1" blue="0.98993477299999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="DZI-cT-3BJ" firstAttribute="leading" secondItem="tEI-CH-zwd" secondAttribute="leading" id="Fc9-7P-az7"/>
-                <constraint firstAttribute="bottom" secondItem="1qx-ND-3Lr" secondAttribute="bottom" constant="136" id="HEg-ob-6mE"/>
-                <constraint firstItem="DZI-cT-3BJ" firstAttribute="centerX" secondItem="Fti-JM-VvH" secondAttribute="centerX" id="MXH-zR-aBE"/>
-                <constraint firstItem="tEI-CH-zwd" firstAttribute="top" secondItem="Fti-JM-VvH" secondAttribute="top" constant="134" id="Th8-5O-NR1"/>
-                <constraint firstItem="DZI-cT-3BJ" firstAttribute="centerY" secondItem="Fti-JM-VvH" secondAttribute="centerY" id="hl1-0n-CXR"/>
-                <constraint firstItem="1qx-ND-3Lr" firstAttribute="centerX" secondItem="DZI-cT-3BJ" secondAttribute="centerX" id="nZg-Vk-ziA"/>
+                <constraint firstItem="BaI-dY-fF6" firstAttribute="bottom" secondItem="Fti-JM-VvH" secondAttribute="bottomMargin" constant="-10" id="6NW-cL-ALB"/>
+                <constraint firstItem="tEI-CH-zwd" firstAttribute="centerX" secondItem="Fti-JM-VvH" secondAttribute="centerX" id="ATU-Kg-pVl"/>
+                <constraint firstItem="DZI-cT-3BJ" firstAttribute="leading" secondItem="tEI-CH-zwd" secondAttribute="leading" id="Ual-hr-a92"/>
+                <constraint firstItem="BaI-dY-fF6" firstAttribute="leading" secondItem="Fti-JM-VvH" secondAttribute="leadingMargin" id="VgO-br-9qV"/>
+                <constraint firstAttribute="bottom" secondItem="1qx-ND-3Lr" secondAttribute="bottom" constant="131" id="deh-Jn-ksf"/>
+                <constraint firstItem="DZI-cT-3BJ" firstAttribute="centerY" secondItem="Fti-JM-VvH" secondAttribute="centerY" id="hUm-Fk-MAm"/>
+                <constraint firstItem="1qx-ND-3Lr" firstAttribute="centerX" secondItem="DZI-cT-3BJ" secondAttribute="centerX" id="oN2-K1-lnx"/>
+                <constraint firstItem="tEI-CH-zwd" firstAttribute="top" secondItem="Fti-JM-VvH" secondAttribute="top" constant="134" id="yAl-Hc-VE1"/>
             </constraints>
             <point key="canvasLocation" x="813" y="435"/>
         </view>

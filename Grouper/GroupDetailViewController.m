@@ -30,9 +30,11 @@
 
 
 - (void)viewWillAppear:(BOOL)animated {
+    
     UINavigationItem *nav = [self navigationItem];
     NSString *title = [[NSString alloc] initWithFormat:@"%@", self.group.groupName];
     [nav setTitle:title];
+    
 }
 
 - (void)viewDidLoad {
@@ -92,6 +94,10 @@
      return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50.0;
+}
 
 /*
 // Override to support conditional editing of the table view.

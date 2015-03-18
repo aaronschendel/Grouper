@@ -10,8 +10,8 @@
 
 @interface Group : NSObject
 
-@property NSString *groupName;
-@property NSMutableArray *subGroups;
-@property int numberOfGroups;
+@property (nonatomic, strong) NSString *groupName;
+@property (nonatomic, strong) NSMutableArray *subGroups;
+@property (nonatomic) int numberOfGroups;
 
 @end

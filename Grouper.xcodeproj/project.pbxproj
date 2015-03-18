@@ -25,6 +25,8 @@
 		C69658101AB8FE2C00E84485 /* GroupDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C696580F1AB8FE2C00E84485 /* GroupDetailViewController.xib */; };
 		C69658141AB8FE8F00E84485 /* GroupMemberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C69658121AB8FE8F00E84485 /* GroupMemberTableViewCell.m */; };
 		C69658151AB8FE8F00E84485 /* GroupMemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C69658131AB8FE8F00E84485 /* GroupMemberTableViewCell.xib */; };
+		C69658181AB90D5700E84485 /* NameList.m in Sources */ = {isa = PBXBuildFile; fileRef = C69658171AB90D5700E84485 /* NameList.m */; };
+		C696581B1AB90D9F00E84485 /* NameListStore.m in Sources */ = {isa = PBXBuildFile; fileRef = C696581A1AB90D9F00E84485 /* NameListStore.m */; };
 		C6A9CEEE1AB5E7AD006A1D4B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A9CEEC1AB5E7AD006A1D4B /* HomeViewController.m */; };
 		C6A9CEEF1AB5E7AD006A1D4B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A9CEED1AB5E7AD006A1D4B /* HomeViewController.xib */; };
 /* End PBXBuildFile section */
@@ -70,6 +72,10 @@
 		C69658111AB8FE8F00E84485 /* GroupMemberTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMemberTableViewCell.h; sourceTree = "<group>"; };
 		C69658121AB8FE8F00E84485 /* GroupMemberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupMemberTableViewCell.m; sourceTree = "<group>"; };
 		C69658131AB8FE8F00E84485 /* GroupMemberTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupMemberTableViewCell.xib; sourceTree = "<group>"; };
+		C69658161AB90D5700E84485 /* NameList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameList.h; sourceTree = "<group>"; };
+		C69658171AB90D5700E84485 /* NameList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameList.m; sourceTree = "<group>"; };
+		C69658191AB90D9F00E84485 /* NameListStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameListStore.h; sourceTree = "<group>"; };
+		C696581A1AB90D9F00E84485 /* NameListStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameListStore.m; sourceTree = "<group>"; };
 		C6A9CEEB1AB5E7AD006A1D4B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Grouper/HomeViewController.h; sourceTree = "<group>"; };
 		C6A9CEEC1AB5E7AD006A1D4B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Grouper/HomeViewController.m; sourceTree = "<group>"; };
 		C6A9CEED1AB5E7AD006A1D4B /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = Grouper/HomeViewController.xib; sourceTree = "<group>"; };
@@ -199,10 +205,14 @@
 		C67413ED1AA55D3F00F7FC1B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9350B3AA1AB48F160042A85B /* GroupStore.h */,
-				9350B3AB1AB48F160042A85B /* GroupStore.m */,
 				C67413EE1AA55D6000F7FC1B /* Group.h */,
 				C67413EF1AA55D6000F7FC1B /* Group.m */,
+				9350B3AA1AB48F160042A85B /* GroupStore.h */,
+				9350B3AB1AB48F160042A85B /* GroupStore.m */,
+				C69658161AB90D5700E84485 /* NameList.h */,
+				C69658171AB90D5700E84485 /* NameList.m */,
+				C69658191AB90D9F00E84485 /* NameListStore.h */,
+				C696581A1AB90D9F00E84485 /* NameListStore.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -330,7 +340,9 @@
 				C696580B1AB8F60400E84485 /* GroupTableViewCell.m in Sources */,
 				93474DCA1AA01A95004DFAC2 /* main.m in Sources */,
 				C69658141AB8FE8F00E84485 /* GroupMemberTableViewCell.m in Sources */,
+				C69658181AB90D5700E84485 /* NameList.m in Sources */,
 				9350B3B61AB48F160042A85B /* GroupStore.m in Sources */,
+				C696581B1AB90D9F00E84485 /* NameListStore.m in Sources */,
 				C67413F01AA55D6000F7FC1B /* Group.m in Sources */,
 				9350B3BA1AB48F160042A85B /* NewListViewController.m in Sources */,
 				9350B3B51AB48F160042A85B /* CreateEditViewController.m in Sources */,
