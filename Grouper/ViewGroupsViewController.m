@@ -23,18 +23,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO];
     [self.navigationItem setTitle:@"Groups"];
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
 
-    
-    self.numOfGroups = [[[GroupStore sharedGroupStore] allGroups] count];
-    NSLog(@"%ld", (long)self.numOfGroups);
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }

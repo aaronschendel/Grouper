@@ -10,8 +10,8 @@
 
 @interface CreateEditViewController : UITableViewController
 
-@property (strong, nonatomic) UIBarButtonItem *addButton;
 
-- (IBAction)addNewList:(id)sender;
+
+
 
 @end

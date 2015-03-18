@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "ViewGroupsViewController.h"
+#import "CreateEditViewController.h"
 
 @interface HomeViewController ()
 
@@ -36,11 +37,13 @@
 }
 
 - (IBAction)viewEditLists:(UIButton *)sender {
+    CreateEditViewController *cevc = [[CreateEditViewController alloc] init];
+    [[self navigationController] pushViewController:cevc animated:YES];
 }
 
 - (IBAction)viewGroups:(UIButton *)sender {
     ViewGroupsViewController *vgvc = [[ViewGroupsViewController alloc] init];
     [[self navigationController] pushViewController:vgvc animated:YES];
-    
 }
+
 @end

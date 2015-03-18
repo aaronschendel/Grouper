@@ -9,6 +9,9 @@
 #import "CreateEditViewController.h"
 #import "Group.h"
 #import "NewListViewController.h"
+#import "NameList.h"
+#import "NameListStore.h"
+#import "NameListTableViewCell.h"
 
 @interface CreateEditViewController ()
 
@@ -16,32 +19,20 @@
 
 @implementation CreateEditViewController
 
-@synthesize addButton;
-
 #pragma mark - Aaron's Pieces
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    addButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewList:)];
-    self.navigationItem.rightBarButtonItem = addButton;
 }
 
-- (void)addNewList:(id)sender {
-    Group *newGroup = [[Group alloc] init];
-    
-    NewListViewController *newListViewController = [[NewListViewController alloc] init];
-    
-    //TODO: Figure out how to present the newList controller modally
-    //[self.navigationController setModalPresentationStyle:UIModalPresentationCurrentContext];
-    
-    [self.navigationController pushViewController:newListViewController animated:(YES)];
-    
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationItem setTitle:@"Lists"];
     
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -51,26 +42,36 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    // Only one section for this list
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    // The number of rows is the number of NameLists in sharedNameListStore
+    return [[[NameListStore sharedNameListStore] allNameLists] count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    NameList *nameList = [[[NameListStore sharedNameListStore] allNameLists] objectAtIndex:[indexPath row]];
+    
+    NSString *uniqueIdentifier = @"NameListCell";
+    NameListTableViewCell *cell = nil;
+    cell = (NameListTableViewCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
+    if (!cell) {
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"NameListTableViewCell" owner:nil options:nil];
+        for (id currentObject in topLevelObjects) {
+            cell = (NameListTableViewCell *)currentObject;
+            break;
+        }
+    }
+    
+    [[cell nameOfList] setText:nameList.listName];
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -103,16 +104,6 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 */
 

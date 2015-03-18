@@ -16,7 +16,29 @@
     if (self) {
         allNameLists = [[NSMutableArray alloc] init];
         
+        // Setup for NameList 1
+        NameList *nameList1 = [[NameList alloc] init];
+        NSMutableArray *names1 = [[NSMutableArray alloc] init];
+        [names1 addObject:@"Harry"];
+        [names1 addObject:@"Hermione"];
+        [names1 addObject:@"Ron"];
+        [names1 addObject:@"Neville"];
+        [nameList1 setListName:@"Period 1"];
+        [nameList1 setNames:names1];
         
+        // Setup for NameList 2
+        NameList *nameList2 = [[NameList alloc] init];
+        NSMutableArray *names2 = [[NSMutableArray alloc] init];
+        [names2 addObject:@"Steve"];
+        [names2 addObject:@"Jeff"];
+        [names2 addObject:@"Zelda"];
+        [names2 addObject:@"Neepo"];
+        [nameList2 setListName:@"Period 2"];
+        [nameList2 setNames:names2];
+       
+        // Adding nameList 1 and 2 to allNameLists
+        [allNameLists addObject:nameList1];
+        [allNameLists addObject:nameList2];
         
     }
     return self;
