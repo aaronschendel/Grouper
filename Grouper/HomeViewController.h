@@ -10,4 +10,8 @@
 
 @interface HomeViewController : UIViewController
 
+- (IBAction)createGroups:(UIButton *)sender;
+- (IBAction)viewEditLists:(UIButton *)sender;
+- (IBAction)viewGroups:(UIButton *)sender;
+
 @end

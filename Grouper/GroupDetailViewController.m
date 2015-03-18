@@ -64,7 +64,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     // Each section heading will be "Group [section number]"
-    NSString *title = [[NSString alloc] initWithFormat:@"%ld", section + 1];
+    NSString *title = [[NSString alloc] initWithFormat:@"%@ %ld", @"Group", section + 1];
     return title;
 }
 
@@ -85,7 +85,7 @@
          }
      }
      
-   // [[cell groupMemberLabel] setText:@"Aaron"];
+    [[cell groupMemberLabel] setText:name];
     
      
      

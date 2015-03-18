@@ -24,7 +24,7 @@
         [g1 addObject:@"Hermione"];
         NSMutableArray *g2 = [[NSMutableArray alloc] init];
         [g2 addObject:@"Harry"];
-        [g2 addObject:@"Katarina"];
+        [g2 addObject:@"Neville"];
         NSMutableArray *group1SubGroups = [[NSMutableArray alloc] init];
         [group1SubGroups addObject:g1];
         [group1SubGroups addObject:g2];

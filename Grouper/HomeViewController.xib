@@ -13,7 +13,49 @@
         <view contentMode="scaleToFill" id="Fti-JM-VvH">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <userGuides>
+                <userLayoutGuide location="150" affinity="minY"/>
+                <userLayoutGuide location="450" affinity="minY"/>
+                <userLayoutGuide location="300" affinity="minY"/>
+            </userGuides>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEI-CH-zwd">
+                    <rect key="frame" x="250" y="134" width="101" height="30"/>
+                    <state key="normal" title="Create Groups">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="createGroups:" destination="-1" eventType="touchUpInside" id="IAR-Gr-kmH"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZI-cT-3BJ">
+                    <rect key="frame" x="250" y="285" width="101" height="30"/>
+                    <state key="normal" title="View/Edit Lists">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="viewEditLists:" destination="-1" eventType="touchUpInside" id="MQU-xu-td1"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qx-ND-3Lr">
+                    <rect key="frame" x="257" y="434" width="87" height="30"/>
+                    <state key="normal" title="View Groups">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="viewGroups:" destination="-1" eventType="touchUpInside" id="gSc-9X-HKq"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="DZI-cT-3BJ" firstAttribute="leading" secondItem="tEI-CH-zwd" secondAttribute="leading" id="Fc9-7P-az7"/>
+                <constraint firstAttribute="bottom" secondItem="1qx-ND-3Lr" secondAttribute="bottom" constant="136" id="HEg-ob-6mE"/>
+                <constraint firstItem="DZI-cT-3BJ" firstAttribute="centerX" secondItem="Fti-JM-VvH" secondAttribute="centerX" id="MXH-zR-aBE"/>
+                <constraint firstItem="tEI-CH-zwd" firstAttribute="top" secondItem="Fti-JM-VvH" secondAttribute="top" constant="134" id="Th8-5O-NR1"/>
+                <constraint firstItem="DZI-cT-3BJ" firstAttribute="centerY" secondItem="Fti-JM-VvH" secondAttribute="centerY" id="hl1-0n-CXR"/>
+                <constraint firstItem="1qx-ND-3Lr" firstAttribute="centerX" secondItem="DZI-cT-3BJ" secondAttribute="centerX" id="nZg-Vk-ziA"/>
+            </constraints>
             <point key="canvasLocation" x="813" y="435"/>
         </view>
     </objects>
