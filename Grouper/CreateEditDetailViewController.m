@@ -1,20 +1,21 @@
 //
-//  NewListViewController.m
+//  CreateEditDetailViewController.m
 //  Grouper
 //
-//  Created by Aaron Schendel on 3/6/15.
+//  Created by Aaron Schendel on 3/18/15.
 //  Copyright (c) 2015 Aaron. All rights reserved.
 //
 
-#import "NewListViewController.h"
+#import "CreateEditDetailViewController.h"
+#import "NameTableViewCell.h"
 
-@interface NewListViewController ()
+@interface CreateEditDetailViewController ()
 
 @end
 
-@implementation NewListViewController
+@implementation CreateEditDetailViewController
 
-@synthesize addButton;
+@synthesize nameList;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,13 +25,14 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    addButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewList:)];
-    self.navigationItem.rightBarButtonItem = addButton;     
 }
 
-- (void)addNewList:(id)sender {
-    NSLog(@"HI!");
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    UINavigationItem *nav = [self navigationItem];
+    NSString *title = [[NSString alloc] initWithFormat:@"%@", self.nameList.listName];
+    [nav setTitle:title];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,26 +43,38 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    // Should be as many rows as there are names
+    return [self.nameList.names count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+   
     
-    // Configure the cell...
+    NSString *name = [nameList.names objectAtIndex:indexPath.row];
+    
+    
+    NSString *uniqueIdentifier = @"NameCell";
+    NameTableViewCell *cell = nil;
+    cell = (NameTableViewCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
+    if (!cell) {
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"NameTableViewCell" owner:nil options:nil];
+        for (id currentObject in topLevelObjects) {
+            cell = (NameTableViewCell *)currentObject;
+            break;
+        }
+    }
+    
+    [cell.name setText: name];
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -93,6 +107,22 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
+}
+*/
+
+/*
+#pragma mark - Table view delegate
+
+// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Navigation logic may go here, for example:
+    // Create the next view controller.
+    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+    
+    // Pass the selected object to the new view controller.
+    
+    // Push the view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 */
 

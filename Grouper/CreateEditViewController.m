@@ -8,18 +8,33 @@
 
 #import "CreateEditViewController.h"
 #import "Group.h"
-#import "NewListViewController.h"
 #import "NameList.h"
 #import "NameListStore.h"
 #import "NameListTableViewCell.h"
+#import "CreateEditDetailViewController.h"
 
 @interface CreateEditViewController ()
 
 @end
 
 @implementation CreateEditViewController
+@synthesize bbi;
 
 #pragma mark - Aaron's Pieces
+
+- (id)init
+{
+    self = [super initWithNibName:@"CreateEditViewController" bundle:nil];
+    if (self) {
+        [[[self navigationController] navigationBar] setHidden:NO];
+        bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewNameList:)];
+        [[self navigationItem] setRightBarButtonItem:bbi];
+        
+        
+    }
+    
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,9 +43,10 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
     [self.navigationController setNavigationBarHidden:NO];
     [self.navigationItem setTitle:@"Lists"];
-    
+    [self.tableView reloadData];
 }
 
 
@@ -38,6 +54,60 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)alertTextFieldDidChange:(NSNotification *)notification
+// Used with the UIAlertController in addNewNameList to determine if addButton should be enabled
+{
+    UIAlertController *alertController = (UIAlertController *)self.presentedViewController;
+    if (alertController)
+    {
+        UITextField *login = alertController.textFields.firstObject;
+        UIAlertAction *okAction = alertController.actions.lastObject;
+        okAction.enabled = login.text.length > 0;
+    }
+}
+
+
+- (void)addNewNameList:(id)sender
+{
+    NameList *nameList = [[NameListStore sharedNameListStore] createNameList];
+    
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"New List"
+                                                                   message:@""
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+         textField.placeholder = @"List Name";
+         textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+         [[NSNotificationCenter defaultCenter] addObserver:self
+                                                  selector:@selector(alertTextFieldDidChange:)
+                                                      name:UITextFieldTextDidChangeNotification
+                                                    object:textField];
+     }];
+    
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
+                                                           handler:^(UIAlertAction * action) {}];
+    
+    UIAlertAction* addAction = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault
+                                                           handler:^(UIAlertAction * action) {
+                                                               
+                                                               [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                                                                               name:UITextFieldTextDidChangeNotification
+                                                                                                             object:nil];
+                                                               
+                                                               [nameList setListName:[[alert.textFields objectAtIndex:0] text]];
+                                                           }];
+    
+    [alert addAction:cancelAction];
+    [alert addAction:addAction];
+    addAction.enabled = NO;
+    [self presentViewController:alert animated:YES completion:^{[self.tableView reloadData];}];
+    
+    
+    
+}
+
 
 #pragma mark - Table view data source
 
@@ -70,6 +140,17 @@
     [[cell nameOfList] setText:nameList.listName];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CreateEditDetailViewController *createEditDetailViewController = [[CreateEditDetailViewController alloc] init];
+    NameList *selectedNameList = [[[NameListStore sharedNameListStore] allNameLists] objectAtIndex:[indexPath row]];
+    
+    [createEditDetailViewController setNameList:selectedNameList];
+    
+    [[self navigationController] pushViewController:createEditDetailViewController animated:YES];
 }
 
 

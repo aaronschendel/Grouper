@@ -21,6 +21,7 @@
 @synthesize numOfGroups;
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
     [self.navigationController setNavigationBarHidden:NO];
     [self.navigationItem setTitle:@"Groups"];
     

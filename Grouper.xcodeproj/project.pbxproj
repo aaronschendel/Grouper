@@ -14,8 +14,11 @@
 		93474DE41AA01A95004DFAC2 /* GrouperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93474DE31AA01A95004DFAC2 /* GrouperTests.m */; };
 		9350B3B51AB48F160042A85B /* CreateEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350B3A91AB48F160042A85B /* CreateEditViewController.m */; };
 		9350B3B61AB48F160042A85B /* GroupStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350B3AB1AB48F160042A85B /* GroupStore.m */; };
-		9350B3BA1AB48F160042A85B /* NewListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350B3B21AB48F160042A85B /* NewListViewController.m */; };
 		9350B3BB1AB48F160042A85B /* ViewGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350B3B41AB48F160042A85B /* ViewGroupsViewController.m */; };
+		C64D41391ABA59AC000473B1 /* CreateEditDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C64D41371ABA59AC000473B1 /* CreateEditDetailViewController.m */; };
+		C64D413A1ABA59AC000473B1 /* CreateEditDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64D41381ABA59AC000473B1 /* CreateEditDetailViewController.xib */; };
+		C64D413E1ABA6053000473B1 /* NameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C64D413C1ABA6053000473B1 /* NameTableViewCell.m */; };
+		C64D413F1ABA6053000473B1 /* NameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64D413D1ABA6053000473B1 /* NameTableViewCell.xib */; };
 		C67413F01AA55D6000F7FC1B /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = C67413EF1AA55D6000F7FC1B /* Group.m */; };
 		C67413F11AA55E0E00F7FC1B /* Group.h in Sources */ = {isa = PBXBuildFile; fileRef = C67413EE1AA55D6000F7FC1B /* Group.h */; };
 		C67F9C6A1AB5D91A00432359 /* GroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67F9C681AB5D91A00432359 /* GroupDetailViewController.m */; };
@@ -59,10 +62,14 @@
 		9350B3A91AB48F160042A85B /* CreateEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEditViewController.m; sourceTree = "<group>"; };
 		9350B3AA1AB48F160042A85B /* GroupStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupStore.h; sourceTree = "<group>"; };
 		9350B3AB1AB48F160042A85B /* GroupStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupStore.m; sourceTree = "<group>"; };
-		9350B3B11AB48F160042A85B /* NewListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewListViewController.h; sourceTree = "<group>"; };
-		9350B3B21AB48F160042A85B /* NewListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewListViewController.m; sourceTree = "<group>"; };
 		9350B3B31AB48F160042A85B /* ViewGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewGroupsViewController.h; sourceTree = "<group>"; };
 		9350B3B41AB48F160042A85B /* ViewGroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewGroupsViewController.m; sourceTree = "<group>"; };
+		C64D41361ABA59AC000473B1 /* CreateEditDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEditDetailViewController.h; sourceTree = "<group>"; };
+		C64D41371ABA59AC000473B1 /* CreateEditDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEditDetailViewController.m; sourceTree = "<group>"; };
+		C64D41381ABA59AC000473B1 /* CreateEditDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateEditDetailViewController.xib; sourceTree = "<group>"; };
+		C64D413B1ABA6053000473B1 /* NameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameTableViewCell.h; sourceTree = "<group>"; };
+		C64D413C1ABA6053000473B1 /* NameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameTableViewCell.m; sourceTree = "<group>"; };
+		C64D413D1ABA6053000473B1 /* NameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NameTableViewCell.xib; sourceTree = "<group>"; };
 		C67413EE1AA55D6000F7FC1B /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		C67413EF1AA55D6000F7FC1B /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		C67F9C671AB5D91A00432359 /* GroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDetailViewController.h; sourceTree = "<group>"; };
@@ -190,8 +197,9 @@
 				9350B3A81AB48F160042A85B /* CreateEditViewController.h */,
 				9350B3A91AB48F160042A85B /* CreateEditViewController.m */,
 				C696581C1AB917A400E84485 /* CreateEditViewController.xib */,
-				9350B3B11AB48F160042A85B /* NewListViewController.h */,
-				9350B3B21AB48F160042A85B /* NewListViewController.m */,
+				C64D41361ABA59AC000473B1 /* CreateEditDetailViewController.h */,
+				C64D41371ABA59AC000473B1 /* CreateEditDetailViewController.m */,
+				C64D41381ABA59AC000473B1 /* CreateEditDetailViewController.xib */,
 			);
 			name = CreateEdit;
 			sourceTree = "<group>";
@@ -237,6 +245,9 @@
 				C696581E1AB918CA00E84485 /* NameListTableViewCell.h */,
 				C696581F1AB918CA00E84485 /* NameListTableViewCell.m */,
 				C69658201AB918CA00E84485 /* NameListTableViewCell.xib */,
+				C64D413B1ABA6053000473B1 /* NameTableViewCell.h */,
+				C64D413C1ABA6053000473B1 /* NameTableViewCell.m */,
+				C64D413D1ABA6053000473B1 /* NameTableViewCell.xib */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -327,7 +338,9 @@
 				C69658101AB8FE2C00E84485 /* GroupDetailViewController.xib in Resources */,
 				93474DD51AA01A95004DFAC2 /* Images.xcassets in Resources */,
 				C696580E1AB8F6B200E84485 /* ViewGroupsViewController.xib in Resources */,
+				C64D413F1ABA6053000473B1 /* NameTableViewCell.xib in Resources */,
 				C6A9CEEF1AB5E7AD006A1D4B /* HomeViewController.xib in Resources */,
+				C64D413A1ABA59AC000473B1 /* CreateEditDetailViewController.xib in Resources */,
 				C696581D1AB917A400E84485 /* CreateEditViewController.xib in Resources */,
 				C696580C1AB8F60400E84485 /* GroupTableViewCell.xib in Resources */,
 			);
@@ -348,6 +361,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C67413F11AA55E0E00F7FC1B /* Group.h in Sources */,
+				C64D41391ABA59AC000473B1 /* CreateEditDetailViewController.m in Sources */,
+				C64D413E1ABA6053000473B1 /* NameTableViewCell.m in Sources */,
 				9350B3BB1AB48F160042A85B /* ViewGroupsViewController.m in Sources */,
 				93474DCD1AA01A95004DFAC2 /* AppDelegate.m in Sources */,
 				C69658211AB918CA00E84485 /* NameListTableViewCell.m in Sources */,
@@ -358,7 +373,6 @@
 				9350B3B61AB48F160042A85B /* GroupStore.m in Sources */,
 				C696581B1AB90D9F00E84485 /* NameListStore.m in Sources */,
 				C67413F01AA55D6000F7FC1B /* Group.m in Sources */,
-				9350B3BA1AB48F160042A85B /* NewListViewController.m in Sources */,
 				9350B3B51AB48F160042A85B /* CreateEditViewController.m in Sources */,
 				C67F9C6A1AB5D91A00432359 /* GroupDetailViewController.m in Sources */,
 				C6A9CEEE1AB5E7AD006A1D4B /* HomeViewController.m in Sources */,
