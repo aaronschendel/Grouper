@@ -11,6 +11,7 @@
 @interface CreateEditViewController : UITableViewController
 
 @property (strong, nonatomic) UIBarButtonItem *bbi;
+@property (strong, nonatomic) UIBarButtonItem *cancelButton;
 
 - (IBAction)addNewNameList:(id)sender;
 
