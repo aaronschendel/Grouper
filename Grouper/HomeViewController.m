@@ -17,7 +17,8 @@
 @implementation HomeViewController
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES];
+    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.toolbarHidden = YES;
 }
 
 
