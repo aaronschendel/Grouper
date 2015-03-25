@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) NameList *nameList;
 
+- (IBAction)addNewPerson:(id)sender;
+
 @end

@@ -19,6 +19,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    UIBarButtonItem *item1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewPerson:)];
+    UIBarButtonItem *emptyItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    NSArray *toolbarButtons = [NSArray arrayWithObjects:emptyItem, item1, nil];
+    [self setToolbarItems:toolbarButtons];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -38,6 +43,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)addNewPerson:(id)sender {
+    // present personCreateView and get the name of the person
+    
+    // TODO This will eventually be replaced with the name attribute of a person object
+    NSString *personName = @"Jeff";
+    
+    
 }
 
 #pragma mark - Table view data source
@@ -89,12 +103,25 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        [nameList.names removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
 
+
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    NSLog(@"TEST");
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        // Delete the row from the data source
+//        NameList *nameListToDelete = [[[NameListStore sharedNameListStore] allNameLists] objectAtIndex:indexPath.row];
+//        [[NameListStore sharedNameListStore] removeNameList:nameListToDelete];
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+//        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//    }
+//}
 
 /*
 // Override to support rearranging the table view.

@@ -27,8 +27,6 @@
     self = [super initWithNibName:@"CreateEditViewController" bundle:nil];
     if (self) {
         [[[self navigationController] navigationBar] setHidden:NO];
-//        bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewNameList:)];
-//        [[self navigationItem] setRightBarButtonItem:bbi];
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem;
     }
@@ -39,9 +37,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewNameList:)];
-    NSArray *toolbarButtons = [NSArray arrayWithObjects:item1, nil];
+    UIBarButtonItem *emptyItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    NSArray *toolbarButtons = [NSArray arrayWithObjects:emptyItem, item1, nil];
     [self setToolbarItems:toolbarButtons];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -103,12 +101,13 @@
                                                                NameList *nameList = [[NameListStore sharedNameListStore] createNameList];
                                                                
                                                                [nameList setListName:[[alert.textFields objectAtIndex:0] text]];
+                                                               [self.tableView reloadData];
                                                            }];
     
     [alert addAction:cancelAction];
     [alert addAction:addAction];
     addAction.enabled = NO;
-    [self presentViewController:alert animated:YES completion:^{[self.tableView reloadData];}];
+    [self presentViewController:alert animated:YES completion:nil];
     
     
     
@@ -167,25 +166,7 @@
 }
 */
 
-//Tried to use these two methods to do hacky
-//- (void)endTableEditing:(id)sender {
-//    [self setEditing:NO animated:YES];
-//}
-//
-//- (void)setEditing:(BOOL)flag animated:(BOOL)animated
-//{
-//    [super setEditing:flag animated:animated];
-//    if (flag == YES){
-//        bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewNameList:)];
-//        [[self navigationItem] setRightBarButtonItem:bbi];
-//        cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(endTableEditing:)];
-//        [[self navigationItem] setLeftBarButtonItem:cancelButton];
-//    }
-//    else {
-//        self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//        self.navigationItem.leftBarButtonItem = nil;
-//    }
-//}
+
 
 // Disables swipe-to-delete
 - (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -200,7 +181,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"TEST");
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         NameList *nameListToDelete = [[[NameListStore sharedNameListStore] allNameLists] objectAtIndex:indexPath.row];
