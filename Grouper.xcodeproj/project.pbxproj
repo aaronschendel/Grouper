@@ -15,6 +15,7 @@
 		9350B3B51AB48F160042A85B /* CreateEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350B3A91AB48F160042A85B /* CreateEditViewController.m */; };
 		9350B3B61AB48F160042A85B /* GroupStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350B3AB1AB48F160042A85B /* GroupStore.m */; };
 		9350B3BB1AB48F160042A85B /* ViewGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9350B3B41AB48F160042A85B /* ViewGroupsViewController.m */; };
+		C637257D1AC73CF200E1E496 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = C637257C1AC73CF200E1E496 /* Person.m */; };
 		C64D41391ABA59AC000473B1 /* CreateEditDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C64D41371ABA59AC000473B1 /* CreateEditDetailViewController.m */; };
 		C64D413A1ABA59AC000473B1 /* CreateEditDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64D41381ABA59AC000473B1 /* CreateEditDetailViewController.xib */; };
 		C64D413E1ABA6053000473B1 /* NameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C64D413C1ABA6053000473B1 /* NameTableViewCell.m */; };
@@ -64,6 +65,8 @@
 		9350B3AB1AB48F160042A85B /* GroupStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupStore.m; sourceTree = "<group>"; };
 		9350B3B31AB48F160042A85B /* ViewGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewGroupsViewController.h; sourceTree = "<group>"; };
 		9350B3B41AB48F160042A85B /* ViewGroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewGroupsViewController.m; sourceTree = "<group>"; };
+		C637257B1AC73CF200E1E496 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		C637257C1AC73CF200E1E496 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		C64D41361ABA59AC000473B1 /* CreateEditDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEditDetailViewController.h; sourceTree = "<group>"; };
 		C64D41371ABA59AC000473B1 /* CreateEditDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEditDetailViewController.m; sourceTree = "<group>"; };
 		C64D41381ABA59AC000473B1 /* CreateEditDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateEditDetailViewController.xib; sourceTree = "<group>"; };
@@ -225,6 +228,8 @@
 				C67413EF1AA55D6000F7FC1B /* Group.m */,
 				9350B3AA1AB48F160042A85B /* GroupStore.h */,
 				9350B3AB1AB48F160042A85B /* GroupStore.m */,
+				C637257B1AC73CF200E1E496 /* Person.h */,
+				C637257C1AC73CF200E1E496 /* Person.m */,
 				C69658161AB90D5700E84485 /* NameList.h */,
 				C69658171AB90D5700E84485 /* NameList.m */,
 				C69658191AB90D9F00E84485 /* NameListStore.h */,
@@ -364,6 +369,7 @@
 				C64D41391ABA59AC000473B1 /* CreateEditDetailViewController.m in Sources */,
 				C64D413E1ABA6053000473B1 /* NameTableViewCell.m in Sources */,
 				9350B3BB1AB48F160042A85B /* ViewGroupsViewController.m in Sources */,
+				C637257D1AC73CF200E1E496 /* Person.m in Sources */,
 				93474DCD1AA01A95004DFAC2 /* AppDelegate.m in Sources */,
 				C69658211AB918CA00E84485 /* NameListTableViewCell.m in Sources */,
 				C696580B1AB8F60400E84485 /* GroupTableViewCell.m in Sources */,

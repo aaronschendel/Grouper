@@ -8,6 +8,9 @@
 
 #import "CreateEditDetailViewController.h"
 #import "NameTableViewCell.h"
+#import "NameList.h"
+#import "NameListStore.h"
+
 
 @interface CreateEditDetailViewController ()
 
@@ -45,11 +48,58 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)alertTextFieldDidChange:(NSNotification *)notification
+// Used with the UIAlertController in addNewNameList to determine if addButton should be enabled
+{
+    UIAlertController *alertController = (UIAlertController *)self.presentedViewController;
+    if (alertController)
+    {
+        UITextField *login = alertController.textFields.firstObject;
+        UIAlertAction *okAction = alertController.actions.lastObject;
+        okAction.enabled = login.text.length > 0;
+    }
+}
+
 - (void)addNewPerson:(id)sender {
     // present personCreateView and get the name of the person
     
-    // TODO This will eventually be replaced with the name attribute of a person object
-    NSString *personName = @"Jeff";
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Add Name"
+                                                                   message:@"Enter Name of Person"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+         textField.placeholder = @"Name";
+         textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+         [[NSNotificationCenter defaultCenter] addObserver:self
+                                                  selector:@selector(alertTextFieldDidChange:)
+                                                      name:UITextFieldTextDidChangeNotification
+                                                    object:textField];
+     }];
+    
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
+                                                         handler:^(UIAlertAction * action) {}];
+    
+    UIAlertAction* addAction = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction * action) {
+                                                          
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                        name:UITextFieldTextDidChangeNotification
+                                                      object:nil];
+
+        [self.nameList.names addObject:[[alert.textFields objectAtIndex:0] text]];
+                                                          
+        [[self tableView] reloadData];
+    }];
+    
+    
+    [alert addAction:cancelAction];
+    [alert addAction:addAction];
+    addAction.enabled = NO;
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    
+    
     
     
 }
