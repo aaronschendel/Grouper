@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NameList : NSObject
+@interface PersonList : NSObject
 
 @property (nonatomic, strong) NSString *listName;
 @property (nonatomic, strong) NSMutableArray *names;

@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Aaron. All rights reserved.
 //
 
-#import "NameList.h"
+#import "PersonList.h"
 
-@implementation NameList
+@implementation PersonList
 
 @synthesize listName, names;
 

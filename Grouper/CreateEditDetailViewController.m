@@ -8,7 +8,7 @@
 
 #import "CreateEditDetailViewController.h"
 #import "NameTableViewCell.h"
-#import "NameList.h"
+#import "PersonList.h"
 #import "NameListStore.h"
 
 

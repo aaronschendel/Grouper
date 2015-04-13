@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NameList.h"
+#import "PersonList.h"
 
 @interface CreateEditDetailViewController : UITableViewController
 
-@property (nonatomic, strong) NameList *nameList;
+@property (nonatomic, strong) PersonList *nameList;
 
 - (IBAction)addNewPerson:(id)sender;
 

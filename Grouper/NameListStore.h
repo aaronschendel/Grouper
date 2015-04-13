@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class NameList;
+@class PersonList;
 
 @interface NameListStore : NSObject
 {
@@ -18,11 +18,11 @@
 
 + (NameListStore *)sharedNameListStore;
 
-- (void)removeNameList:(NameList *)g;
+- (void)removeNameList:(PersonList *)g;
 - (void)removeAllNameLists;
 
 - (NSMutableArray *)allNameLists;
-- (NameList *)createNameList;
+- (PersonList *)createNameList;
 - (void)moveItemAtIndex:(int)from
                 toIndex:(int)to;
 

@@ -8,7 +8,7 @@
 
 #import "CreateEditViewController.h"
 #import "Group.h"
-#import "NameList.h"
+#import "PersonList.h"
 #import "NameListStore.h"
 #import "NameListTableViewCell.h"
 #import "CreateEditDetailViewController.h"
@@ -98,7 +98,7 @@
                                                                [[NSNotificationCenter defaultCenter] removeObserver:self
                                                                                                                name:UITextFieldTextDidChangeNotification
                                                                                                              object:nil];
-                                                               NameList *nameList = [[NameListStore sharedNameListStore] createNameList];
+                                                               PersonList *nameList = [[NameListStore sharedNameListStore] createNameList];
                                                                
                                                                [nameList setListName:[[alert.textFields objectAtIndex:0] text]];
                                                                [self.tableView reloadData];
@@ -129,7 +129,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NameList *nameList = [[[NameListStore sharedNameListStore] allNameLists] objectAtIndex:[indexPath row]];
+    PersonList *nameList = [[[NameListStore sharedNameListStore] allNameLists] objectAtIndex:[indexPath row]];
     
     NSString *uniqueIdentifier = @"NameListCell";
     NameListTableViewCell *cell = nil;
@@ -150,7 +150,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CreateEditDetailViewController *createEditDetailViewController = [[CreateEditDetailViewController alloc] init];
-    NameList *selectedNameList = [[[NameListStore sharedNameListStore] allNameLists] objectAtIndex:[indexPath row]];
+    PersonList *selectedNameList = [[[NameListStore sharedNameListStore] allNameLists] objectAtIndex:[indexPath row]];
     
     [createEditDetailViewController setNameList:selectedNameList];
     
@@ -183,7 +183,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        NameList *nameListToDelete = [[[NameListStore sharedNameListStore] allNameLists] objectAtIndex:indexPath.row];
+        PersonList *nameListToDelete = [[[NameListStore sharedNameListStore] allNameLists] objectAtIndex:indexPath.row];
         [[NameListStore sharedNameListStore] removeNameList:nameListToDelete];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {

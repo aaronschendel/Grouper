@@ -7,7 +7,7 @@
 //
 
 #import "NameListStore.h"
-#import "NameList.h"
+#import "PersonList.h"
 
 @implementation NameListStore
 - (id)init
@@ -17,7 +17,7 @@
         allNameLists = [[NSMutableArray alloc] init];
         
         // Setup for NameList 1
-        NameList *nameList1 = [[NameList alloc] init];
+        PersonList *nameList1 = [[PersonList alloc] init];
         NSMutableArray *names1 = [[NSMutableArray alloc] init];
         [names1 addObject:@"Harry"];
         [names1 addObject:@"Hermione"];
@@ -27,7 +27,7 @@
         [nameList1 setNames:names1];
         
         // Setup for NameList 2
-        NameList *nameList2 = [[NameList alloc] init];
+        PersonList *nameList2 = [[PersonList alloc] init];
         NSMutableArray *names2 = [[NSMutableArray alloc] init];
         [names2 addObject:@"Steve"];
         [names2 addObject:@"Jeff"];
@@ -59,14 +59,14 @@
     allNameLists = [newArray mutableCopy];
 }
 
-- (NameList *)createNameList
+- (PersonList *)createNameList
 {
-    NameList *nameList = [[NameList alloc] init];
+    PersonList *nameList = [[PersonList alloc] init];
     [allNameLists addObject:nameList];
     return nameList;
 }
 
-- (void)removeNameList:(NameList *)g
+- (void)removeNameList:(PersonList *)g
 {
     [allNameLists removeObjectIdenticalTo:g];
 }
@@ -95,7 +95,7 @@
         return;
     }
     
-    NameList *nl = [allNameLists objectAtIndex:from];
+    PersonList *nl = [allNameLists objectAtIndex:from];
     [allNameLists removeObjectAtIndex:from];
     [allNameLists insertObject:nl atIndex:to];
 }
