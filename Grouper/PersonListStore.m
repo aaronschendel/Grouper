@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Aaron. All rights reserved.
 //
 
-#import "NameListStore.h"
+#import "PersonListStore.h"
 #import "PersonList.h"
 
-@implementation NameListStore
+@implementation PersonListStore
 - (id)init
 {
     self = [super init];
@@ -81,9 +81,9 @@
     
 }
 
-+ (NameListStore *)sharedNameListStore
++ (PersonListStore *)sharedNameListStore
 {
-    static NameListStore *nameListStore = nil;
+    static PersonListStore *nameListStore = nil;
     if (!nameListStore) {
         nameListStore = [[super allocWithZone:nil] init];
     }

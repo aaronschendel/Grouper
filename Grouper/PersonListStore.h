@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 @class PersonList;
 
-@interface NameListStore : NSObject
+@interface PersonListStore : NSObject
 {
     NSMutableArray *allNameLists;
 }
 
 - (void)setAllNameLists:(NSArray *)newArray;
 
-+ (NameListStore *)sharedNameListStore;
++ (PersonListStore *)sharedNameListStore;
 
 - (void)removeNameList:(PersonList *)g;
 - (void)removeAllNameLists;

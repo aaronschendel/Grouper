@@ -9,7 +9,7 @@
 #import "CreateEditDetailViewController.h"
 #import "NameTableViewCell.h"
 #import "PersonList.h"
-#import "NameListStore.h"
+#import "PersonListStore.h"
 
 
 @interface CreateEditDetailViewController ()

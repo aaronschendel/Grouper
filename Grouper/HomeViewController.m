@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "SelectListsViewController.h"
 #import "ViewGroupsViewController.h"
 #import "CreateEditViewController.h"
 
@@ -35,6 +36,8 @@
 
 
 - (IBAction)createGroups:(UIButton *)sender {
+    SelectListsViewController *svc = [[SelectListsViewController alloc] init];
+    [[self navigationController] pushViewController:svc animated:YES];
 }
 
 - (IBAction)viewEditLists:(UIButton *)sender {
