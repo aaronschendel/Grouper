@@ -10,4 +10,6 @@
 
 @interface SelectListsViewController : UITableViewController
 
+@property (strong, nonatomic) NSMutableArray *selectedPersonLists;
+
 @end

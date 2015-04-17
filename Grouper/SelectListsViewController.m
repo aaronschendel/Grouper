@@ -9,13 +9,14 @@
 #import "SelectListsViewController.h"
 #import "PersonList.h"
 #import "PersonListStore.h"
-#import "NameListTableViewCell.h"
+#import "GroupMemberTableViewCell.h"
 
 @interface SelectListsViewController ()
 
 @end
 
 @implementation SelectListsViewController
+@synthesize selectedPersonLists;
 
 
 - (id)init {
@@ -69,23 +70,47 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PersonList *nameList = [[[PersonListStore sharedNameListStore] allNameLists] objectAtIndex:[indexPath row]];
     
-    NSString *uniqueIdentifier = @"NameListCell";
-    NameListTableViewCell *cell = nil;
-    cell = (NameListTableViewCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
+    NSString *uniqueIdentifier = @"GroupCell";
+    GroupMemberTableViewCell *cell = nil;
+    cell = (GroupMemberTableViewCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
     if (!cell) {
-        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"NameListTableViewCell" owner:nil options:nil];
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"GroupMemberTableViewCell" owner:nil options:nil];
         for (id currentObject in topLevelObjects) {
-            cell = (NameListTableViewCell *)currentObject;
+            cell = (GroupMemberTableViewCell *)currentObject;
             break;
         }
     }
     
-    [[cell nameOfList] setText:nameList.listName];
+    [[cell groupMemberLabel] setText:nameList.listName];
     
     return cell;
 
 }
 
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [self.selectedPersonLists removeObjectAtIndex:indexPath.row];
+        
+    } else if (cell.accessoryType == UITableViewCellAccessoryNone) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.selectedPersonLists addObject:[[[PersonListStore sharedNameListStore] allNameLists] objectAtIndex:[indexPath row]]];
+        PersonList *pl = [[[PersonListStore sharedNameListStore] allNameLists] objectAtIndex:[indexPath row]];
+        [self.selectedPersonLists addObject:pl];
+        NSMutableArray *selected = [[NSMutableArray alloc] init];
+        [selected addObject:pl];
+        NSLog(@"%@", selected);
+        NSLog(@"%@", pl.names);
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
 
 /*
 // Override to support conditional editing of the table view.
