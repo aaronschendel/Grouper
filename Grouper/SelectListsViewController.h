@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) NSMutableArray *selectedPersonLists;
 
+- (IBAction)createGroupsFromSelectedPersonLists:(id)sender;
+
 @end

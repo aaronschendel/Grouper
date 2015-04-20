@@ -10,6 +10,7 @@
 #import "PersonList.h"
 #import "PersonListStore.h"
 #import "GroupMemberTableViewCell.h"
+#import "CreateGroupsViewController.h"
 
 @interface SelectListsViewController ()
 
@@ -24,6 +25,9 @@
     if (self) {
         [[[self navigationController] navigationBar] setHidden:NO];
         
+        if (!self.selectedPersonLists) {
+            self.selectedPersonLists = [[NSMutableArray alloc] init];
+        }
         //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     }
     
@@ -42,16 +46,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [super viewDidLoad];
+    UIBarButtonItem *item1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createGroupsFromSelectedPersonLists:)];
+    UIBarButtonItem *emptyItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    NSArray *toolbarButtons = [NSArray arrayWithObjects:emptyItem, item1, nil];
+    [self setToolbarItems:toolbarButtons];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)createGroupsFromSelectedPersonLists:(id)sender {
+    CreateGroupsViewController *createGroupsVC = [[CreateGroupsViewController alloc] init];
+    [createGroupsVC setSelectedPersonLists:self.selectedPersonLists];
+    if (self.selectedPersonLists.count > 0) {
+        [[self navigationController] pushViewController:createGroupsVC animated:YES];
+    }
 }
 
 #pragma mark - Table view data source
@@ -95,17 +107,15 @@
     
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [self.selectedPersonLists removeObjectAtIndex:indexPath.row];
+        //TODO: This may cause issues in the future, keep an eye on it
+        [self.selectedPersonLists removeObjectIdenticalTo:[[[PersonListStore sharedNameListStore] allNameLists] objectAtIndex:[indexPath row]]];
+        NSLog(@"SelectedPersonLists: %@", self.selectedPersonLists);
+        
         
     } else if (cell.accessoryType == UITableViewCellAccessoryNone) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         [self.selectedPersonLists addObject:[[[PersonListStore sharedNameListStore] allNameLists] objectAtIndex:[indexPath row]]];
-        PersonList *pl = [[[PersonListStore sharedNameListStore] allNameLists] objectAtIndex:[indexPath row]];
-        [self.selectedPersonLists addObject:pl];
-        NSMutableArray *selected = [[NSMutableArray alloc] init];
-        [selected addObject:pl];
-        NSLog(@"%@", selected);
-        NSLog(@"%@", pl.names);
+        NSLog(@"SelectedPersonLists: %@", self.selectedPersonLists);
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

@@ -12,4 +12,8 @@
 
 @synthesize listName, names;
 
+- (NSString *) description {
+    return [NSString stringWithFormat:@"PersonList: %@", listName];
+}
+
 @end
