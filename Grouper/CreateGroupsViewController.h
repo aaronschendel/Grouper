@@ -11,5 +11,12 @@
 @interface CreateGroupsViewController : UIViewController
 
 @property (strong, nonatomic) NSMutableArray *selectedPersonLists;
+@property (nonatomic) NSInteger totalNumberOfPeople;
+
+@property (weak, nonatomic) IBOutlet UILabel *numberOfPeopleLabel;
+@property (weak, nonatomic) IBOutlet UITextField *numberOfGroupsTF;
+@property (weak, nonatomic) IBOutlet UITextField *groupSetNameTF;
+
+- (IBAction)createGroups:(id)sender;
 
 @end

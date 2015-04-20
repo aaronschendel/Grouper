@@ -7,17 +7,18 @@
 //
 
 #import "CreateGroupsViewController.h"
+#import "PersonList.h"
 
 @interface CreateGroupsViewController ()
 
 @end
 
 @implementation CreateGroupsViewController
-@synthesize selectedPersonLists;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self setNumberOfPeopleValue];
+    [self.numberOfPeopleLabel setText:[NSString stringWithFormat:@"%ld",(long)self.totalNumberOfPeople]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,19 +32,23 @@
     
     [self.navigationController setToolbarHidden:YES];
 }
+
+- (void)setNumberOfPeopleValue {
+    self.totalNumberOfPeople = 0;
+    for (int i = 0; i < self.selectedPersonLists.count; i++) {
+        PersonList *p = [self.selectedPersonLists objectAtIndex:i];
+        self.totalNumberOfPeople = self.totalNumberOfPeople + p.names.count;
+    }
+}
+
 - (IBAction)tapReceived:(id)sender {
     [[self view] endEditing:YES];
-    NSLog(@"Hi");
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)createGroups:(id)sender {
+        //put textfields into NSIntegers and then groupify!
+    
 }
-*/
 
 @end
