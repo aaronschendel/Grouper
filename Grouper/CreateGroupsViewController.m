@@ -94,10 +94,21 @@
     
     for (int i = 0; i < numberOfSubgroups; i++) {
         NSMutableArray *currSubgroup = [[NSMutableArray alloc] init];
-        for (int j = 0; j < amountInGroups; j++) {
-            if (!listOfAllNames.count == 0) {
-                [currSubgroup addObject:[listOfAllNames lastObject]];
-                [listOfAllNames removeLastObject];
+        // If the remainder var isn't 0, put an extra one in that group and then decrement the remainder var
+        if (remainder > 0) {
+            for (int j = 0; j < amountInGroups + 1; j++) {
+                if (!listOfAllNames.count == 0) {
+                    [currSubgroup addObject:[listOfAllNames lastObject]];
+                    [listOfAllNames removeLastObject];
+                }
+            }
+            remainder = remainder - 1;
+        } else {
+            for (int j = 0; j < amountInGroups; j++) {
+                if (!listOfAllNames.count == 0) {
+                    [currSubgroup addObject:[listOfAllNames lastObject]];
+                    [listOfAllNames removeLastObject];
+                }
             }
         }
         [subgroups addObject:currSubgroup];
