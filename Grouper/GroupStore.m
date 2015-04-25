@@ -33,8 +33,8 @@
         [gg1 addObject:@"Steve"];
         [gg1 addObject:@"Jeff"];
         NSMutableArray *gg2 = [[NSMutableArray alloc] init];
-        [gg2 addObject:@"Zelda"];
-        [gg2 addObject:@"Neepo"];
+        [gg2 addObject:@"Sue"];
+        [gg2 addObject:@"Rachel"];
         NSMutableArray *group2SubGroups = [[NSMutableArray alloc] init];
         [group2SubGroups addObject:gg1];
         [group2SubGroups addObject:gg2];
