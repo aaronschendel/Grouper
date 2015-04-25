@@ -12,6 +12,6 @@
 
 @property (nonatomic, strong) NSString *groupName;
 @property (nonatomic, strong) NSMutableArray *subGroups;
-@property (nonatomic) int numberOfGroups;
+@property (nonatomic) NSInteger numberOfGroups;
 
 @end

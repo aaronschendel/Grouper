@@ -9,6 +9,8 @@
 #import "CreateGroupsViewController.h"
 #import "PersonList.h"
 #import "PersonListStore.h"
+#import "Group.h"
+#import "GroupStore.h"
 
 @interface CreateGroupsViewController ()
 
@@ -51,44 +53,66 @@
 }
 
 
+- (NSMutableArray *)shuffleArray:(NSMutableArray *)array {
+// Borrowed from http://eureka.ykyuen.info/2010/06/19/objective-c-how-to-shuffle-a-nsmutablearray/
+//FIXME: Verify that this is working as I'm expecting. Does it modify array or create a copy? Pass by reference or value?
+    NSUInteger count = [array count];
+    for (NSUInteger i = 0; i < count; ++i) {
+        int nElements = count - i;
+        int n = (arc4random() % nElements) + i;
+        [array exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
+    return array;
+}
+
+
 - (IBAction)createGroups:(id)sender {
     
-    NSInteger numberOfPeople = self.totalNumberOfPeople;
-    NSInteger numberOfGroups = [self.numberOfGroupsTF.text integerValue];
+    // Some setup for needed variables
+    NSInteger numberOfSubgroups = [self.numberOfGroupsTF.text integerValue];
     NSString *groupSetName = self.groupSetNameTF.text;
     
-    NSMutableArray *shuffledNames = [[[PersonListStore sharedNameListStore] allNameLists] copy];
-    [shuffledNames ];
-    
-    func createGroups(numberOfGroups: Int, names: Array<String>) -> Array<Array<String>> {
-        
-        // Determine how many people in each group and how many are leftover
-        var amountInGroup:Int = Int(floor(Float(names.count) / Float(numberOfGroups)))
-        var amountRemaining:Int = names.count % numberOfGroups
-        
-        var shuffledNames = names.shuffleImmutable()
-        
-        // An array that contains all the group arrays
-        var listOfGroups:Array<Array<String>> = []
-        
-        // For each group
-        for (var i = 0; i < numberOfGroups; i++){
-            var group:Array<String> = []
-            
-            // Remove one name from arrayOfNames and add it to the current group
-            for (var j = 0; j < amountInGroup; j++) {
-                if (!shuffledNames.isEmpty) {
-                    group.append(shuffledNames.removeAtIndex(0))
-                }
-            }
-            listOfGroups.append(group)
-            
+    // Loop through the selected namelists to get one list of all names
+    NSMutableArray *listOfAllNames = [[NSMutableArray alloc] init];
+    for (int k = 0; k < self.selectedPersonLists.count; k++) {
+        PersonList *personList = [self.selectedPersonLists objectAtIndex:k];
+        for (int j = 0; j < personList.names.count; j++) {
+            [listOfAllNames addObject:[personList.names objectAtIndex:j]];
         }
-        return listOfGroups
-        
+            
     }
-
     
+    // Shuffle up the list of names
+    [self shuffleArray:listOfAllNames];
+    
+    NSInteger amountInGroups = floor(self.totalNumberOfPeople / numberOfSubgroups);
+    NSInteger remainder = self.totalNumberOfPeople % numberOfSubgroups;
+    
+    // Group creation logic
+    //FIXME: Need to figure out remainder logic
+    NSMutableArray *subgroups = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < numberOfSubgroups; i++) {
+        NSMutableArray *currSubgroup = [[NSMutableArray alloc] init];
+        for (int j = 0; j < amountInGroups; j++) {
+            if (!listOfAllNames.count == 0) {
+                [currSubgroup addObject:[listOfAllNames lastObject]];
+                [listOfAllNames removeLastObject];
+            }
+        }
+        [subgroups addObject:currSubgroup];
+    }
+    
+    Group *newGroup = [[Group alloc] init];
+    [newGroup setGroupName:groupSetName];
+    [newGroup setNumberOfGroups:numberOfSubgroups];
+    [newGroup setSubGroups:subgroups];
+    
+    [[[GroupStore sharedGroupStore] allGroups] addObject:newGroup];
+
 }
+
+
+
 
 @end
