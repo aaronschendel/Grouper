@@ -32,7 +32,13 @@
     NSString *title = [[NSString alloc] initWithFormat:@"%@", self.group.groupName];
     [nav setTitle:title];
     
+    // If this page is presented from CreateGroupsViewController
+    if (self.isNewGroup) {
+        UIBarButtonItem *takeMeHomeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(takeMeHome:)];
+        [self.navigationItem setLeftBarButtonItem:takeMeHomeButton];
+    }
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -96,6 +102,12 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50.0;
 }
 
+#pragma mark - Other things
+
+- (void)takeMeHome:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -146,14 +158,6 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 */
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

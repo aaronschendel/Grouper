@@ -12,5 +12,6 @@
 @interface GroupDetailViewController : UITableViewController
 
 @property (nonatomic, strong) Group *group;
+@property (nonatomic) BOOL isNewGroup;
 
 @end

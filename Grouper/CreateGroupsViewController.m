@@ -11,6 +11,7 @@
 #import "PersonListStore.h"
 #import "Group.h"
 #import "GroupStore.h"
+#import "GroupDetailViewController.h"
 
 @interface CreateGroupsViewController ()
 
@@ -120,7 +121,12 @@
     [newGroup setSubGroups:subgroups];
     
     [[[GroupStore sharedGroupStore] allGroups] addObject:newGroup];
-
+    
+    GroupDetailViewController *groupDetailViewController = [[GroupDetailViewController alloc] init];
+    [groupDetailViewController setGroup:newGroup];
+    [groupDetailViewController setIsNewGroup:YES];
+    [self.navigationController pushViewController:groupDetailViewController animated:YES];
+    
 }
 
 
