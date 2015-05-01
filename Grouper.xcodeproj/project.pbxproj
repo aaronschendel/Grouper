@@ -40,6 +40,7 @@
 		C69658221AB918CA00E84485 /* NameListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C69658201AB918CA00E84485 /* NameListTableViewCell.xib */; };
 		C6A9CEEE1AB5E7AD006A1D4B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A9CEEC1AB5E7AD006A1D4B /* HomeViewController.m */; };
 		C6A9CEEF1AB5E7AD006A1D4B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A9CEED1AB5E7AD006A1D4B /* HomeViewController.xib */; };
+		C6DF245A1AF31B63006989DA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DF24591AF31B63006989DA /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		C6A9CEEB1AB5E7AD006A1D4B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Grouper/HomeViewController.h; sourceTree = "<group>"; };
 		C6A9CEEC1AB5E7AD006A1D4B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Grouper/HomeViewController.m; sourceTree = "<group>"; };
 		C6A9CEED1AB5E7AD006A1D4B /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = Grouper/HomeViewController.xib; sourceTree = "<group>"; };
+		C6DF24591AF31B63006989DA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6DF245A1AF31B63006989DA /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +170,7 @@
 		93474DC71AA01A95004DFAC2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C6DF24591AF31B63006989DA /* MessageUI.framework */,
 				93474DC81AA01A95004DFAC2 /* Info.plist */,
 				93474DC91AA01A95004DFAC2 /* main.m */,
 			);

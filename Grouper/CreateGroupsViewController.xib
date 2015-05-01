@@ -43,7 +43,7 @@
                         <constraint firstAttribute="width" constant="222" id="lsu-kJ-RqV"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="in selected groups:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTI-Xc-8rT">
                     <rect key="frame" x="212" y="153" width="146" height="21"/>
@@ -80,6 +80,7 @@
             <connections>
                 <outletCollection property="gestureRecognizers" destination="MMz-q5-CWu" appends="YES" id="mX4-Uf-1TH"/>
             </connections>
+            <point key="canvasLocation" x="371" y="389"/>
         </view>
         <tapGestureRecognizer id="MMz-q5-CWu">
             <connections>

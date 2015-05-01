@@ -109,13 +109,11 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
         //TODO: This may cause issues in the future, keep an eye on it
         [self.selectedPersonLists removeObjectIdenticalTo:[[[PersonListStore sharedNameListStore] allNameLists] objectAtIndex:[indexPath row]]];
-        NSLog(@"SelectedPersonLists: %@", self.selectedPersonLists);
         
         
     } else if (cell.accessoryType == UITableViewCellAccessoryNone) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         [self.selectedPersonLists addObject:[[[PersonListStore sharedNameListStore] allNameLists] objectAtIndex:[indexPath row]]];
-        NSLog(@"SelectedPersonLists: %@", self.selectedPersonLists);
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

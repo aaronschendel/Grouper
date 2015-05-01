@@ -23,6 +23,8 @@
     [super viewDidLoad];
     [self setNumberOfPeopleValue];
     [self.numberOfPeopleLabel setText:[NSString stringWithFormat:@"%ld",(long)self.totalNumberOfPeople]];
+    self.groupSetNameTF.delegate = self;
+    self.numberOfGroupsTF.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,8 +51,9 @@
     [[self view] endEditing:YES];
 }
 
-- (void)groupify {
-    
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
 }
 
 

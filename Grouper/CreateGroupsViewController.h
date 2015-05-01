@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CreateGroupsViewController : UIViewController
+@interface CreateGroupsViewController : UIViewController<UITextFieldDelegate>
 
 @property (strong, nonatomic) NSMutableArray *selectedPersonLists;
 @property (nonatomic) NSInteger totalNumberOfPeople;
