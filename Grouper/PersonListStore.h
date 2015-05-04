@@ -11,18 +11,18 @@
 
 @interface PersonListStore : NSObject
 {
-    NSMutableArray *allNameLists;
+    NSMutableArray *allPersonLists;
 }
 
-- (void)setAllNameLists:(NSArray *)newArray;
+- (void)setAllPersonLists:(NSArray *)newArray;
 
 + (PersonListStore *)sharedNameListStore;
 
-- (void)removeNameList:(PersonList *)g;
+- (void)removePersonList:(PersonList *)g;
 - (void)removeAllNameLists;
 
-- (NSMutableArray *)allNameLists;
-- (PersonList *)createNameList;
+- (NSMutableArray *)allPersonLists;
+- (PersonList *)createPersonList;
 - (void)moveItemAtIndex:(int)from
                 toIndex:(int)to;
 

@@ -11,7 +11,7 @@
 
 @interface CreateEditDetailViewController : UITableViewController
 
-@property (nonatomic, strong) PersonList *nameList;
+@property (nonatomic, strong) PersonList *personList;
 
 - (IBAction)addNewPerson:(id)sender;
 

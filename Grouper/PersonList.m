@@ -12,6 +12,18 @@
 
 @synthesize listName, names;
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        
+        if (!self.names) {
+            self.names = [[NSMutableArray alloc] init];
+        }
+    }
+    
+    return self;
+}
+
 - (NSString *) description {
     return [NSString stringWithFormat:@"PersonList: %@", listName];
 }

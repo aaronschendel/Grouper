@@ -75,12 +75,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [[[PersonListStore sharedNameListStore] allNameLists] count];
+    return [[[PersonListStore sharedNameListStore] allPersonLists] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PersonList *nameList = [[[PersonListStore sharedNameListStore] allNameLists] objectAtIndex:[indexPath row]];
+    PersonList *nameList = [[[PersonListStore sharedNameListStore] allPersonLists] objectAtIndex:[indexPath row]];
     
     NSString *uniqueIdentifier = @"GroupCell";
     GroupMemberTableViewCell *cell = nil;
@@ -108,12 +108,12 @@
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone;
         //TODO: This may cause issues in the future, keep an eye on it
-        [self.selectedPersonLists removeObjectIdenticalTo:[[[PersonListStore sharedNameListStore] allNameLists] objectAtIndex:[indexPath row]]];
+        [self.selectedPersonLists removeObjectIdenticalTo:[[[PersonListStore sharedNameListStore] allPersonLists] objectAtIndex:[indexPath row]]];
         
         
     } else if (cell.accessoryType == UITableViewCellAccessoryNone) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [self.selectedPersonLists addObject:[[[PersonListStore sharedNameListStore] allNameLists] objectAtIndex:[indexPath row]]];
+        [self.selectedPersonLists addObject:[[[PersonListStore sharedNameListStore] allPersonLists] objectAtIndex:[indexPath row]]];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

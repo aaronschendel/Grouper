@@ -14,10 +14,10 @@
 {
     self = [super init];
     if (self) {
-        allNameLists = [[NSMutableArray alloc] init];
+        allPersonLists = [[NSMutableArray alloc] init];
         
         // Setup for NameList 1
-        PersonList *nameList1 = [[PersonList alloc] init];
+        PersonList *nameList1 = self.createPersonList;
         NSMutableArray *names1 = [[NSMutableArray alloc] init];
         [names1 addObject:@"Harry"];
         [names1 addObject:@"Hermione"];
@@ -27,7 +27,7 @@
         [nameList1 setNames:names1];
         
         // Setup for NameList 2
-        PersonList *nameList2 = [[PersonList alloc] init];
+        PersonList *nameList2 = self.createPersonList;
         NSMutableArray *names2 = [[NSMutableArray alloc] init];
         [names2 addObject:@"Steve"];
         [names2 addObject:@"Jeff"];
@@ -37,8 +37,8 @@
         [nameList2 setNames:names2];
        
         // Adding nameList 1 and 2 to allNameLists
-        [allNameLists addObject:nameList1];
-        [allNameLists addObject:nameList2];
+        //[allPersonLists addObject:nameList1];
+        //[allNameLists addObject:nameList2];
         
     }
     return self;
@@ -49,31 +49,31 @@
     return [self sharedNameListStore];
 }
 
-- (NSMutableArray *)allNameLists
+- (NSMutableArray *)allPersonLists
 {
-    return allNameLists;
+    return allPersonLists;
 }
 
-- (void)setAllNameLists:(NSArray *)newArray
+- (void)setAllPersonLists:(NSArray *)newArray
 {
-    allNameLists = [newArray mutableCopy];
+    allPersonLists = [newArray mutableCopy];
 }
 
-- (PersonList *)createNameList
+- (PersonList *)createPersonList
 {
-    PersonList *nameList = [[PersonList alloc] init];
-    [allNameLists addObject:nameList];
-    return nameList;
+    PersonList *personList = [[PersonList alloc] init];
+    [allPersonLists addObject:personList];
+    return personList;
 }
 
-- (void)removeNameList:(PersonList *)g
+- (void)removePersonList:(PersonList *)g
 {
-    [allNameLists removeObjectIdenticalTo:g];
+    [allPersonLists removeObjectIdenticalTo:g];
 }
 
 - (void)removeAllNameLists
 {
-    allNameLists = nil;
+    allPersonLists = nil;
 }
 
 - (void)saveChanges
@@ -95,9 +95,9 @@
         return;
     }
     
-    PersonList *nl = [allNameLists objectAtIndex:from];
-    [allNameLists removeObjectAtIndex:from];
-    [allNameLists insertObject:nl atIndex:to];
+    PersonList *nl = [allPersonLists objectAtIndex:from];
+    [allPersonLists removeObjectAtIndex:from];
+    [allPersonLists insertObject:nl atIndex:to];
 }
 
 @end

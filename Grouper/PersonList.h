@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface PersonList : NSObject
+{
+    NSMutableArray *names;
+}
 
 @property (nonatomic, strong) NSString *listName;
 @property (nonatomic, strong) NSMutableArray *names;

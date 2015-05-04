@@ -18,7 +18,7 @@
 
 @implementation CreateEditDetailViewController
 
-@synthesize nameList;
+@synthesize personList;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,7 +38,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     UINavigationItem *nav = [self navigationItem];
-    NSString *title = [[NSString alloc] initWithFormat:@"%@", self.nameList.listName];
+    NSString *title = [[NSString alloc] initWithFormat:@"%@", self.personList.listName];
     [nav setTitle:title];
     
 }
@@ -83,14 +83,12 @@
     UIAlertAction* addAction = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault
                                                       handler:^(UIAlertAction * action) {
                                                           
-        [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                        name:UITextFieldTextDidChangeNotification
-                                                      object:nil];
-
-        [self.nameList.names addObject:[[alert.textFields objectAtIndex:0] text]];
-                                                          
-        [[self tableView] reloadData];
-    }];
+                                                          [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                                                                          name:UITextFieldTextDidChangeNotification
+                                                                                                        object:nil];
+                                                          [self.personList.names addObject:[[alert.textFields objectAtIndex:0] text]];
+                                                          [self.tableView reloadData];
+                                                      }];
     
     
     [alert addAction:cancelAction];
@@ -113,14 +111,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Should be as many rows as there are names
-    return [self.nameList.names count];
+    return [self.personList.names count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    
     
-    NSString *name = [nameList.names objectAtIndex:indexPath.row];
+    NSString *name = [personList.names objectAtIndex:indexPath.row];
     
     
     NSString *uniqueIdentifier = @"NameCell";
@@ -153,7 +151,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [nameList.names removeObjectAtIndex:indexPath.row];
+        [personList.names removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
