@@ -8,6 +8,7 @@
 
 #import "GroupDetailViewController.h"
 #import "GroupMemberTableViewCell.h"
+#import <MessageUI/MessageUI.h>
 
 @interface GroupDetailViewController ()
 
@@ -32,11 +33,72 @@
     NSString *title = [[NSString alloc] initWithFormat:@"%@", self.group.groupName];
     [nav setTitle:title];
     
+    UIBarButtonItem *composeEmailButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector((composeEmail:))];
+    [self.navigationItem setRightBarButtonItem:composeEmailButton];
+    
     // If this page is presented from CreateGroupsViewController
     if (self.isNewGroup) {
         UIBarButtonItem *takeMeHomeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(takeMeHome:)];
         [self.navigationItem setLeftBarButtonItem:takeMeHomeButton];
+        
     }
+}
+
+- (NSMutableString *)createEmailBodyFromGroup {
+    NSMutableString *emailBody = [[NSMutableString alloc] initWithFormat:@" "];
+    for (int i = 0; i < self.group.subGroups.count; i++) {
+        NSString *groupX = [[NSString alloc] initWithFormat:@"Group %d \n", i + 1];
+        [emailBody appendString: groupX];
+        [emailBody appendString:@"-\n"];
+        
+        NSMutableArray *currSubGroup = [self.group.subGroups objectAtIndex:i];
+        for (int j = 0; j < [currSubGroup count]; j++) {
+            [emailBody appendString:[currSubGroup objectAtIndex:j]];
+            [emailBody appendString:@"\n"];
+        }
+        [emailBody appendFormat:@"---------------------\n"];
+    }
+    return emailBody;
+}
+
+- (void)composeEmail:(id)sender {
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        mailer.mailComposeDelegate = self;
+        
+        NSString *emailSubject = [[NSString alloc] initWithFormat:@"%@", self.group.groupName];
+        [mailer setSubject:emailSubject];
+        
+        
+        NSMutableString *emailBody = [self createEmailBodyFromGroup];
+        [mailer setMessageBody:emailBody isHTML:NO];
+        
+        [self presentViewController:mailer animated:YES completion:nil];
+    } else {
+        NSLog(@"Ay bro, you can't send emails!");
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    switch (result) {
+        case MFMailComposeResultSent:
+            NSLog(@"You sent the email.");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"You saved a draft of this email");
+            break;
+        case MFMailComposeResultCancelled:
+            NSLog(@"You cancelled sending this email.");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail failed:  An error occurred when trying to compose this email");
+            break;
+        default:
+            NSLog(@"An error occurred when trying to compose this email");
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

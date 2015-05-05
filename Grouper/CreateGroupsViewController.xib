@@ -26,21 +26,24 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ash-lC-joP">
                     <rect key="frame" x="343" y="153" width="42" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="42" id="Pyj-qt-FR1"/>
+                        <constraint firstAttribute="width" constant="42" id="CsU-S7-FTF"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="# of Groups" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ig4-gL-FSj">
-                    <rect key="frame" x="251" y="285" width="98" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ig4-gL-FSj">
+                    <rect key="frame" x="280" y="285" width="41" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="41" id="ke8-dI-KxA"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group Set Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sVG-mn-pWT">
-                    <rect key="frame" x="189" y="323" width="222" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sVG-mn-pWT">
+                    <rect key="frame" x="189" y="389" width="222" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="222" id="lsu-kJ-RqV"/>
+                        <constraint firstAttribute="width" constant="222" id="Ok0-6C-9s3"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
@@ -51,8 +54,21 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of Groups" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qb-Nl-fgz">
+                    <rect key="frame" x="255" y="256" width="91" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Set Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQB-vi-lhK">
+                    <rect key="frame" x="236" y="360" width="129" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXG-IB-4OA">
-                    <rect key="frame" x="250" y="445" width="101" height="30"/>
+                    <rect key="frame" x="236" y="502" width="129" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="Create Groups">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -64,18 +80,22 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="ig4-gL-FSj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="88s-Y2-M1m"/>
-                <constraint firstItem="zTI-Xc-8rT" firstAttribute="baseline" secondItem="ash-lC-joP" secondAttribute="baseline" id="E6g-xt-ylz"/>
-                <constraint firstItem="UYr-kg-8b7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="131" id="JLn-UO-D33"/>
-                <constraint firstItem="ig4-gL-FSj" firstAttribute="centerX" secondItem="UYr-kg-8b7" secondAttribute="centerX" id="LvZ-4q-a96"/>
-                <constraint firstItem="ash-lC-joP" firstAttribute="leading" secondItem="zTI-Xc-8rT" secondAttribute="trailing" constant="8" symbolic="YES" id="OsF-gg-MQ7"/>
-                <constraint firstItem="sVG-mn-pWT" firstAttribute="top" secondItem="ig4-gL-FSj" secondAttribute="bottom" constant="8" symbolic="YES" id="QJQ-JE-PwQ"/>
-                <constraint firstItem="zTI-Xc-8rT" firstAttribute="top" secondItem="UYr-kg-8b7" secondAttribute="bottom" constant="1" id="VUF-E5-584"/>
-                <constraint firstItem="tXG-IB-4OA" firstAttribute="top" secondItem="sVG-mn-pWT" secondAttribute="bottom" constant="92" id="XVO-T2-XEp"/>
-                <constraint firstItem="ig4-gL-FSj" firstAttribute="centerX" secondItem="sVG-mn-pWT" secondAttribute="centerX" id="cOO-kz-mSb"/>
-                <constraint firstItem="zTI-Xc-8rT" firstAttribute="leading" secondItem="UYr-kg-8b7" secondAttribute="leading" id="gDg-Qp-78e"/>
-                <constraint firstItem="UYr-kg-8b7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iOS-hr-xjh"/>
-                <constraint firstItem="tXG-IB-4OA" firstAttribute="centerX" secondItem="sVG-mn-pWT" secondAttribute="centerX" id="uoV-lu-GWQ"/>
+                <constraint firstItem="sVG-mn-pWT" firstAttribute="top" secondItem="QQB-vi-lhK" secondAttribute="bottom" constant="8" symbolic="YES" id="2EY-aw-JBL"/>
+                <constraint firstItem="ash-lC-joP" firstAttribute="leading" secondItem="zTI-Xc-8rT" secondAttribute="trailing" constant="8" symbolic="YES" id="5bV-Zm-uN4"/>
+                <constraint firstItem="QQB-vi-lhK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9pz-u3-4ew"/>
+                <constraint firstItem="tXG-IB-4OA" firstAttribute="top" secondItem="sVG-mn-pWT" secondAttribute="bottom" constant="83" id="AE7-kg-yxi"/>
+                <constraint firstItem="8qb-Nl-fgz" firstAttribute="centerX" secondItem="ig4-gL-FSj" secondAttribute="centerX" id="Cen-PQ-aKH"/>
+                <constraint firstItem="UYr-kg-8b7" firstAttribute="centerX" secondItem="8qb-Nl-fgz" secondAttribute="centerX" id="FzV-HP-Pci"/>
+                <constraint firstItem="ig4-gL-FSj" firstAttribute="centerX" secondItem="QQB-vi-lhK" secondAttribute="centerX" id="IuJ-56-mC3"/>
+                <constraint firstItem="8qb-Nl-fgz" firstAttribute="top" secondItem="zTI-Xc-8rT" secondAttribute="bottom" constant="82" id="Jo6-H5-cnR"/>
+                <constraint firstItem="zTI-Xc-8rT" firstAttribute="top" secondItem="UYr-kg-8b7" secondAttribute="bottom" constant="1" id="Lfd-8U-APP"/>
+                <constraint firstItem="UYr-kg-8b7" firstAttribute="leading" secondItem="zTI-Xc-8rT" secondAttribute="leading" id="QCg-cN-2Lk"/>
+                <constraint firstItem="ig4-gL-FSj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="WVc-Lj-aRO"/>
+                <constraint firstItem="QQB-vi-lhK" firstAttribute="top" secondItem="ig4-gL-FSj" secondAttribute="bottom" constant="45" id="XLf-QW-5wa"/>
+                <constraint firstItem="zTI-Xc-8rT" firstAttribute="baseline" secondItem="ash-lC-joP" secondAttribute="baseline" id="XZb-70-LEI"/>
+                <constraint firstItem="ig4-gL-FSj" firstAttribute="top" secondItem="8qb-Nl-fgz" secondAttribute="bottom" constant="8" symbolic="YES" id="Xze-h2-VsH"/>
+                <constraint firstItem="QQB-vi-lhK" firstAttribute="centerX" secondItem="sVG-mn-pWT" secondAttribute="centerX" id="g1W-WZ-LvS"/>
+                <constraint firstItem="tXG-IB-4OA" firstAttribute="leading" secondItem="QQB-vi-lhK" secondAttribute="leading" id="t35-Mu-ebZ"/>
             </constraints>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="MMz-q5-CWu" appends="YES" id="mX4-Uf-1TH"/>

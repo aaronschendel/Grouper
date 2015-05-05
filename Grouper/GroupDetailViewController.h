@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 #import "Group.h"
 
-@interface GroupDetailViewController : UITableViewController
+@interface GroupDetailViewController : UITableViewController<MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) Group *group;
 @property (nonatomic) BOOL isNewGroup;
