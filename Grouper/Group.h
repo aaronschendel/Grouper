@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Group : NSObject
+@interface Group : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *groupName;
 @property (nonatomic, strong) NSMutableArray *subGroups;

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @class PersonList;
 
-@interface PersonListStore : NSObject
+@interface PersonListStore : NSObject <NSCoding>
 {
     NSMutableArray *allPersonLists;
 }
@@ -25,6 +25,9 @@
 - (PersonList *)createPersonList;
 - (void)moveItemAtIndex:(int)from
                 toIndex:(int)to;
+
+- (void)saveChanges;
+- (void)loadFromDefaults;
 
 
 @end

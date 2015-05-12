@@ -44,6 +44,19 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)coder
+{
+    if ((self = [super init])) {
+        self.allPersonLists = [coder decodeObjectForKey:@"allPersonLists"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.allPersonLists forKey:@"allPersonLists"];
+}
+
 + (id)allocWithZone:(NSZone *)zone
 {
     return [self sharedNameListStore];
@@ -78,7 +91,14 @@
 
 - (void)saveChanges
 {
-    
+    [[NSUserDefaults standardUserDefaults] setObject:self.allPersonLists forKey:@"allPersonLists"];
+}
+
+- (void)loadFromDefaults
+{
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"allPersonLists"]) {
+        self.allPersonLists = [[NSUserDefaults standardUserDefaults] objectForKey:@"allPersonLists"];
+    }
 }
 
 + (PersonListStore *)sharedNameListStore

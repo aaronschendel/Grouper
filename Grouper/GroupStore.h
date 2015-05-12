@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @class Group;
 
-@interface GroupStore : NSObject
+@interface GroupStore : NSObject <NSCoding>
 {
     NSMutableArray *allGroups;
 }
@@ -26,5 +26,7 @@
 - (void)moveItemAtIndex:(int)from
                 toIndex:(int)to;
 
+- (void)saveChanges;
+- (void)loadFromDefaults;
 
 @end

@@ -56,6 +56,19 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)coder
+{
+    if ((self = [super init])) {
+        self.allGroups = [coder decodeObjectForKey:@"allGroups"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.allGroups forKey:@"allGroups"];
+}
+
 + (id)allocWithZone:(NSZone *)zone
 {
     return [self sharedGroupStore];
@@ -90,7 +103,14 @@
 
 - (void)saveChanges
 {
-    
+    [[NSUserDefaults standardUserDefaults] setObject:self.allGroups forKey:@"allGroups"];
+}
+
+- (void)loadFromDefaults
+{
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"allGroups"]) {
+        self.allGroups = [[NSUserDefaults standardUserDefaults] objectForKey:@"allGroups"];
+    }
 }
 
 + (GroupStore *)sharedGroupStore

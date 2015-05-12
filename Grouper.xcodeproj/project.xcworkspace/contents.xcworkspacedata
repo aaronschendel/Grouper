@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../Data.plist">
+   </FileRef>
+   <FileRef
       location = "self:Grouper.xcodeproj">
    </FileRef>
 </Workspace>
