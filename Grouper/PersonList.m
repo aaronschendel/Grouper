@@ -28,4 +28,19 @@
     return [NSString stringWithFormat:@"PersonList: %@", listName];
 }
 
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:listName forKey:@"listName"];
+    [coder encodeObject:names forKey:@"names"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    self = [super init];
+    if (self) {
+    
+        self.listName = [decoder decodeObjectForKey:@"listName"];
+        self.names = [decoder decodeObjectForKey:@"names"];
+    }
+    return self;
+}
+
 @end

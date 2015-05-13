@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PersonList : NSObject
+@interface PersonList : NSObject <NSCoding>
 {
     NSMutableArray *names;
 }

@@ -46,7 +46,8 @@
 
 - (id)initWithCoder:(NSCoder *)coder
 {
-    if ((self = [super init])) {
+    self = [super init];
+    if (self) {
         self.allPersonLists = [coder decodeObjectForKey:@"allPersonLists"];
     }
     return self;
@@ -91,14 +92,17 @@
 
 - (void)saveChanges
 {
-    [[NSUserDefaults standardUserDefaults] setObject:self.allPersonLists forKey:@"allPersonLists"];
+    NSData *allPersonListsEncoded = [NSKeyedArchiver archivedDataWithRootObject:self.allPersonLists];
+    [[NSUserDefaults standardUserDefaults] setObject:allPersonListsEncoded forKey:@"allPersonLists"];
 }
 
 - (void)loadFromDefaults
 {
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"allPersonLists"]) {
-        self.allPersonLists = [[NSUserDefaults standardUserDefaults] objectForKey:@"allPersonLists"];
+        NSData *allPersonListsEncoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"allPersonLists"];
+        self.allPersonLists = [NSKeyedUnarchiver unarchiveObjectWithData:allPersonListsEncoded];
     }
+    
 }
 
 + (PersonListStore *)sharedNameListStore

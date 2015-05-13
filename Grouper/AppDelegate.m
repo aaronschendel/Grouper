@@ -27,8 +27,9 @@
     [self.window setRootViewController:navController];
     [self.window makeKeyAndVisible];
     
-    //[[GroupStore sharedGroupStore] loadFromDefaults];
-    //[[PersonListStore sharedNameListStore] loadFromDefaults];
+    // Data Persistence
+    [[GroupStore sharedGroupStore] loadFromDefaults];
+    [[PersonListStore sharedNameListStore] loadFromDefaults];
      
     return YES;
 }
@@ -45,9 +46,9 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
-    //[[GroupStore sharedGroupStore] saveChanges];
-    //[[PersonListStore sharedNameListStore] saveChanges];
-    //NSLog(@"background");
+    [[GroupStore sharedGroupStore] saveChanges];
+    [[PersonListStore sharedNameListStore] saveChanges];
+    NSLog(@"background");
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

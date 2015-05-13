@@ -14,7 +14,8 @@
 
 - (id)initWithCoder:(NSCoder *)coder
 {
-    if ((self = [super init])) {
+    self = [super init];
+    if (self) {
         self.groupName = [coder decodeObjectForKey:@"groupName"];
         self.subGroups = [coder decodeObjectForKey:@"subGroups"];
         self.numberOfGroups = [coder decodeIntegerForKey:@"numberOfGroups"];

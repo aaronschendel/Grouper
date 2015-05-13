@@ -58,7 +58,8 @@
 
 - (id)initWithCoder:(NSCoder *)coder
 {
-    if ((self = [super init])) {
+    self = [super init];
+    if (self) {
         self.allGroups = [coder decodeObjectForKey:@"allGroups"];
     }
     return self;
@@ -103,14 +104,17 @@
 
 - (void)saveChanges
 {
-    [[NSUserDefaults standardUserDefaults] setObject:self.allGroups forKey:@"allGroups"];
+    NSData *allGroupsEncoded = [NSKeyedArchiver archivedDataWithRootObject:self.allGroups];
+    [[NSUserDefaults standardUserDefaults] setObject:allGroupsEncoded forKey:@"allGroups"];
 }
 
 - (void)loadFromDefaults
 {
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"allGroups"]) {
-        self.allGroups = [[NSUserDefaults standardUserDefaults] objectForKey:@"allGroups"];
+        NSData *allGroupsEncoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"allGroups"];
+        self.allGroups = [NSKeyedUnarchiver unarchiveObjectWithData:allGroupsEncoded];
     }
+    
 }
 
 + (GroupStore *)sharedGroupStore
