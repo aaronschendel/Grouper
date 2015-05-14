@@ -9,6 +9,7 @@
 #import "GroupDetailViewController.h"
 #import "GroupMemberTableViewCell.h"
 #import <MessageUI/MessageUI.h>
+#import "Person.h"
 
 @interface GroupDetailViewController ()
 
@@ -53,7 +54,7 @@
         
         NSMutableArray *currSubGroup = [self.group.subGroups objectAtIndex:i];
         for (int j = 0; j < [currSubGroup count]; j++) {
-            [emailBody appendString:[currSubGroup objectAtIndex:j]];
+            [emailBody appendString:[[currSubGroup objectAtIndex:j] firstName]];
             [emailBody appendString:@"\n"];
         }
         [emailBody appendFormat:@"---------------------\n"];
@@ -138,7 +139,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *name = [[group.subGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    Person *person = [[group.subGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
      
      NSString *uniqueIdentifier = @"GroupMemberCell";
@@ -152,7 +153,7 @@
          }
      }
      
-    [[cell groupMemberLabel] setText:name];
+    [[cell groupMemberLabel] setText:person.firstName];
     
      
      

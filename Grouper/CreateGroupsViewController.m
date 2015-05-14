@@ -12,6 +12,7 @@
 #import "Group.h"
 #import "GroupStore.h"
 #import "GroupDetailViewController.h"
+#import "Person.h"
 
 @interface CreateGroupsViewController ()
 
@@ -76,24 +77,23 @@
     NSInteger numberOfSubgroups = [self.numberOfGroupsTF.text integerValue];
     NSString *groupSetName = self.groupSetNameTF.text;
     
-    // Loop through the selected namelists to get one list of all names
-    NSMutableArray *listOfAllNames = [[NSMutableArray alloc] init];
+    // Loop through the selected personlists to get one list of all person objects
+    NSMutableArray *listOfAllPeople = [[NSMutableArray alloc] init];
     for (int k = 0; k < self.selectedPersonLists.count; k++) {
         PersonList *personList = [self.selectedPersonLists objectAtIndex:k];
         for (int j = 0; j < personList.people.count; j++) {
-            [listOfAllNames addObject:[personList.people objectAtIndex:j]];
+            [listOfAllPeople addObject:[personList.people objectAtIndex:j]];
         }
             
     }
     
     // Shuffle up the list of names
-    [self shuffleArray:listOfAllNames];
+    [self shuffleArray:listOfAllPeople];
     
     NSInteger amountInGroups = floor(self.totalNumberOfPeople / numberOfSubgroups);
     NSInteger remainder = self.totalNumberOfPeople % numberOfSubgroups;
     
     // Group creation logic
-    //FIXME: Need to figure out remainder logic
     NSMutableArray *subgroups = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < numberOfSubgroups; i++) {
@@ -101,17 +101,17 @@
         // If the remainder var isn't 0, put an extra one in that group and then decrement the remainder var
         if (remainder > 0) {
             for (int j = 0; j < amountInGroups + 1; j++) {
-                if (!listOfAllNames.count == 0) {
-                    [currSubgroup addObject:[listOfAllNames lastObject]];
-                    [listOfAllNames removeLastObject];
+                if (!listOfAllPeople.count == 0) {
+                    [currSubgroup addObject:[listOfAllPeople lastObject]];
+                    [listOfAllPeople removeLastObject];
                 }
             }
             remainder = remainder - 1;
         } else {
             for (int j = 0; j < amountInGroups; j++) {
-                if (!listOfAllNames.count == 0) {
-                    [currSubgroup addObject:[listOfAllNames lastObject]];
-                    [listOfAllNames removeLastObject];
+                if (!listOfAllPeople.count == 0) {
+                    [currSubgroup addObject:[listOfAllPeople lastObject]];
+                    [listOfAllPeople removeLastObject];
                 }
             }
         }

@@ -17,11 +17,11 @@
     
     self = [self init];
     
-    if (!self) {
+    
         self.lastName = aLastName;
         self.firstName = aFirstName;
         self.gender = aGender;
-    }
+    
     return self;
 }
 

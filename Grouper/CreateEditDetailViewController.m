@@ -133,7 +133,7 @@
             break;
         }
     }
-    
+    NSLog(@"tezt %@", person.firstName);
     [cell.name setText: person.firstName];
     
     return cell;
