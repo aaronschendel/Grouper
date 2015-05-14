@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>AFD85898-FA95-44F8-BFBB-A67B0F542FA7</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Grouper</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>437C4A26C8DC90A31587A48A0822A67C1860BBFE</key>
 		<string>https://github.com/aschen92/Grouper.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Grouper.xcodeproj/project.xcworkspace</string>
+	<string>Grouper.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>437C4A26C8DC90A31587A48A0822A67C1860BBFE</key>

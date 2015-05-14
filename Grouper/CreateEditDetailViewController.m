@@ -10,6 +10,7 @@
 #import "NameTableViewCell.h"
 #import "PersonList.h"
 #import "PersonListStore.h"
+#import "Person.h"
 
 
 @interface CreateEditDetailViewController ()
@@ -86,7 +87,8 @@
                                                           [[NSNotificationCenter defaultCenter] removeObserver:self
                                                                                                           name:UITextFieldTextDidChangeNotification
                                                                                                         object:nil];
-                                                          [self.personList.people addObject:[[alert.textFields objectAtIndex:0] text]];
+                                                          Person *person =[[Person alloc] initWithFirstName:[[alert.textFields objectAtIndex:0] text] lastName:@"" gender:UNDEFINED];
+                                                          [self.personList.people addObject:person];
                                                           [self.tableView reloadData];
                                                       }];
     
@@ -118,7 +120,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    
     
-    NSString *name = [personList.people objectAtIndex:indexPath.row];
+    Person *person = [personList.people objectAtIndex:indexPath.row];
     
     
     NSString *uniqueIdentifier = @"NameCell";
@@ -132,7 +134,7 @@
         }
     }
     
-    [cell.name setText: name];
+    [cell.name setText: person.firstName];
     
     return cell;
 }
