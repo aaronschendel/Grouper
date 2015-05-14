@@ -8,15 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Person : NSObject
+@interface Person : NSObject <NSCoding>
+
+typedef NS_ENUM(NSUInteger, Gender) {
+    UNDEFINED,
+    MALE,
+    FEMALE
+};
+
+- (id)initWithFirstName:(NSString *)aFirstName lastName:(NSString *)aLastName gender:(Gender)aGender;
 
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *fullName;
+@property (nonatomic) Gender gender;
 
-typedef NS_ENUM(NSUInteger, Gender) {
-    MALE,
-    FEMALE
-};
 
 @end

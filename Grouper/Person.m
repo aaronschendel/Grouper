@@ -10,7 +10,40 @@
 
 @implementation Person
 
-@synthesize lastName, firstName;
+@synthesize lastName, firstName, gender;
+
+
+- (id)initWithFirstName:(NSString *)aFirstName lastName:(NSString *)aLastName gender:(Gender)aGender {
+    
+    self = [self init];
+    
+    if (!self) {
+        self.lastName = aLastName;
+        self.firstName = aFirstName;
+        self.gender = aGender;
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+    
+    self.lastName = [aDecoder decodeObjectForKey:@"lastName"];
+    self.firstName = [aDecoder decodeObjectForKey:@"firstName"];
+    self.gender = [aDecoder decodeIntForKey:@"gender"];
+        
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.lastName forKey:@"lastName"];
+    [aCoder encodeObject:self.firstName forKey:@"firstName"];
+    [aCoder encodeInt:self.gender forKey:@"gender"];
+}
+
 
 
 @end

@@ -43,7 +43,7 @@
     self.totalNumberOfPeople = 0;
     for (int i = 0; i < self.selectedPersonLists.count; i++) {
         PersonList *p = [self.selectedPersonLists objectAtIndex:i];
-        self.totalNumberOfPeople = self.totalNumberOfPeople + p.names.count;
+        self.totalNumberOfPeople = self.totalNumberOfPeople + p.people.count;
     }
 }
 
@@ -80,8 +80,8 @@
     NSMutableArray *listOfAllNames = [[NSMutableArray alloc] init];
     for (int k = 0; k < self.selectedPersonLists.count; k++) {
         PersonList *personList = [self.selectedPersonLists objectAtIndex:k];
-        for (int j = 0; j < personList.names.count; j++) {
-            [listOfAllNames addObject:[personList.names objectAtIndex:j]];
+        for (int j = 0; j < personList.people.count; j++) {
+            [listOfAllNames addObject:[personList.people objectAtIndex:j]];
         }
             
     }

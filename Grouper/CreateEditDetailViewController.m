@@ -86,7 +86,7 @@
                                                           [[NSNotificationCenter defaultCenter] removeObserver:self
                                                                                                           name:UITextFieldTextDidChangeNotification
                                                                                                         object:nil];
-                                                          [self.personList.names addObject:[[alert.textFields objectAtIndex:0] text]];
+                                                          [self.personList.people addObject:[[alert.textFields objectAtIndex:0] text]];
                                                           [self.tableView reloadData];
                                                       }];
     
@@ -111,14 +111,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Should be as many rows as there are names
-    return [self.personList.names count];
+    return [self.personList.people count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    
     
-    NSString *name = [personList.names objectAtIndex:indexPath.row];
+    NSString *name = [personList.people objectAtIndex:indexPath.row];
     
     
     NSString *uniqueIdentifier = @"NameCell";
@@ -151,7 +151,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [personList.names removeObjectAtIndex:indexPath.row];
+        [personList.people removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

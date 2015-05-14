@@ -8,6 +8,7 @@
 
 #import "PersonListStore.h"
 #import "PersonList.h"
+#import "Person.h"
 
 @implementation PersonListStore
 - (id)init
@@ -16,29 +17,25 @@
     if (self) {
         allPersonLists = [[NSMutableArray alloc] init];
         
-        // Setup for NameList 1
+        // Setup for PersonList 1
         PersonList *nameList1 = self.createPersonList;
-        NSMutableArray *names1 = [[NSMutableArray alloc] init];
-        [names1 addObject:@"Harry"];
-        [names1 addObject:@"Hermione"];
-        [names1 addObject:@"Ron"];
-        [names1 addObject:@"Neville"];
+        NSMutableArray *people1 = [[NSMutableArray alloc] init];
+        [people1 addObject:[[Person alloc] initWithFirstName:@"Harry" lastName:@"Potter" gender:MALE]];
+        [people1 addObject:[[Person alloc] initWithFirstName:@"Hermione" lastName:@"Granger" gender:FEMALE]];
+        [people1 addObject:[[Person alloc] initWithFirstName:@"Ron" lastName:@"Weasley" gender:MALE]];
+        [people1 addObject:[[Person alloc] initWithFirstName:@"Neville" lastName:@"Longbottom" gender:MALE]];
         [nameList1 setListName:@"Period 1"];
-        [nameList1 setNames:names1];
+        [nameList1 setPeople:people1];
         
-        // Setup for NameList 2
+        // Setup for PersonList 2
         PersonList *nameList2 = self.createPersonList;
-        NSMutableArray *names2 = [[NSMutableArray alloc] init];
-        [names2 addObject:@"Steve"];
-        [names2 addObject:@"Jeff"];
-        [names2 addObject:@"Zelda"];
-        [names2 addObject:@"Neepo"];
+        NSMutableArray *people2 = [[NSMutableArray alloc] init];
+        [people2 addObject:[[Person alloc] initWithFirstName:@"Eddard" lastName:@"Stark" gender:MALE]];
+        [people2 addObject:[[Person alloc] initWithFirstName:@"Arya" lastName:@"Stark" gender:FEMALE]];
+        [people2 addObject:[[Person alloc] initWithFirstName:@"Jon" lastName:@"Snow" gender:MALE]];
+        [people2 addObject:[[Person alloc] initWithFirstName:@"Daenerys" lastName:@"Targaryen" gender:FEMALE]];
         [nameList2 setListName:@"Period 2"];
-        [nameList2 setNames:names2];
-       
-        // Adding nameList 1 and 2 to allNameLists
-        //[allPersonLists addObject:nameList1];
-        //[allNameLists addObject:nameList2];
+        [nameList2 setPeople:people2];
         
     }
     return self;

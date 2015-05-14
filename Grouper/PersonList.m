@@ -10,14 +10,14 @@
 
 @implementation PersonList
 
-@synthesize listName, names;
+@synthesize listName, people;
 
 - (id)init {
     self = [super init];
     if (self) {
         
-        if (!self.names) {
-            self.names = [[NSMutableArray alloc] init];
+        if (!self.people) {
+            self.people = [[NSMutableArray alloc] init];
         }
     }
     
@@ -30,7 +30,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:listName forKey:@"listName"];
-    [coder encodeObject:names forKey:@"names"];
+    [coder encodeObject:people forKey:@"people"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -38,7 +38,7 @@
     if (self) {
     
         self.listName = [decoder decodeObjectForKey:@"listName"];
-        self.names = [decoder decodeObjectForKey:@"names"];
+        self.people = [decoder decodeObjectForKey:@"people"];
     }
     return self;
 }

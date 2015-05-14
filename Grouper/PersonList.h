@@ -10,10 +10,10 @@
 
 @interface PersonList : NSObject <NSCoding>
 {
-    NSMutableArray *names;
+    NSMutableArray *people;
 }
 
 @property (nonatomic, strong) NSString *listName;
-@property (nonatomic, strong) NSMutableArray *names;
+@property (nonatomic, strong) NSMutableArray *people;
 
 @end
