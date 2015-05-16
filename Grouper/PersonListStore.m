@@ -27,9 +27,6 @@
         [nameList1 setListName:@"Period 1"];
         [nameList1 setPeople:people1];
         
-        NSLog(@"%lu", (unsigned long)[[nameList1 people] count]);
-        NSLog(@"test %@", [[nameList1.people objectAtIndex:0] firstName]);
-        
         // Setup for PersonList 2
         PersonList *nameList2 = self.createPersonList;
         NSMutableArray *people2 = [[NSMutableArray alloc] init];

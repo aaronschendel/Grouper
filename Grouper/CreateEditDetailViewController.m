@@ -133,8 +133,9 @@
             break;
         }
     }
-    NSLog(@"tezt %@", person.firstName);
-    [cell.name setText: person.firstName];
+    
+    NSString *fullName = [[NSString alloc] initWithFormat:@"%@ %@", person.firstName, person.lastName];
+    [cell.name setText:fullName];
     
     return cell;
 }

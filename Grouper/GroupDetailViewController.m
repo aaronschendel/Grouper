@@ -50,11 +50,13 @@
     for (int i = 0; i < self.group.subGroups.count; i++) {
         NSString *groupX = [[NSString alloc] initWithFormat:@"Group %d \n", i + 1];
         [emailBody appendString: groupX];
-        [emailBody appendString:@"-\n"];
+        [emailBody appendString:@"\n"];
         
         NSMutableArray *currSubGroup = [self.group.subGroups objectAtIndex:i];
         for (int j = 0; j < [currSubGroup count]; j++) {
-            [emailBody appendString:[[currSubGroup objectAtIndex:j] firstName]];
+            Person *currPerson = [currSubGroup objectAtIndex:j];
+            NSString *fullName = [[NSString alloc] initWithFormat:@"%@ %@", currPerson.firstName, currPerson.lastName];
+            [emailBody appendString:fullName];
             [emailBody appendString:@"\n"];
         }
         [emailBody appendFormat:@"---------------------\n"];
@@ -152,9 +154,9 @@
              break;
          }
      }
-     
-    [[cell groupMemberLabel] setText:person.firstName];
     
+    NSString *fullName = [[NSString alloc] initWithFormat:@"%@ %@", person.firstName, person.lastName];
+    [cell.groupMemberLabel setText:fullName];
      
      
      return cell;
