@@ -20,22 +20,22 @@
 
         // Setup for group 1
         NSMutableArray *g1 = [[NSMutableArray alloc] init];
-        [g1 addObject:[[Person alloc] initWithFirstName:@"Harry" lastName:@"Potter" gender:MALE]];
-        [g1 addObject:[[Person alloc] initWithFirstName:@"Hermione" lastName:@"Granger" gender:FEMALE]];
+        [g1 addObject:[[Person alloc] initWithFirstName:@"Harry" lastName:@"Potter" emailAddress:@"test" gender:MALE]];
+        [g1 addObject:[[Person alloc] initWithFirstName:@"Hermione" lastName:@"Granger" emailAddress:@"test" gender:FEMALE]];
         NSMutableArray *g2 = [[NSMutableArray alloc] init];
-        [g2 addObject:[[Person alloc] initWithFirstName:@"Ron" lastName:@"Weasley" gender:MALE]];
-        [g2 addObject:[[Person alloc] initWithFirstName:@"Neville" lastName:@"Longbottom" gender:MALE]];
+        [g2 addObject:[[Person alloc] initWithFirstName:@"Ron" lastName:@"Weasley" emailAddress:@"test" gender:MALE]];
+        [g2 addObject:[[Person alloc] initWithFirstName:@"Neville" lastName:@"Longbottom" emailAddress:@"test" gender:MALE]];
         NSMutableArray *group1SubGroups = [[NSMutableArray alloc] init];
         [group1SubGroups addObject:g1];
         [group1SubGroups addObject:g2];
         
         // Setup for group 2
         NSMutableArray *gg1 = [[NSMutableArray alloc] init];
-        [gg1 addObject:[[Person alloc] initWithFirstName:@"Eddard" lastName:@"Stark" gender:MALE]];
-        [gg1 addObject:[[Person alloc] initWithFirstName:@"Arya" lastName:@"Stark" gender:FEMALE]];
+        [gg1 addObject:[[Person alloc] initWithFirstName:@"Eddard" lastName:@"Stark" emailAddress:@"test" gender:MALE]];
+        [gg1 addObject:[[Person alloc] initWithFirstName:@"Arya" lastName:@"Stark" emailAddress:@"test" gender:FEMALE]];
         NSMutableArray *gg2 = [[NSMutableArray alloc] init];
-        [gg2 addObject:[[Person alloc] initWithFirstName:@"Jon" lastName:@"Snow" gender:MALE]];
-        [gg2 addObject:[[Person alloc] initWithFirstName:@"Daenerys" lastName:@"Targaryen" gender:FEMALE]];
+        [gg2 addObject:[[Person alloc] initWithFirstName:@"Jon" lastName:@"Snow" emailAddress:@"test" gender:MALE]];
+        [gg2 addObject:[[Person alloc] initWithFirstName:@"Daenerys" lastName:@"Targaryen" emailAddress:@"test" gender:FEMALE]];
         NSMutableArray *group2SubGroups = [[NSMutableArray alloc] init];
         [group2SubGroups addObject:gg1];
         [group2SubGroups addObject:gg2];

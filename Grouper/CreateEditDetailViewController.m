@@ -11,6 +11,7 @@
 #import "PersonList.h"
 #import "PersonListStore.h"
 #import "Person.h"
+#import "AddPersonViewController.h"
 
 
 @interface CreateEditDetailViewController ()
@@ -29,6 +30,7 @@
     NSArray *toolbarButtons = [NSArray arrayWithObjects:emptyItem, item1, nil];
     [self setToolbarItems:toolbarButtons];
     
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -41,6 +43,7 @@
     UINavigationItem *nav = [self navigationItem];
     NSString *title = [[NSString alloc] initWithFormat:@"%@", self.personList.listName];
     [nav setTitle:title];
+    [self.tableView reloadData];
     
 }
 
@@ -64,39 +67,44 @@
 - (void)addNewPerson:(id)sender {
     // present personCreateView and get the name of the person
     
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Add Name"
-                                                                   message:@"Enter Name of Person"
-                                                            preferredStyle:UIAlertControllerStyleAlert];
+    AddPersonViewController *addPersonViewController = [[AddPersonViewController alloc] init];
+    addPersonViewController.personList = self.personList;
+    [self.navigationController presentViewController:addPersonViewController animated:YES completion:nil];
     
-    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField)
-     {
-         textField.placeholder = @"Name";
-         textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
-         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                  selector:@selector(alertTextFieldDidChange:)
-                                                      name:UITextFieldTextDidChangeNotification
-                                                    object:textField];
-     }];
-    
-    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
-                                                         handler:^(UIAlertAction * action) {}];
-    
-    UIAlertAction* addAction = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault
-                                                      handler:^(UIAlertAction * action) {
-                                                          
-                                                          [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                                                                          name:UITextFieldTextDidChangeNotification
-                                                                                                        object:nil];
-                                                          Person *person =[[Person alloc] initWithFirstName:[[alert.textFields objectAtIndex:0] text] lastName:@"" gender:UNDEFINED];
-                                                          [self.personList.people addObject:person];
-                                                          [self.tableView reloadData];
-                                                      }];
-    
-    
-    [alert addAction:cancelAction];
-    [alert addAction:addAction];
-    addAction.enabled = NO;
-    [self presentViewController:alert animated:YES completion:nil];
+//    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Add Name"
+//                                                                   message:@"Enter Name of Person"
+//                                                            preferredStyle:UIAlertControllerStyleAlert];
+//    
+//    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField)
+//     {
+//         textField.placeholder = @"Name";
+//         textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+//         [[NSNotificationCenter defaultCenter] addObserver:self
+//                                                  selector:@selector(alertTextFieldDidChange:)
+//                                                      name:UITextFieldTextDidChangeNotification
+//                                                    object:textField];
+//     }];
+//    
+//    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
+//                                                         handler:^(UIAlertAction * action) {}];
+//    
+//    UIAlertAction* addAction = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault
+//                                                      handler:^(UIAlertAction * action) {
+//                                                          
+//                                                          [[NSNotificationCenter defaultCenter] removeObserver:self
+//                                                                                                          name:UITextFieldTextDidChangeNotification
+//                                                                                                        object:nil];
+//                                                          Person *person =[[Person alloc] initWithFirstName:[[alert.textFields objectAtIndex:0] text] lastName:@"" gender:UNDEFINED];
+//                                                          [self.personList.people addObject:person];
+//                                                          [self.tableView reloadData];
+//                                                      }];
+//    
+//    
+//    [alert addAction:cancelAction];
+//    [alert addAction:addAction];
+//    addAction.enabled = NO;
+//    
+//    [self presentViewController:alert animated:YES completion:nil];
     
     
     

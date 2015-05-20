@@ -38,6 +38,8 @@
 		C696581D1AB917A400E84485 /* CreateEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C696581C1AB917A400E84485 /* CreateEditViewController.xib */; };
 		C69658211AB918CA00E84485 /* NameListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C696581F1AB918CA00E84485 /* NameListTableViewCell.m */; };
 		C69658221AB918CA00E84485 /* NameListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C69658201AB918CA00E84485 /* NameListTableViewCell.xib */; };
+		C6A945FE1B0BFD3B00633F07 /* AddPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A945FC1B0BFD3B00633F07 /* AddPersonViewController.m */; };
+		C6A945FF1B0BFD3B00633F07 /* AddPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A945FD1B0BFD3B00633F07 /* AddPersonViewController.xib */; };
 		C6A9CEEE1AB5E7AD006A1D4B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A9CEEC1AB5E7AD006A1D4B /* HomeViewController.m */; };
 		C6A9CEEF1AB5E7AD006A1D4B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A9CEED1AB5E7AD006A1D4B /* HomeViewController.xib */; };
 		C6DF245A1AF31B63006989DA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DF24591AF31B63006989DA /* MessageUI.framework */; };
@@ -104,6 +106,9 @@
 		C696581E1AB918CA00E84485 /* NameListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameListTableViewCell.h; sourceTree = "<group>"; };
 		C696581F1AB918CA00E84485 /* NameListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameListTableViewCell.m; sourceTree = "<group>"; };
 		C69658201AB918CA00E84485 /* NameListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NameListTableViewCell.xib; sourceTree = "<group>"; };
+		C6A945FB1B0BFD3B00633F07 /* AddPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPersonViewController.h; sourceTree = "<group>"; };
+		C6A945FC1B0BFD3B00633F07 /* AddPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPersonViewController.m; sourceTree = "<group>"; };
+		C6A945FD1B0BFD3B00633F07 /* AddPersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPersonViewController.xib; sourceTree = "<group>"; };
 		C6A9CEEB1AB5E7AD006A1D4B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Grouper/HomeViewController.h; sourceTree = "<group>"; };
 		C6A9CEEC1AB5E7AD006A1D4B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Grouper/HomeViewController.m; sourceTree = "<group>"; };
 		C6A9CEED1AB5E7AD006A1D4B /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = Grouper/HomeViewController.xib; sourceTree = "<group>"; };
@@ -216,6 +221,9 @@
 				C64D41361ABA59AC000473B1 /* CreateEditDetailViewController.h */,
 				C64D41371ABA59AC000473B1 /* CreateEditDetailViewController.m */,
 				C64D41381ABA59AC000473B1 /* CreateEditDetailViewController.xib */,
+				C6A945FB1B0BFD3B00633F07 /* AddPersonViewController.h */,
+				C6A945FC1B0BFD3B00633F07 /* AddPersonViewController.m */,
+				C6A945FD1B0BFD3B00633F07 /* AddPersonViewController.xib */,
 			);
 			name = CreateEdit;
 			sourceTree = "<group>";
@@ -353,6 +361,7 @@
 				C62A54201AE47923000CE47B /* CreateGroupsViewController.xib in Resources */,
 				C69658221AB918CA00E84485 /* NameListTableViewCell.xib in Resources */,
 				C69658151AB8FE8F00E84485 /* GroupMemberTableViewCell.xib in Resources */,
+				C6A945FF1B0BFD3B00633F07 /* AddPersonViewController.xib in Resources */,
 				93474DD81AA01A95004DFAC2 /* LaunchScreen.xib in Resources */,
 				C69658101AB8FE2C00E84485 /* GroupDetailViewController.xib in Resources */,
 				93161D8E1ADF27E00071CC16 /* SelectListsViewController.xib in Resources */,
@@ -399,6 +408,7 @@
 				C67F9C6A1AB5D91A00432359 /* GroupDetailViewController.m in Sources */,
 				93161D8D1ADF27E00071CC16 /* SelectListsViewController.m in Sources */,
 				C6A9CEEE1AB5E7AD006A1D4B /* HomeViewController.m in Sources */,
+				C6A945FE1B0BFD3B00633F07 /* AddPersonViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

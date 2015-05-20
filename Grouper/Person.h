@@ -16,11 +16,12 @@ typedef NS_ENUM(NSUInteger, Gender) {
     FEMALE
 };
 
-- (id)initWithFirstName:(NSString *)aFirstName lastName:(NSString *)aLastName gender:(Gender)aGender;
+- (id)initWithFirstName:(NSString *)aFirstName lastName:(NSString *)aLastName emailAddress:(NSString *)anEmailAddress gender:(Gender)aGender;
 
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *fullName;
+@property (nonatomic, strong) NSString *emailAddress;
 @property (nonatomic) Gender gender;
 
 

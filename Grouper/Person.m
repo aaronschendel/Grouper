@@ -13,7 +13,7 @@
 @synthesize lastName, firstName, gender;
 
 
-- (id)initWithFirstName:(NSString *)aFirstName lastName:(NSString *)aLastName gender:(Gender)aGender {
+- (id)initWithFirstName:(NSString *)aFirstName lastName:(NSString *)aLastName emailAddress:(NSString *)anEmailAddress gender:(Gender)aGender {
     
     self = [self init];
     
@@ -21,6 +21,7 @@
         self.lastName = aLastName;
         self.firstName = aFirstName;
         self.gender = aGender;
+        self.emailAddress = anEmailAddress;
     
     return self;
 }
@@ -29,9 +30,10 @@
     self = [super init];
     if (self) {
     
-    self.lastName = [aDecoder decodeObjectForKey:@"lastName"];
-    self.firstName = [aDecoder decodeObjectForKey:@"firstName"];
-    self.gender = [aDecoder decodeIntForKey:@"gender"];
+        self.lastName = [aDecoder decodeObjectForKey:@"lastName"];
+        self.firstName = [aDecoder decodeObjectForKey:@"firstName"];
+        self.emailAddress = [aDecoder decodeObjectForKey:@"emailAddress"];
+        self.gender = [aDecoder decodeIntForKey:@"gender"];
         
     }
     
@@ -41,6 +43,7 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.lastName forKey:@"lastName"];
     [aCoder encodeObject:self.firstName forKey:@"firstName"];
+    [aCoder encodeObject:self.emailAddress forKey:@"emailAddress"];
     [aCoder encodeInt:self.gender forKey:@"gender"];
 }
 
