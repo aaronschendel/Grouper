@@ -10,6 +10,7 @@
 #import "SelectListsViewController.h"
 #import "ViewGroupsViewController.h"
 #import "CreateEditViewController.h"
+#import "AboutPageViewController.h"
 
 @interface HomeViewController ()
 
@@ -49,5 +50,13 @@
     ViewGroupsViewController *vgvc = [[ViewGroupsViewController alloc] init];
     [[self navigationController] pushViewController:vgvc animated:YES];
 }
+
+- (IBAction)about:(UIButton *)sender {
+    AboutPageViewController *apvc = [[AboutPageViewController alloc] init];
+    apvc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [[self navigationController] presentViewController:apvc animated:YES completion:nil];
+}
+
+
 
 @end

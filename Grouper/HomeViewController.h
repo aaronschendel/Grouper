@@ -13,5 +13,7 @@
 - (IBAction)createGroups:(UIButton *)sender;
 - (IBAction)viewEditLists:(UIButton *)sender;
 - (IBAction)viewGroups:(UIButton *)sender;
+- (IBAction)about:(UIButton *)sender;
+
 
 @end

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D87p" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -56,17 +56,29 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eay-T7-afm">
+                    <rect key="frame" x="539" y="556" width="53" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="About">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="about:" destination="-1" eventType="touchUpInside" id="zmo-1L-Bek"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.8070827116" green="1" blue="0.98993477299999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="BaI-dY-fF6" firstAttribute="bottom" secondItem="Fti-JM-VvH" secondAttribute="bottomMargin" constant="-10" id="6NW-cL-ALB"/>
                 <constraint firstItem="tEI-CH-zwd" firstAttribute="centerX" secondItem="Fti-JM-VvH" secondAttribute="centerX" id="ATU-Kg-pVl"/>
+                <constraint firstItem="eay-T7-afm" firstAttribute="trailing" secondItem="Fti-JM-VvH" secondAttribute="trailingMargin" id="CXV-WU-6pU"/>
                 <constraint firstItem="DZI-cT-3BJ" firstAttribute="leading" secondItem="tEI-CH-zwd" secondAttribute="leading" id="Ual-hr-a92"/>
                 <constraint firstItem="BaI-dY-fF6" firstAttribute="leading" secondItem="Fti-JM-VvH" secondAttribute="leadingMargin" id="VgO-br-9qV"/>
                 <constraint firstAttribute="bottom" secondItem="1qx-ND-3Lr" secondAttribute="bottom" constant="131" id="deh-Jn-ksf"/>
                 <constraint firstItem="DZI-cT-3BJ" firstAttribute="centerY" secondItem="Fti-JM-VvH" secondAttribute="centerY" id="hUm-Fk-MAm"/>
                 <constraint firstItem="1qx-ND-3Lr" firstAttribute="centerX" secondItem="DZI-cT-3BJ" secondAttribute="centerX" id="oN2-K1-lnx"/>
                 <constraint firstItem="tEI-CH-zwd" firstAttribute="top" secondItem="Fti-JM-VvH" secondAttribute="top" constant="134" id="yAl-Hc-VE1"/>
+                <constraint firstItem="eay-T7-afm" firstAttribute="bottom" secondItem="Fti-JM-VvH" secondAttribute="bottomMargin" id="yDx-TL-I5P"/>
             </constraints>
             <point key="canvasLocation" x="697" y="380"/>
         </view>
