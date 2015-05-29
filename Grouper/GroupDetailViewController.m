@@ -34,15 +34,19 @@
     NSString *title = [[NSString alloc] initWithFormat:@"%@", self.group.groupName];
     [nav setTitle:title];
     
-    UIBarButtonItem *composeEmailButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector((composeEmail:))];
-    [self.navigationItem setRightBarButtonItem:composeEmailButton];
+    //UIBarButtonItem *composeEmailButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector((composeEmail:))];
+    //[self.navigationItem setRightBarButtonItem:composeEmailButton];
+    
+    
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // If this page is presented from CreateGroupsViewController
     if (self.isNewGroup) {
         UIBarButtonItem *takeMeHomeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(takeMeHome:)];
         [self.navigationItem setLeftBarButtonItem:takeMeHomeButton];
-        
     }
+    
+    [self.navigationController setToolbarHidden:NO];
 }
 
 - (NSMutableString *)createEmailBodyFromGroup {
@@ -107,12 +111,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    UIBarButtonItem *item1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(composeEmail:)];
+    UIBarButtonItem *emptyItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    NSArray *toolbarButtons = [NSArray arrayWithObjects:emptyItem, item1, nil];
+    [self setToolbarItems:toolbarButtons];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -120,7 +124,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 #pragma mark - Table view data source
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    [self.group moveItemAtIndex:sourceIndexPath toIndex:destinationIndexPath];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // The number of sections is the number of sub groups

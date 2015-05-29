@@ -7,6 +7,7 @@
 //
 
 #import "Group.h"
+#import "Person.h"
 
 @implementation Group
 
@@ -28,6 +29,19 @@
     [coder encodeObject:self.groupName forKey:@"groupName"];
     [coder encodeObject:self.subGroups forKey:@"subGroups"];
     [coder encodeInteger:self.numberOfGroups forKey:@"numberOfGroups"];
+}
+
+- (void)moveItemAtIndex:(NSIndexPath *)from toIndex:(NSIndexPath *)to {
+    if (from == to) {
+        return;
+    }
+    
+    NSMutableArray *fromSubgroup = [subGroups objectAtIndex:from.section];
+    Person *selectedPerson = [fromSubgroup objectAtIndex:from.row];
+    [fromSubgroup removeObjectAtIndex:from.row];
+    
+    NSMutableArray *toSubgroup = [subGroups objectAtIndex:to.section];
+    [toSubgroup insertObject:selectedPerson atIndex:to.row];
 }
 
 @end
