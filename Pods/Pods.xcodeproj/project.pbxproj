@@ -1,0 +1,435 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C885A955E9F6F4EB4295F12 /* Pods-Grouper-DZNEmptyDataSet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6704D3340F4BA2DCE936BD6E /* Pods-Grouper-DZNEmptyDataSet-dummy.m */; };
+		2BE09620E58DB4730A8BFA85 /* Pods-Grouper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E66A4D83C5DE921AA85765 /* Pods-Grouper-dummy.m */; };
+		6E90586C2BBADAA2EB575B06 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DD20529231E7CE06012EDD /* UIScrollView+EmptyDataSet.m */; };
+		92E668641A1AD46A357ACFA8 /* UIScrollView+EmptyDataSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 3899C1DA1832782641795785 /* UIScrollView+EmptyDataSet.h */; };
+		96B7AC767223486B93AE162B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21356C479B786AA67145EA59 /* Foundation.framework */; };
+		C457908A91A9A22EC71FD80F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB3705069A48705463620E3 /* UIKit.framework */; };
+		F72547486A16DA269E378EDC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21356C479B786AA67145EA59 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C39DD7865DD0D7DE8B19662C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E3CFDD8D8A706713DCA660B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 074BCE126B37AB29D05D67C3;
+			remoteInfo = "Pods-Grouper-DZNEmptyDataSet";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		21356C479B786AA67145EA59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		21E66A4D83C5DE921AA85765 /* Pods-Grouper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Grouper-dummy.m"; sourceTree = "<group>"; };
+		2E1520D275042690C26A0EA0 /* Pods-Grouper-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Grouper-acknowledgements.markdown"; sourceTree = "<group>"; };
+		348E0254E33D1992C96D2B97 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3899C1DA1832782641795785 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+EmptyDataSet.h"; path = "Source/UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
+		3D545FA66DB4B704866F3F8F /* libPods-Grouper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Grouper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B6EB466B8AC506EAB2FC52D /* Pods-Grouper-DZNEmptyDataSet-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Grouper-DZNEmptyDataSet-prefix.pch"; sourceTree = "<group>"; };
+		50563B229A8A3CBCC028A88D /* Pods-Grouper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Grouper.debug.xcconfig"; sourceTree = "<group>"; };
+		58157A770669DB5820380AD5 /* libPods-Grouper-DZNEmptyDataSet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Grouper-DZNEmptyDataSet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6704D3340F4BA2DCE936BD6E /* Pods-Grouper-DZNEmptyDataSet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Grouper-DZNEmptyDataSet-dummy.m"; sourceTree = "<group>"; };
+		6D21BB974E8FD18941E9786D /* Pods-Grouper-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Grouper-resources.sh"; sourceTree = "<group>"; };
+		875EE365B22A8ED383BF8594 /* Pods-Grouper-DZNEmptyDataSet-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Grouper-DZNEmptyDataSet-Private.xcconfig"; sourceTree = "<group>"; };
+		9CB3705069A48705463620E3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		A8979D4005DB84D30254BFBC /* Pods-Grouper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Grouper.release.xcconfig"; sourceTree = "<group>"; };
+		C8F02AC3196C7A6F4C87E1E2 /* Pods-Grouper-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Grouper-environment.h"; sourceTree = "<group>"; };
+		D881810436B7102BEE2C1CD3 /* Pods-Grouper-DZNEmptyDataSet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Grouper-DZNEmptyDataSet.xcconfig"; sourceTree = "<group>"; };
+		E5DD20529231E7CE06012EDD /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+EmptyDataSet.m"; path = "Source/UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
+		FE4BFAFA63A62F2C60A78463 /* Pods-Grouper-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Grouper-acknowledgements.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0FC7296EE73CC06E7F46010E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F72547486A16DA269E378EDC /* Foundation.framework in Frameworks */,
+				C457908A91A9A22EC71FD80F /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3CEE7DB0A653A5E36CB2F5B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96B7AC767223486B93AE162B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0901FD2A4BB2B859DF2313AA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D881810436B7102BEE2C1CD3 /* Pods-Grouper-DZNEmptyDataSet.xcconfig */,
+				875EE365B22A8ED383BF8594 /* Pods-Grouper-DZNEmptyDataSet-Private.xcconfig */,
+				6704D3340F4BA2DCE936BD6E /* Pods-Grouper-DZNEmptyDataSet-dummy.m */,
+				4B6EB466B8AC506EAB2FC52D /* Pods-Grouper-DZNEmptyDataSet-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Grouper-DZNEmptyDataSet";
+			sourceTree = "<group>";
+		};
+		0CF037F953DD491D7FFEDE38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D545FA66DB4B704866F3F8F /* libPods-Grouper.a */,
+				58157A770669DB5820380AD5 /* libPods-Grouper-DZNEmptyDataSet.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2DB385F441BF83D7CA8E87B0 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E5E756E3744C2EB51A239D29 /* Pods-Grouper */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		41F33DBEE4DEB61744B9DA89 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5308D734887A3DFDA4BE914 /* DZNEmptyDataSet */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		76B91CFF729230510FF5F4FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D39C79527CEF4F871278513 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		99D69BE2127057AA7052FB4D = {
+			isa = PBXGroup;
+			children = (
+				348E0254E33D1992C96D2B97 /* Podfile */,
+				76B91CFF729230510FF5F4FD /* Frameworks */,
+				41F33DBEE4DEB61744B9DA89 /* Pods */,
+				0CF037F953DD491D7FFEDE38 /* Products */,
+				2DB385F441BF83D7CA8E87B0 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9D39C79527CEF4F871278513 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				21356C479B786AA67145EA59 /* Foundation.framework */,
+				9CB3705069A48705463620E3 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D5308D734887A3DFDA4BE914 /* DZNEmptyDataSet */ = {
+			isa = PBXGroup;
+			children = (
+				3899C1DA1832782641795785 /* UIScrollView+EmptyDataSet.h */,
+				E5DD20529231E7CE06012EDD /* UIScrollView+EmptyDataSet.m */,
+				0901FD2A4BB2B859DF2313AA /* Support Files */,
+			);
+			path = DZNEmptyDataSet;
+			sourceTree = "<group>";
+		};
+		E5E756E3744C2EB51A239D29 /* Pods-Grouper */ = {
+			isa = PBXGroup;
+			children = (
+				2E1520D275042690C26A0EA0 /* Pods-Grouper-acknowledgements.markdown */,
+				FE4BFAFA63A62F2C60A78463 /* Pods-Grouper-acknowledgements.plist */,
+				21E66A4D83C5DE921AA85765 /* Pods-Grouper-dummy.m */,
+				C8F02AC3196C7A6F4C87E1E2 /* Pods-Grouper-environment.h */,
+				6D21BB974E8FD18941E9786D /* Pods-Grouper-resources.sh */,
+				50563B229A8A3CBCC028A88D /* Pods-Grouper.debug.xcconfig */,
+				A8979D4005DB84D30254BFBC /* Pods-Grouper.release.xcconfig */,
+			);
+			name = "Pods-Grouper";
+			path = "Target Support Files/Pods-Grouper";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		72012C4C58F912BE30F6735F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92E668641A1AD46A357ACFA8 /* UIScrollView+EmptyDataSet.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		074BCE126B37AB29D05D67C3 /* Pods-Grouper-DZNEmptyDataSet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D19F53E22380B8F3469B7FBC /* Build configuration list for PBXNativeTarget "Pods-Grouper-DZNEmptyDataSet" */;
+			buildPhases = (
+				1BC562D0E68321CDBA53D853 /* Sources */,
+				0FC7296EE73CC06E7F46010E /* Frameworks */,
+				72012C4C58F912BE30F6735F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Grouper-DZNEmptyDataSet";
+			productName = "Pods-Grouper-DZNEmptyDataSet";
+			productReference = 58157A770669DB5820380AD5 /* libPods-Grouper-DZNEmptyDataSet.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		92663F431F1788EA09415B2B /* Pods-Grouper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71D391F569AF6B4904117C13 /* Build configuration list for PBXNativeTarget "Pods-Grouper" */;
+			buildPhases = (
+				91F3C3D6DF6379DCD29EA06B /* Sources */,
+				C3CEE7DB0A653A5E36CB2F5B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4EFCDC2A24A5BDE227C701D6 /* PBXTargetDependency */,
+			);
+			name = "Pods-Grouper";
+			productName = "Pods-Grouper";
+			productReference = 3D545FA66DB4B704866F3F8F /* libPods-Grouper.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0E3CFDD8D8A706713DCA660B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+			};
+			buildConfigurationList = AEDD7401E522B8354ED3BBA7 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 99D69BE2127057AA7052FB4D;
+			productRefGroup = 0CF037F953DD491D7FFEDE38 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				92663F431F1788EA09415B2B /* Pods-Grouper */,
+				074BCE126B37AB29D05D67C3 /* Pods-Grouper-DZNEmptyDataSet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1BC562D0E68321CDBA53D853 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C885A955E9F6F4EB4295F12 /* Pods-Grouper-DZNEmptyDataSet-dummy.m in Sources */,
+				6E90586C2BBADAA2EB575B06 /* UIScrollView+EmptyDataSet.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91F3C3D6DF6379DCD29EA06B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BE09620E58DB4730A8BFA85 /* Pods-Grouper-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4EFCDC2A24A5BDE227C701D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Grouper-DZNEmptyDataSet";
+			target = 074BCE126B37AB29D05D67C3 /* Pods-Grouper-DZNEmptyDataSet */;
+			targetProxy = C39DD7865DD0D7DE8B19662C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0D9EB54EF18166A2258C578C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		3AB44A0B0708E107689927EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 875EE365B22A8ED383BF8594 /* Pods-Grouper-DZNEmptyDataSet-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Grouper-DZNEmptyDataSet/Pods-Grouper-DZNEmptyDataSet-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5A64D14C9FD67A8A70EAFD5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8979D4005DB84D30254BFBC /* Pods-Grouper.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		604DB0B2C581FA3A3472278B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50563B229A8A3CBCC028A88D /* Pods-Grouper.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		65429E1B8361A13B3D4BE01C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 875EE365B22A8ED383BF8594 /* Pods-Grouper-DZNEmptyDataSet-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Grouper-DZNEmptyDataSet/Pods-Grouper-DZNEmptyDataSet-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		FA68A057A383B562A240D271 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		71D391F569AF6B4904117C13 /* Build configuration list for PBXNativeTarget "Pods-Grouper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				604DB0B2C581FA3A3472278B /* Debug */,
+				5A64D14C9FD67A8A70EAFD5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AEDD7401E522B8354ED3BBA7 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D9EB54EF18166A2258C578C /* Debug */,
+				FA68A057A383B562A240D271 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D19F53E22380B8F3469B7FBC /* Build configuration list for PBXNativeTarget "Pods-Grouper-DZNEmptyDataSet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AB44A0B0708E107689927EB /* Debug */,
+				65429E1B8361A13B3D4BE01C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0E3CFDD8D8A706713DCA660B /* Project object */;
+}
