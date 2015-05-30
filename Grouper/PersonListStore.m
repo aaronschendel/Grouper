@@ -57,7 +57,7 @@
 
 + (id)allocWithZone:(NSZone *)zone
 {
-    return [self sharedNameListStore];
+    return [self sharedPersonListStore];
 }
 
 - (NSMutableArray *)allPersonLists
@@ -102,7 +102,7 @@
     
 }
 
-+ (PersonListStore *)sharedNameListStore
++ (PersonListStore *)sharedPersonListStore
 {
     static PersonListStore *nameListStore = nil;
     if (!nameListStore) {

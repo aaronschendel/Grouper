@@ -11,6 +11,8 @@
 #import "ViewGroupsViewController.h"
 #import "CreateEditViewController.h"
 #import "AboutPageViewController.h"
+#import "PersonListStore.h"
+#import <ChameleonFramework/Chameleon.h>
 
 @interface HomeViewController ()
 
@@ -21,6 +23,30 @@
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = YES;
     self.navigationController.toolbarHidden = YES;
+    
+    if (PersonListStore.sharedPersonListStore.allPersonLists.count < 1) {
+        self.createGroupsButton.enabled = NO;
+    } else {
+        self.createGroupsButton.enabled = YES;
+    }
+    
+    NSMutableArray *colorArray = [[NSMutableArray alloc] initWithArray:[NSArray arrayOfColorsWithColorScheme:ColorSchemeTriadic
+                                                                                                       with:FlatSand
+                                                                                                 flatScheme:YES]];
+    
+    //self.createGroupsButton.backgroundColor = [colorArray objectAtIndex:3];
+    //self.createGroupsButton.layer.borderColor = [[UIColor blackColor] CGColor];
+    
+    self.view.backgroundColor = [colorArray objectAtIndex:1];
+    
+    [self.createGroupsButton setTitleColor:[colorArray objectAtIndex:0] forState:UIControlStateNormal];
+    [self.createGroupsButton setTitleColor:[UIColor flatGrayColor] forState:UIControlStateDisabled];
+    
+    [self.createEditListsButton setTitleColor:[colorArray objectAtIndex:0] forState:UIControlStateNormal];
+    [self.viewGroupsButton setTitleColor:[colorArray objectAtIndex:0] forState:UIControlStateNormal];
+    [self.aboutButton setTitleColor:[colorArray objectAtIndex:0] forState:UIControlStateNormal];
+    
+    [self.appNameLabel setTextColor:[colorArray objectAtIndex:4]];
 }
 
 
@@ -37,8 +63,23 @@
 
 
 - (IBAction)createGroups:(UIButton *)sender {
+    
+//    if (PersonListStore.sharedPersonListStore.allPersonLists.count < 1) {
+//        
+//        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Create Lists First"
+//                                                                       message:@"Add some lists of people before creating groups"
+//                                                                preferredStyle:UIAlertControllerStyleAlert];
+//        UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel
+//                                                             handler:^(UIAlertAction * action) {}];
+//        [alert addAction:okAction];
+//
+//        [self presentViewController:alert animated:YES completion:nil];
+//        
+//        
+//    }
     SelectListsViewController *svc = [[SelectListsViewController alloc] init];
     [[self navigationController] pushViewController:svc animated:YES];
+
 }
 
 - (IBAction)viewEditLists:(UIButton *)sender {

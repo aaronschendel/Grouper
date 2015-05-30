@@ -16,7 +16,7 @@
 
 - (void)setAllPersonLists:(NSArray *)newArray;
 
-+ (PersonListStore *)sharedNameListStore;
++ (PersonListStore *)sharedPersonListStore;
 
 - (void)removePersonList:(PersonList *)g;
 - (void)removeAllNameLists;

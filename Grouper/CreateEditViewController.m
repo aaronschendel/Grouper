@@ -13,6 +13,7 @@
 #import "NameListTableViewCell.h"
 #import "CreateEditDetailViewController.h"
 
+
 @interface CreateEditViewController ()
 
 @end
@@ -40,6 +41,11 @@
     UIBarButtonItem *emptyItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     NSArray *toolbarButtons = [NSArray arrayWithObjects:emptyItem, item1, nil];
     [self setToolbarItems:toolbarButtons];
+    
+    // Setup for DZNEmptyDataSet
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
+    self.tableView.tableFooterView = [UIView new];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -49,6 +55,17 @@
     [self.tableView reloadData];
     
     self.navigationController.toolbarHidden = NO;
+    
+    // Done to fix bug in DZNEmptyDataSet
+    if (self.tableView.contentOffset.y < 0 && self.tableView.emptyDataSetVisible) {
+        self.tableView.contentOffset = CGPointZero;
+    }
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
     
 }
 
@@ -98,11 +115,11 @@
                                                                [[NSNotificationCenter defaultCenter] removeObserver:self
                                                                                                                name:UITextFieldTextDidChangeNotification
                                                                                                              object:nil];
-                                                               PersonList *personList = [[PersonListStore sharedNameListStore] createPersonList];
+                                                               PersonList *personList = [[PersonListStore sharedPersonListStore] createPersonList];
                                                                
                                                                [personList setListName:[[alert.textFields objectAtIndex:0] text]];
                                                                [self.tableView reloadData];
-                                                               NSLog(@"NameLists:  %@", [[PersonListStore sharedNameListStore] allPersonLists]);
+                                                               NSLog(@"NameLists:  %@", [[PersonListStore sharedPersonListStore] allPersonLists]);
                                                            }];
     
     [alert addAction:cancelAction];
@@ -114,6 +131,63 @@
     
 }
 
+#pragma mark - DZNEmptyDataSet data source
+
+- (void)dealloc
+{
+    self.tableView.emptyDataSetSource = nil;
+    self.tableView.emptyDataSetDelegate = nil;
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+    // The attributed string for the title of the empty dataset
+    
+    NSString *text = @"Looks Like You Need to Create Lists!";
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0],
+                                 NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
+    // The attributed string for the description of the empty dataset
+    NSString *text = @"Create a new list by tapping the plus";
+    
+    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraph.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0],
+                                 NSForegroundColorAttributeName: [UIColor lightGrayColor],
+                                 NSParagraphStyleAttributeName: paragraph};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
+    //The attributed string to be used for the specified button state
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0]};
+    
+    return [[NSAttributedString alloc] initWithString:@"" attributes:attributes];
+}
+
+- (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView {
+    // The background color for the empty dataset
+    return [UIColor whiteColor];
+}
+
+//- (CGPoint)offsetForEmptyDataSet:(UIScrollView *)scrollView {
+//    // Modify the horizontal and/or vertical alignments
+//    return CGPointMake(0, -self.tableView.tableHeaderView.frame.size.height/2);
+//}
+
+#pragma mark - DZNEmptyDataSet delegate implementation
+
+- (void)emptyDataSetDidTapButton:(UIScrollView *)scrollView
+{
+    self.tableView.reloadData;
+}
 
 #pragma mark - Table view data source
 
@@ -124,13 +198,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // The number of rows is the number of NameLists in sharedNameListStore
-    return [[[PersonListStore sharedNameListStore] allPersonLists] count];
+    return [[[PersonListStore sharedPersonListStore] allPersonLists] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    PersonList *nameList = [[[PersonListStore sharedNameListStore] allPersonLists] objectAtIndex:[indexPath row]];
+    PersonList *nameList = [[[PersonListStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]];
     
     NSString *uniqueIdentifier = @"NameListCell";
     NameListTableViewCell *cell = nil;
@@ -151,7 +225,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CreateEditDetailViewController *createEditDetailViewController = [[CreateEditDetailViewController alloc] init];
-    PersonList *selectedPersonList = [[[PersonListStore sharedNameListStore] allPersonLists] objectAtIndex:[indexPath row]];
+    PersonList *selectedPersonList = [[[PersonListStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]];
     
     [createEditDetailViewController setPersonList:selectedPersonList];
     
@@ -184,19 +258,20 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        PersonList *nameListToDelete = [[[PersonListStore sharedNameListStore] allPersonLists] objectAtIndex:indexPath.row];
-        [[PersonListStore sharedNameListStore] removePersonList:nameListToDelete];
+        PersonList *nameListToDelete = [[[PersonListStore sharedPersonListStore] allPersonLists] objectAtIndex:indexPath.row];
+        [[PersonListStore sharedPersonListStore] removePersonList:nameListToDelete];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
+    [self.tableView reloadData];
 }
 
 
 
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-    [[PersonListStore sharedNameListStore] moveItemAtIndex:fromIndexPath.row toIndex:toIndexPath.row];
+    [[PersonListStore sharedPersonListStore] moveItemAtIndex:fromIndexPath.row toIndex:toIndexPath.row];
 }
 
 

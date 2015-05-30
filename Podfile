@@ -3,5 +3,6 @@
 
 target 'Grouper' do
 	pod 'DZNEmptyDataSet', '~> 1.5.2'
+	pod 'ChameleonFramework', '~> 1.2.0'
 end
 

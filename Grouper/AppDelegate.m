@@ -29,7 +29,7 @@
     
     // Data Persistence
     [[GroupStore sharedGroupStore] loadFromDefaults];
-    [[PersonListStore sharedNameListStore] loadFromDefaults];
+    [[PersonListStore sharedPersonListStore] loadFromDefaults];
      
     return YES;
 }
@@ -47,7 +47,7 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
     [[GroupStore sharedGroupStore] saveChanges];
-    [[PersonListStore sharedNameListStore] saveChanges];
+    [[PersonListStore sharedPersonListStore] saveChanges];
     NSLog(@"background");
 }
 

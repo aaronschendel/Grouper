@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIScrollView+EmptyDataSet.h"
 
-@interface SelectListsViewController : UITableViewController
+@interface SelectListsViewController : UITableViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (strong, nonatomic) NSMutableArray *selectedPersonLists;
 

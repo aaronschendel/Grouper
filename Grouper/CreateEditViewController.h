@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
-@interface CreateEditViewController : UITableViewController
+@interface CreateEditViewController : UITableViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (strong, nonatomic) UIBarButtonItem *bbi;
 @property (strong, nonatomic) UIBarButtonItem *cancelButton;

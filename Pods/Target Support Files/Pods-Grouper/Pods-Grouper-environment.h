@@ -6,6 +6,12 @@
 // project.
 
 
+// ChameleonFramework
+#define COCOAPODS_POD_AVAILABLE_ChameleonFramework
+#define COCOAPODS_VERSION_MAJOR_ChameleonFramework 1
+#define COCOAPODS_VERSION_MINOR_ChameleonFramework 2
+#define COCOAPODS_VERSION_PATCH_ChameleonFramework 0
+
 // DZNEmptyDataSet
 #define COCOAPODS_POD_AVAILABLE_DZNEmptyDataSet
 #define COCOAPODS_VERSION_MAJOR_DZNEmptyDataSet 1

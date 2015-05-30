@@ -1,10 +1,13 @@
 PODS:
+  - ChameleonFramework (1.2.0)
   - DZNEmptyDataSet (1.5.2)
 
 DEPENDENCIES:
+  - ChameleonFramework (~> 1.2.0)
   - DZNEmptyDataSet (~> 1.5.2)
 
 SPEC CHECKSUMS:
+  ChameleonFramework: 4d6bf87fcaee176f487176cdccc4229637ec97f0
   DZNEmptyDataSet: 741da409081a4bf707c949c964623a6ad1799772
 
 COCOAPODS: 0.37.2

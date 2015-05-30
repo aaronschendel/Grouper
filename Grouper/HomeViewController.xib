@@ -7,7 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
+                <outlet property="aboutButton" destination="eay-T7-afm" id="DJq-sO-MyY"/>
+                <outlet property="appNameLabel" destination="BaI-dY-fF6" id="nBK-2b-3Va"/>
+                <outlet property="createEditListsButton" destination="DZI-cT-3BJ" id="9Vj-Vy-AU7"/>
+                <outlet property="createGroupsButton" destination="tEI-CH-zwd" id="h9Q-ga-ReJ"/>
                 <outlet property="view" destination="Fti-JM-VvH" id="Puq-dT-9Pt"/>
+                <outlet property="viewGroupsButton" destination="1qx-ND-3Lr" id="oOr-7J-dkX"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -31,15 +36,21 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZI-cT-3BJ">
-                    <rect key="frame" x="236" y="282" width="129" height="36"/>
+                    <rect key="frame" x="227" y="282" width="146" height="36"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="View/Edit Lists">
+                    <state key="normal" title="Create/Edit Lists">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="viewEditLists:" destination="-1" eventType="touchUpInside" id="MQU-xu-td1"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grouper" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaI-dY-fF6">
+                    <rect key="frame" x="8" y="558" width="73" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qx-ND-3Lr">
                     <rect key="frame" x="244" y="433" width="112" height="36"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -50,14 +61,8 @@
                         <action selector="viewGroups:" destination="-1" eventType="touchUpInside" id="gSc-9X-HKq"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grouper" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaI-dY-fF6">
-                    <rect key="frame" x="8" y="558" width="73" height="24"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eay-T7-afm">
-                    <rect key="frame" x="539" y="556" width="53" height="36"/>
+                    <rect key="frame" x="539" y="552" width="53" height="36"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="About">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -67,20 +72,20 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.8070827116" green="1" blue="0.98993477299999999" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="BaI-dY-fF6" firstAttribute="bottom" secondItem="Fti-JM-VvH" secondAttribute="bottomMargin" constant="-10" id="6NW-cL-ALB"/>
-                <constraint firstItem="tEI-CH-zwd" firstAttribute="centerX" secondItem="Fti-JM-VvH" secondAttribute="centerX" id="ATU-Kg-pVl"/>
-                <constraint firstItem="eay-T7-afm" firstAttribute="trailing" secondItem="Fti-JM-VvH" secondAttribute="trailingMargin" id="CXV-WU-6pU"/>
-                <constraint firstItem="DZI-cT-3BJ" firstAttribute="leading" secondItem="tEI-CH-zwd" secondAttribute="leading" id="Ual-hr-a92"/>
-                <constraint firstItem="BaI-dY-fF6" firstAttribute="leading" secondItem="Fti-JM-VvH" secondAttribute="leadingMargin" id="VgO-br-9qV"/>
-                <constraint firstAttribute="bottom" secondItem="1qx-ND-3Lr" secondAttribute="bottom" constant="131" id="deh-Jn-ksf"/>
-                <constraint firstItem="DZI-cT-3BJ" firstAttribute="centerY" secondItem="Fti-JM-VvH" secondAttribute="centerY" id="hUm-Fk-MAm"/>
-                <constraint firstItem="1qx-ND-3Lr" firstAttribute="centerX" secondItem="DZI-cT-3BJ" secondAttribute="centerX" id="oN2-K1-lnx"/>
-                <constraint firstItem="tEI-CH-zwd" firstAttribute="top" secondItem="Fti-JM-VvH" secondAttribute="top" constant="134" id="yAl-Hc-VE1"/>
-                <constraint firstItem="eay-T7-afm" firstAttribute="bottom" secondItem="Fti-JM-VvH" secondAttribute="bottomMargin" id="yDx-TL-I5P"/>
+                <constraint firstAttribute="bottom" secondItem="eay-T7-afm" secondAttribute="bottom" constant="12" id="3Zk-N6-mI6"/>
+                <constraint firstItem="tEI-CH-zwd" firstAttribute="top" secondItem="Fti-JM-VvH" secondAttribute="top" constant="134" id="Aq9-IW-u0Q"/>
+                <constraint firstItem="1qx-ND-3Lr" firstAttribute="centerX" secondItem="Fti-JM-VvH" secondAttribute="centerX" id="Pw2-tk-NcN"/>
+                <constraint firstItem="DZI-cT-3BJ" firstAttribute="centerY" secondItem="Fti-JM-VvH" secondAttribute="centerY" id="U8C-pe-F4b"/>
+                <constraint firstItem="DZI-cT-3BJ" firstAttribute="centerX" secondItem="tEI-CH-zwd" secondAttribute="centerX" id="Xct-e3-aQ5"/>
+                <constraint firstAttribute="bottom" secondItem="1qx-ND-3Lr" secondAttribute="bottom" constant="131" id="kcF-Er-w64"/>
+                <constraint firstItem="eay-T7-afm" firstAttribute="trailing" secondItem="Fti-JM-VvH" secondAttribute="trailingMargin" id="oda-K8-BvI"/>
+                <constraint firstItem="BaI-dY-fF6" firstAttribute="leading" secondItem="Fti-JM-VvH" secondAttribute="leadingMargin" id="t1F-5F-Jg0"/>
+                <constraint firstItem="DZI-cT-3BJ" firstAttribute="centerX" secondItem="1qx-ND-3Lr" secondAttribute="centerX" id="yHk-Hk-CoM"/>
+                <constraint firstItem="eay-T7-afm" firstAttribute="baseline" secondItem="BaI-dY-fF6" secondAttribute="baseline" id="yuG-4Z-egc"/>
             </constraints>
-            <point key="canvasLocation" x="697" y="380"/>
+            <point key="canvasLocation" x="807" y="415"/>
         </view>
     </objects>
 </document>

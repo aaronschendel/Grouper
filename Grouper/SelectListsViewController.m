@@ -51,6 +51,11 @@
     UIBarButtonItem *emptyItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     NSArray *toolbarButtons = [NSArray arrayWithObjects:emptyItem, item1, nil];
     [self setToolbarItems:toolbarButtons];
+    
+    // Setup for empty data set Pod
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
+    self.tableView.tableFooterView = [UIView new];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,6 +71,58 @@
     }
 }
 
+#pragma mark - DZNEmptyDataSet data source
+
+- (void)dealloc
+{
+    self.tableView.emptyDataSetSource = nil;
+    self.tableView.emptyDataSetDelegate = nil;
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+    // The attributed string for the title of the empty dataset
+    
+    NSString *text = @"You Need Lists First!";
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0],
+                                 NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
+    // The attributed string for the description of the empty dataset
+    NSString *text = @"Create some lists of people in the Create/Edit Lists view, then split them into groups!";
+    
+    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraph.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0],
+                                 NSForegroundColorAttributeName: [UIColor lightGrayColor],
+                                 NSParagraphStyleAttributeName: paragraph};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
+    //The attributed string to be used for the specified button state
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0]};
+    
+    return [[NSAttributedString alloc] initWithString:@"" attributes:attributes];
+}
+
+- (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView {
+    // The background color for the empty dataset
+    return [UIColor whiteColor];
+}
+
+- (CGPoint)offsetForEmptyDataSet:(UIScrollView *)scrollView {
+    // Modify the horizontal and/or vertical alignments
+    return CGPointMake(0, -self.tableView.tableHeaderView.frame.size.height/2);
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -75,12 +132,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [[[PersonListStore sharedNameListStore] allPersonLists] count];
+    return [[[PersonListStore sharedPersonListStore] allPersonLists] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PersonList *nameList = [[[PersonListStore sharedNameListStore] allPersonLists] objectAtIndex:[indexPath row]];
+    PersonList *nameList = [[[PersonListStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]];
     
     NSString *uniqueIdentifier = @"GroupCell";
     GroupMemberTableViewCell *cell = nil;
@@ -108,12 +165,12 @@
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone;
         //TODO: This may cause issues in the future, keep an eye on it
-        [self.selectedPersonLists removeObjectIdenticalTo:[[[PersonListStore sharedNameListStore] allPersonLists] objectAtIndex:[indexPath row]]];
+        [self.selectedPersonLists removeObjectIdenticalTo:[[[PersonListStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]]];
         
         
     } else if (cell.accessoryType == UITableViewCellAccessoryNone) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [self.selectedPersonLists addObject:[[[PersonListStore sharedNameListStore] allPersonLists] objectAtIndex:[indexPath row]]];
+        [self.selectedPersonLists addObject:[[[PersonListStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]]];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

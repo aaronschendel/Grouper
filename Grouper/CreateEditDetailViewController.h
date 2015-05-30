@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "PersonList.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
-@interface CreateEditDetailViewController : UITableViewController
+
+@interface CreateEditDetailViewController : UITableViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (nonatomic, strong) PersonList *personList;
 
