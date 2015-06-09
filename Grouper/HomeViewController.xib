@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -26,35 +26,27 @@
             </userGuides>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEI-CH-zwd">
-                    <rect key="frame" x="236" y="134" width="129" height="36"/>
+                    <rect key="frame" x="236" y="282" width="129" height="36"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="Create Groups">
+                        <color key="titleColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="createGroups:" destination="-1" eventType="touchUpInside" id="IAR-Gr-kmH"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZI-cT-3BJ">
-                    <rect key="frame" x="227" y="282" width="146" height="36"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ClassSplit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaI-dY-fF6">
+                    <rect key="frame" x="8" y="558" width="89" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="Create/Edit Lists">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="viewEditLists:" destination="-1" eventType="touchUpInside" id="MQU-xu-td1"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grouper" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaI-dY-fF6">
-                    <rect key="frame" x="8" y="558" width="73" height="24"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.52106726169586182" green="0.24050712585449219" blue="0.68248951435089111" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qx-ND-3Lr">
                     <rect key="frame" x="244" y="433" width="112" height="36"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="View Groups">
+                        <color key="titleColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -71,21 +63,32 @@
                         <action selector="about:" destination="-1" eventType="touchUpInside" id="zmo-1L-Bek"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZI-cT-3BJ">
+                    <rect key="frame" x="227" y="131" width="146" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="Manage Classes">
+                        <color key="titleColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="viewEditLists:" destination="-1" eventType="touchUpInside" id="MQU-xu-td1"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="eay-T7-afm" secondAttribute="bottom" constant="12" id="3Zk-N6-mI6"/>
-                <constraint firstItem="tEI-CH-zwd" firstAttribute="top" secondItem="Fti-JM-VvH" secondAttribute="top" constant="134" id="Aq9-IW-u0Q"/>
-                <constraint firstItem="1qx-ND-3Lr" firstAttribute="centerX" secondItem="Fti-JM-VvH" secondAttribute="centerX" id="Pw2-tk-NcN"/>
-                <constraint firstItem="DZI-cT-3BJ" firstAttribute="centerY" secondItem="Fti-JM-VvH" secondAttribute="centerY" id="U8C-pe-F4b"/>
-                <constraint firstItem="DZI-cT-3BJ" firstAttribute="centerX" secondItem="tEI-CH-zwd" secondAttribute="centerX" id="Xct-e3-aQ5"/>
-                <constraint firstAttribute="bottom" secondItem="1qx-ND-3Lr" secondAttribute="bottom" constant="131" id="kcF-Er-w64"/>
-                <constraint firstItem="eay-T7-afm" firstAttribute="trailing" secondItem="Fti-JM-VvH" secondAttribute="trailingMargin" id="oda-K8-BvI"/>
-                <constraint firstItem="BaI-dY-fF6" firstAttribute="leading" secondItem="Fti-JM-VvH" secondAttribute="leadingMargin" id="t1F-5F-Jg0"/>
-                <constraint firstItem="DZI-cT-3BJ" firstAttribute="centerX" secondItem="1qx-ND-3Lr" secondAttribute="centerX" id="yHk-Hk-CoM"/>
-                <constraint firstItem="eay-T7-afm" firstAttribute="baseline" secondItem="BaI-dY-fF6" secondAttribute="baseline" id="yuG-4Z-egc"/>
+                <constraint firstItem="tEI-CH-zwd" firstAttribute="centerY" secondItem="Fti-JM-VvH" secondAttribute="centerY" id="E7d-Gk-2fX"/>
+                <constraint firstItem="DZI-cT-3BJ" firstAttribute="top" secondItem="Fti-JM-VvH" secondAttribute="top" constant="131" id="J09-zc-6dJ"/>
+                <constraint firstItem="1qx-ND-3Lr" firstAttribute="centerX" secondItem="tEI-CH-zwd" secondAttribute="centerX" id="LTS-n0-1y2"/>
+                <constraint firstItem="tEI-CH-zwd" firstAttribute="centerX" secondItem="DZI-cT-3BJ" secondAttribute="centerX" id="X6p-Ol-XD8"/>
+                <constraint firstItem="eay-T7-afm" firstAttribute="trailing" secondItem="Fti-JM-VvH" secondAttribute="trailingMargin" id="Xdf-PB-bOF"/>
+                <constraint firstItem="BaI-dY-fF6" firstAttribute="baseline" secondItem="eay-T7-afm" secondAttribute="baseline" id="ZMr-M9-5uZ"/>
+                <constraint firstAttribute="bottom" secondItem="eay-T7-afm" secondAttribute="bottom" constant="12" id="eV2-Zm-0NA"/>
+                <constraint firstItem="DZI-cT-3BJ" firstAttribute="centerX" secondItem="Fti-JM-VvH" secondAttribute="centerX" id="ehj-jR-TBo"/>
+                <constraint firstAttribute="bottom" secondItem="1qx-ND-3Lr" secondAttribute="bottom" constant="131" id="eox-Dm-Cek"/>
+                <constraint firstItem="BaI-dY-fF6" firstAttribute="leading" secondItem="Fti-JM-VvH" secondAttribute="leadingMargin" id="kdB-Jk-wYA"/>
             </constraints>
-            <point key="canvasLocation" x="807" y="415"/>
+            <point key="canvasLocation" x="577" y="399"/>
         </view>
     </objects>
 </document>

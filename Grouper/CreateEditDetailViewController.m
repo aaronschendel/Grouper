@@ -92,7 +92,7 @@
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
     // The attributed string for the title of the empty dataset
     
-    NSString *text = @"Let's Add Some People!";
+    NSString *text = @"Let's Add Some Students!";
     
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0],
                                  NSForegroundColorAttributeName: [UIColor darkGrayColor]};
@@ -102,7 +102,7 @@
 
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
     // The attributed string for the description of the empty dataset
-    NSString *text = @"Tap the plus to add a person to your new list";
+    NSString *text = @"Tap the plus to add a student to your new list";
     
     NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;

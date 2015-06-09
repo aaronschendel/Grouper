@@ -51,7 +51,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     [self.navigationController setNavigationBarHidden:NO];
-    [self.navigationItem setTitle:@"Lists"];
+    [self.navigationItem setTitle:@"Classes"];
     [self.tableView reloadData];
     
     self.navigationController.toolbarHidden = NO;
@@ -92,13 +92,13 @@
 {
     
     
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Add List"
-                                                                   message:@"Enter List Name"
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Add Class"
+                                                                   message:@"Enter Class Name"
                                                             preferredStyle:UIAlertControllerStyleAlert];
     
     [alert addTextFieldWithConfigurationHandler:^(UITextField *textField)
      {
-         textField.placeholder = @"List Name";
+         textField.placeholder = @"Class Name";
          textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
          [[NSNotificationCenter defaultCenter] addObserver:self
                                                   selector:@selector(alertTextFieldDidChange:)
@@ -142,7 +142,7 @@
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
     // The attributed string for the title of the empty dataset
     
-    NSString *text = @"Looks Like You Need to Create Lists!";
+    NSString *text = @"Looks Like You Need to Create Classes!";
     
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0],
                                  NSForegroundColorAttributeName: [UIColor darkGrayColor]};
@@ -152,7 +152,7 @@
 
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
     // The attributed string for the description of the empty dataset
-    NSString *text = @"Create a new list by tapping the plus";
+    NSString *text = @"Create a new class by tapping the plus";
     
     NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;
