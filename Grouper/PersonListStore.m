@@ -17,25 +17,25 @@
     if (self) {
         allPersonLists = [[NSMutableArray alloc] init];
         
-        // Setup for PersonList 1
-        PersonList *nameList1 = self.createPersonList;
-        NSMutableArray *people1 = [[NSMutableArray alloc] init];
-        [people1 addObject:[[Person alloc] initWithFirstName:@"Harry" lastName:@"Potter" emailAddress:@"test" gender:MALE]];
-        [people1 addObject:[[Person alloc] initWithFirstName:@"Hermione" lastName:@"Granger" emailAddress:@"test" gender:FEMALE]];
-        [people1 addObject:[[Person alloc] initWithFirstName:@"Ron" lastName:@"Weasley" emailAddress:@"test" gender:MALE]];
-        [people1 addObject:[[Person alloc] initWithFirstName:@"Neville" lastName:@"Longbottom" emailAddress:@"test" gender:MALE]];
-        [nameList1 setListName:@"Period 1"];
-        [nameList1 setPeople:people1];
-        
-        // Setup for PersonList 2
-        PersonList *nameList2 = self.createPersonList;
-        NSMutableArray *people2 = [[NSMutableArray alloc] init];
-        [people2 addObject:[[Person alloc] initWithFirstName:@"Eddard" lastName:@"Stark" emailAddress:@"test" gender:MALE]];
-        [people2 addObject:[[Person alloc] initWithFirstName:@"Arya" lastName:@"Stark" emailAddress:@"test" gender:FEMALE]];
-        [people2 addObject:[[Person alloc] initWithFirstName:@"Jon" lastName:@"Snow" emailAddress:@"test" gender:MALE]];
-        [people2 addObject:[[Person alloc] initWithFirstName:@"Daenerys" lastName:@"Targaryen" emailAddress:@"test" gender:FEMALE]];
-        [nameList2 setListName:@"Period 2"];
-        [nameList2 setPeople:people2];
+//        // Setup for PersonList 1
+//        PersonList *nameList1 = self.createPersonList;
+//        NSMutableArray *people1 = [[NSMutableArray alloc] init];
+//        [people1 addObject:[[Person alloc] initWithFirstName:@"Harry" lastName:@"Potter" emailAddress:@"test" gender:MALE]];
+//        [people1 addObject:[[Person alloc] initWithFirstName:@"Hermione" lastName:@"Granger" emailAddress:@"test" gender:FEMALE]];
+//        [people1 addObject:[[Person alloc] initWithFirstName:@"Ron" lastName:@"Weasley" emailAddress:@"test" gender:MALE]];
+//        [people1 addObject:[[Person alloc] initWithFirstName:@"Neville" lastName:@"Longbottom" emailAddress:@"test" gender:MALE]];
+//        [nameList1 setListName:@"Period 1"];
+//        [nameList1 setPeople:people1];
+//        
+//        // Setup for PersonList 2
+//        PersonList *nameList2 = self.createPersonList;
+//        NSMutableArray *people2 = [[NSMutableArray alloc] init];
+//        [people2 addObject:[[Person alloc] initWithFirstName:@"Eddard" lastName:@"Stark" emailAddress:@"test" gender:MALE]];
+//        [people2 addObject:[[Person alloc] initWithFirstName:@"Arya" lastName:@"Stark" emailAddress:@"test" gender:FEMALE]];
+//        [people2 addObject:[[Person alloc] initWithFirstName:@"Jon" lastName:@"Snow" emailAddress:@"test" gender:MALE]];
+//        [people2 addObject:[[Person alloc] initWithFirstName:@"Daenerys" lastName:@"Targaryen" emailAddress:@"test" gender:FEMALE]];
+//        [nameList2 setListName:@"Period 2"];
+//        [nameList2 setPeople:people2];
         
     }
     return self;

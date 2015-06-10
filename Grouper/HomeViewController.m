@@ -12,6 +12,7 @@
 #import "CreateEditViewController.h"
 #import "AboutPageViewController.h"
 #import "PersonListStore.h"
+#import "GroupStore.h"
 #import <ChameleonFramework/Chameleon.h>
 
 @interface HomeViewController ()
@@ -46,8 +47,18 @@
     
     if (PersonListStore.sharedPersonListStore.allPersonLists.count < 1) {
         self.createGroupsButton.enabled = NO;
+        self.createGroupsButton.alpha = 0.6f;
     } else {
         self.createGroupsButton.enabled = YES;
+        self.createGroupsButton.alpha = 1.0f;
+    }
+    
+    if (GroupStore.sharedGroupStore.allGroups.count < 1) {
+        self.viewGroupsButton.enabled = NO;
+        self.viewGroupsButton.alpha = 0.6f;
+    } else {
+        self.viewGroupsButton.enabled = YES;
+        self.viewGroupsButton.alpha = 1.0f;
     }
     
 //    [self setAppColors];

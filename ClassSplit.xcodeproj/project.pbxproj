@@ -616,7 +616,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Grouper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = classsplit;
+				PRODUCT_NAME = ClassSplit;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -630,7 +630,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Grouper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = classsplit;
+				PRODUCT_NAME = ClassSplit;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;

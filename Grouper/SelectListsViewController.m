@@ -37,7 +37,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     [self.navigationController setNavigationBarHidden:NO];
-    [self.navigationItem setTitle:@"Pick Lists"];
+    [self.navigationItem setTitle:@"Pick Classes"];
     [self.tableView reloadData];
     
     [self.navigationController setToolbarHidden:NO];

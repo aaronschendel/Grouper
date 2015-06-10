@@ -50,8 +50,8 @@
         [group2 setGroupName:@"Lab #1 Partners"];
         [group2 setSubGroups:group2SubGroups];
         
-        [allGroups addObject:group1];
-        [allGroups addObject:group2];
+        //[allGroups addObject:group1];
+        //[allGroups addObject:group2];
 
     }
     return self;

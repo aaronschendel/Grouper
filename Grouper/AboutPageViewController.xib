@@ -100,7 +100,7 @@
                 <constraint firstItem="Z1r-ib-61F" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="45" id="zOw-E4-X3B"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-            <point key="canvasLocation" x="716" y="423"/>
+            <point key="canvasLocation" x="903" y="420"/>
         </view>
     </objects>
 </document>

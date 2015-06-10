@@ -20,12 +20,12 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <userGuides>
-                <userLayoutGuide location="150" affinity="minY"/>
+                <userLayoutGuide location="151" affinity="minY"/>
                 <userLayoutGuide location="450" affinity="minY"/>
                 <userLayoutGuide location="300" affinity="minY"/>
             </userGuides>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEI-CH-zwd">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEI-CH-zwd">
                     <rect key="frame" x="194" y="264" width="212" height="72"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="72" id="UOE-Bf-sAF"/>
@@ -76,7 +76,7 @@
                         <action selector="viewEditLists:" destination="-1" eventType="touchUpInside" id="MQU-xu-td1"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qx-ND-3Lr">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qx-ND-3Lr">
                     <rect key="frame" x="194" y="415" width="212" height="72"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="72" id="v3F-mx-1Dt"/>
