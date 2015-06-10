@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface AboutPageViewController : UIViewController
+@interface AboutPageViewController : UIViewController<MFMailComposeViewControllerDelegate>
+
 - (IBAction)done:(UIButton *)sender;
+- (IBAction)autoFillSwitcher:(id)sender;
+- (IBAction)contactMeButton:(id)sender;
 
 @end

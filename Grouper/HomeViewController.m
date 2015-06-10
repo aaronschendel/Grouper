@@ -16,24 +16,15 @@
 
 @interface HomeViewController ()
 
+-(void)setAppColors;
 @end
 
 @implementation HomeViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    self.navigationController.navigationBarHidden = YES;
-    self.navigationController.toolbarHidden = YES;
-    
-    if (PersonListStore.sharedPersonListStore.allPersonLists.count < 1) {
-        self.createGroupsButton.enabled = NO;
-    } else {
-        self.createGroupsButton.enabled = YES;
-    }
-    
+- (void)setAppColors {
     NSMutableArray *colorArray = [[NSMutableArray alloc] initWithArray:[NSArray arrayOfColorsWithColorScheme:ColorSchemeTriadic
-                                                                                                       with:FlatSand
-                                                                                                 flatScheme:YES]];
-    
+                                                                                                        with:FlatSand
+                                                                                                  flatScheme:YES]];
     //self.createGroupsButton.backgroundColor = [colorArray objectAtIndex:3];
     //self.createGroupsButton.layer.borderColor = [[UIColor blackColor] CGColor];
     
@@ -47,6 +38,20 @@
     [self.aboutButton setTitleColor:[colorArray objectAtIndex:0] forState:UIControlStateNormal];
     
     [self.appNameLabel setTextColor:[colorArray objectAtIndex:4]];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.toolbarHidden = YES;
+    
+    if (PersonListStore.sharedPersonListStore.allPersonLists.count < 1) {
+        self.createGroupsButton.enabled = NO;
+    } else {
+        self.createGroupsButton.enabled = YES;
+    }
+    
+//    [self setAppColors];
+    
 }
 
 

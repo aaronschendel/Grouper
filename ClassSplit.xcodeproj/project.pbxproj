@@ -62,7 +62,7 @@
 		93161D8A1ADF27E00071CC16 /* SelectListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectListsViewController.h; sourceTree = "<group>"; };
 		93161D8B1ADF27E00071CC16 /* SelectListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectListsViewController.m; sourceTree = "<group>"; };
 		93161D8C1ADF27E00071CC16 /* SelectListsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectListsViewController.xib; sourceTree = "<group>"; };
-		93474DC41AA01A95004DFAC2 /* ClassSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93474DC41AA01A95004DFAC2 /* classsplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = classsplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93474DC81AA01A95004DFAC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93474DC91AA01A95004DFAC2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		93474DCB1AA01A95004DFAC2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 		93474DC51AA01A95004DFAC2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				93474DC41AA01A95004DFAC2 /* ClassSplit.app */,
+				93474DC41AA01A95004DFAC2 /* classsplit.app */,
 				93474DDD1AA01A95004DFAC2 /* ClassSplitTests.xctest */,
 			);
 			name = Products;
@@ -346,7 +346,7 @@
 			);
 			name = ClassSplit;
 			productName = Grouper;
-			productReference = 93474DC41AA01A95004DFAC2 /* ClassSplit.app */;
+			productReference = 93474DC41AA01A95004DFAC2 /* classsplit.app */;
 			productType = "com.apple.product-type.application";
 		};
 		93474DDC1AA01A95004DFAC2 /* ClassSplitTests */ = {

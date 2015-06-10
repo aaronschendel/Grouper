@@ -120,13 +120,19 @@
                                                                [personList setListName:[[alert.textFields objectAtIndex:0] text]];
                                                                [self.tableView reloadData];
                                                                NSLog(@"NameLists:  %@", [[PersonListStore sharedPersonListStore] allPersonLists]);
+                                                               
+                                                               CreateEditDetailViewController *createEditDetailViewController = [[CreateEditDetailViewController alloc] init];
+                                                               PersonList *selectedPersonList = [[[PersonListStore sharedPersonListStore] allPersonLists] lastObject];
+                                                               
+                                                               [createEditDetailViewController setPersonList:selectedPersonList];
+                                                               
+                                                               [[self navigationController] pushViewController:createEditDetailViewController animated:YES];
                                                            }];
     
     [alert addAction:cancelAction];
     [alert addAction:addAction];
     addAction.enabled = NO;
     [self presentViewController:alert animated:YES completion:nil];
-    
     
     
 }
