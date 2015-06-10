@@ -7,9 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "HomeViewController.h"
-#import "PersonListStore.h"
-#import "GroupStore.h"
+#import "CSPHomeViewController.h"
+#import "CSPStudentListStore.h"
+#import "CSPGroupStore.h"
 
 @interface AppDelegate ()
 
@@ -21,15 +21,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    HomeViewController *hvc = [[HomeViewController alloc] init];
+    CSPHomeViewController *hvc = [[CSPHomeViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:hvc];
     
     [self.window setRootViewController:navController];
     [self.window makeKeyAndVisible];
     
     // Data Persistence
-    [[GroupStore sharedGroupStore] loadFromDefaults];
-    [[PersonListStore sharedPersonListStore] loadFromDefaults];
+    [[CSPGroupStore sharedGroupStore] loadFromDefaults];
+    [[CSPStudentListStore sharedPersonListStore] loadFromDefaults];
      
     return YES;
 }
@@ -46,8 +46,8 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
-    [[GroupStore sharedGroupStore] saveChanges];
-    [[PersonListStore sharedPersonListStore] saveChanges];
+    [[CSPGroupStore sharedGroupStore] saveChanges];
+    [[CSPStudentListStore sharedPersonListStore] saveChanges];
     NSLog(@"background");
 }
 
