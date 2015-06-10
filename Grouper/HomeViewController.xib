@@ -26,9 +26,12 @@
             </userGuides>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEI-CH-zwd">
-                    <rect key="frame" x="236" y="282" width="129" height="36"/>
+                    <rect key="frame" x="194" y="264" width="212" height="72"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="72" id="UOE-Bf-sAF"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="Create Groups">
+                    <state key="normal" title="Create Groups" backgroundImage="homescreen_button_backgrounds">
                         <color key="titleColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -39,38 +42,16 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ClassSplit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaI-dY-fF6">
                     <rect key="frame" x="8" y="558" width="89" height="24"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="24" id="s71-dc-7LY"/>
+                        <constraint firstAttribute="height" constant="24" id="nQM-SF-2Od"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" red="0.52106726169586182" green="0.24050712585449219" blue="0.68248951435089111" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qx-ND-3Lr">
-                    <rect key="frame" x="244" y="433" width="112" height="36"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="View Groups">
-                        <color key="titleColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="viewGroups:" destination="-1" eventType="touchUpInside" id="gSc-9X-HKq"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZI-cT-3BJ">
-                    <rect key="frame" x="227" y="131" width="146" height="36"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="Manage Classes">
-                        <color key="titleColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="viewEditLists:" destination="-1" eventType="touchUpInside" id="MQU-xu-td1"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eay-T7-afm">
                     <rect key="frame" x="553" y="558" width="25" height="24"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="25" id="e74-5H-kOV"/>
+                        <constraint firstAttribute="width" constant="25" id="HSh-tC-5OJ"/>
                     </constraints>
                     <state key="normal" image="info_icon">
                         <color key="titleColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
@@ -80,25 +61,57 @@
                         <action selector="about:" destination="-1" eventType="touchUpInside" id="zmo-1L-Bek"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZI-cT-3BJ">
+                    <rect key="frame" x="194" y="113" width="212" height="72"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="72" id="N0g-gk-zVz"/>
+                        <constraint firstAttribute="width" constant="212" id="Oen-wF-6hg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="Manage Classes" backgroundImage="homescreen_button_backgrounds">
+                        <color key="titleColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="viewEditLists:" destination="-1" eventType="touchUpInside" id="MQU-xu-td1"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qx-ND-3Lr">
+                    <rect key="frame" x="194" y="415" width="212" height="72"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="72" id="v3F-mx-1Dt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="View Groups" backgroundImage="homescreen_button_backgrounds">
+                        <color key="titleColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="viewGroups:" destination="-1" eventType="touchUpInside" id="gSc-9X-HKq"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="tEI-CH-zwd" firstAttribute="centerX" secondItem="DZI-cT-3BJ" secondAttribute="centerX" id="3bs-57-e0W"/>
-                <constraint firstItem="DZI-cT-3BJ" firstAttribute="top" secondItem="Fti-JM-VvH" secondAttribute="top" constant="131" id="4Mk-Ty-Pz3"/>
-                <constraint firstItem="tEI-CH-zwd" firstAttribute="centerY" secondItem="Fti-JM-VvH" secondAttribute="centerY" id="7Gp-33-fH0"/>
-                <constraint firstItem="BaI-dY-fF6" firstAttribute="bottom" secondItem="eay-T7-afm" secondAttribute="bottom" id="8Oj-Gt-74j"/>
-                <constraint firstItem="BaI-dY-fF6" firstAttribute="leading" secondItem="Fti-JM-VvH" secondAttribute="leadingMargin" id="EDS-bc-eUG"/>
-                <constraint firstItem="1qx-ND-3Lr" firstAttribute="centerX" secondItem="tEI-CH-zwd" secondAttribute="centerX" id="JQ5-YI-Ess"/>
-                <constraint firstAttribute="trailing" secondItem="eay-T7-afm" secondAttribute="trailing" constant="22" id="atL-qZ-pKU"/>
-                <constraint firstItem="eay-T7-afm" firstAttribute="top" secondItem="BaI-dY-fF6" secondAttribute="top" id="crE-1c-9JF"/>
-                <constraint firstAttribute="bottom" secondItem="1qx-ND-3Lr" secondAttribute="bottom" constant="131" id="fsC-Va-4DW"/>
-                <constraint firstAttribute="bottom" secondItem="BaI-dY-fF6" secondAttribute="bottom" constant="18" id="g8c-mI-1NA"/>
-                <constraint firstItem="1qx-ND-3Lr" firstAttribute="centerX" secondItem="Fti-JM-VvH" secondAttribute="centerX" id="lsJ-TN-FTR"/>
+                <constraint firstItem="BaI-dY-fF6" firstAttribute="leading" secondItem="Fti-JM-VvH" secondAttribute="leadingMargin" id="9dZ-9A-pTU"/>
+                <constraint firstItem="tEI-CH-zwd" firstAttribute="trailing" secondItem="1qx-ND-3Lr" secondAttribute="trailing" id="FuZ-Xt-S93"/>
+                <constraint firstItem="eay-T7-afm" firstAttribute="top" secondItem="BaI-dY-fF6" secondAttribute="top" id="JOc-7O-qHC"/>
+                <constraint firstItem="tEI-CH-zwd" firstAttribute="trailing" secondItem="DZI-cT-3BJ" secondAttribute="trailing" id="TNW-tK-hvR"/>
+                <constraint firstAttribute="bottom" secondItem="BaI-dY-fF6" secondAttribute="bottom" constant="18" id="USY-Rg-qwl"/>
+                <constraint firstAttribute="trailing" secondItem="eay-T7-afm" secondAttribute="trailing" constant="22" id="VOz-BG-Nvk"/>
+                <constraint firstItem="DZI-cT-3BJ" firstAttribute="leading" secondItem="tEI-CH-zwd" secondAttribute="leading" id="Yje-1R-E54"/>
+                <constraint firstItem="tEI-CH-zwd" firstAttribute="centerX" secondItem="Fti-JM-VvH" secondAttribute="centerX" id="ZlY-aj-pQ3"/>
+                <constraint firstItem="tEI-CH-zwd" firstAttribute="centerY" secondItem="Fti-JM-VvH" secondAttribute="centerY" id="cFj-6Q-3h7"/>
+                <constraint firstItem="BaI-dY-fF6" firstAttribute="bottom" secondItem="eay-T7-afm" secondAttribute="bottom" id="cnO-Ay-LnQ"/>
+                <constraint firstItem="tEI-CH-zwd" firstAttribute="top" secondItem="DZI-cT-3BJ" secondAttribute="bottom" constant="79" id="hsp-A6-g50"/>
+                <constraint firstItem="1qx-ND-3Lr" firstAttribute="top" secondItem="tEI-CH-zwd" secondAttribute="bottom" constant="79" id="m0Z-IK-Ezl"/>
+                <constraint firstItem="tEI-CH-zwd" firstAttribute="leading" secondItem="1qx-ND-3Lr" secondAttribute="leading" id="ttk-BG-ZsM"/>
             </constraints>
             <point key="canvasLocation" x="577" y="399"/>
         </view>
     </objects>
     <resources>
+        <image name="homescreen_button_backgrounds" width="200" height="50"/>
         <image name="info_icon" width="125" height="122"/>
     </resources>
 </document>
