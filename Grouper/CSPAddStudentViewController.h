@@ -1,6 +1,6 @@
 //
 //  AddPersonViewController.h
-//  Grouper
+//  ClassSplit
 //
 //  Created by Aaron Schendel on 5/19/15.
 //  Copyright (c) 2015 Aaron. All rights reserved.

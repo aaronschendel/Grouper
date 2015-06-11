@@ -1,6 +1,6 @@
 //
 //  Person.m
-//  Grouper
+//  ClassSplit
 //
 //  Created by Aaron Schendel on 3/28/15.
 //  Copyright (c) 2015 Aaron. All rights reserved.

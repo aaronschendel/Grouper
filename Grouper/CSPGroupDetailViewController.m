@@ -1,6 +1,6 @@
 //
 //  GroupDetailViewController.m
-//  Grouper
+//  ClassSplit
 //
 //  Created by Aaron Schendel on 3/15/15.
 //  Copyright (c) 2015 Aaron. All rights reserved.
@@ -49,23 +49,44 @@
     [self.navigationController setToolbarHidden:NO];
 }
 
-- (NSMutableString *)createEmailBodyFromGroup {
+- (NSArray *)createToListAndEmailBodyFromGroup {
+    
+    BOOL shouldAutoFillTo = nil;
+    
+    // Determine if "To:" toggle was selected
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"shouldAutoFillTo"]) {
+        shouldAutoFillTo = [[NSUserDefaults standardUserDefaults] boolForKey:@"shouldAutoFillTo"];
+    } else {
+        shouldAutoFillTo = false;
+    }
+    
+    NSMutableArray *toList = [[NSMutableArray alloc] init];
     NSMutableString *emailBody = [[NSMutableString alloc] initWithFormat:@" "];
+    
+    // Loop through all the subgroups
     for (int i = 0; i < self.group.subGroups.count; i++) {
         NSString *groupX = [[NSString alloc] initWithFormat:@"Group %d \n", i + 1];
         [emailBody appendString: groupX];
         [emailBody appendString:@"\n"];
         
+        // Loop through each student and add their name/email address to the appropriate string/list
         NSMutableArray *currSubGroup = [self.group.subGroups objectAtIndex:i];
         for (int j = 0; j < [currSubGroup count]; j++) {
-            CSPStudent *currPerson = [currSubGroup objectAtIndex:j];
-            NSString *fullName = [[NSString alloc] initWithFormat:@"%@ %@", currPerson.firstName, currPerson.lastName];
+            CSPStudent *currStudent = [currSubGroup objectAtIndex:j];
+            NSString *fullName = [[NSString alloc] initWithFormat:@"%@ %@", currStudent.firstName, currStudent.lastName];
             [emailBody appendString:fullName];
             [emailBody appendString:@"\n"];
+            
+            if (shouldAutoFillTo && currStudent.emailAddress.length > 0) {
+                [toList addObject:currStudent.emailAddress];
+            }
         }
         [emailBody appendFormat:@"---------------------\n"];
     }
-    return emailBody;
+    
+    NSArray *results = @[toList, emailBody];
+    
+    return results;
 }
 
 - (void)composeEmail:(id)sender {
@@ -76,9 +97,17 @@
         NSString *emailSubject = [[NSString alloc] initWithFormat:@"%@", self.group.groupName];
         [mailer setSubject:emailSubject];
         
+        // toList = 0; emailBody = 1
+        NSArray *toListAndEmailBody = [self createToListAndEmailBodyFromGroup];
         
-        NSMutableString *emailBody = [self createEmailBodyFromGroup];
-        [mailer setMessageBody:emailBody isHTML:NO];
+        NSString *messageBody = [toListAndEmailBody objectAtIndex:1];
+        [mailer setMessageBody:messageBody isHTML:NO];
+       
+        NSArray *toList = [toListAndEmailBody objectAtIndex:0];
+        if ([toList count] > 0) {
+            [mailer setToRecipients:toList];
+        }
+        
         
         [self presentViewController:mailer animated:YES completion:nil];
     } else {

@@ -1,6 +1,6 @@
 //
 //  GroupDetailViewController.h
-//  Grouper
+//  ClassSplit
 //
 //  Created by Aaron Schendel on 3/15/15.
 //  Copyright (c) 2015 Aaron. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  main.m
-//  Grouper
+//  ClassSplit
 //
 //  Created by Aaron on 2/26/15.
 //  Copyright (c) 2015 Aaron. All rights reserved.

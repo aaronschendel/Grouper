@@ -1,6 +1,6 @@
 //
 //  AboutPageViewController.m
-//  Grouper
+//  ClassSplit
 //
 //  Created by Aaron Schendel on 5/20/15.
 //  Copyright (c) 2015 Aaron. All rights reserved.
@@ -14,6 +14,37 @@
 
 @implementation CSPAboutPageViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    BOOL shouldAutoFillTo = nil;
+    
+    // Determine if "To:" toggle is stored as on or off
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"shouldAutoFillTo"]) {
+        shouldAutoFillTo = [[NSUserDefaults standardUserDefaults] boolForKey:@"shouldAutoFillTo"];
+    } else {
+        shouldAutoFillTo = false;
+    }
+    
+    if (shouldAutoFillTo) {
+        [self.autoFillSwitcherOutlet setOn:YES];
+    } else {
+        [self.autoFillSwitcherOutlet setOn:NO];
+    }
+    
+}
+
+- (IBAction)done:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)autoFillSwitcher:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setBool:self.autoFillSwitcherOutlet.isOn forKey:@"shouldAutoFillTo"];
+}
+
+- (IBAction)contactMeButton:(id)sender {
+    [self composeEmail:nil];
+}
 
 - (void)composeEmail:(id)sender {
     if ([MFMailComposeViewController canSendMail]) {
@@ -56,29 +87,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-
-- (IBAction)done:(UIButton *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)autoFillSwitcher:(id)sender {
-}
-
-- (IBAction)contactMeButton:(id)sender {
-    [self composeEmail:nil];
-    
-}
 
 
 @end
