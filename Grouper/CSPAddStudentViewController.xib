@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CSPAddStudentViewController">
             <connections>
+                <outlet property="addButton" destination="FVr-bI-ahp" id="grE-Fz-cEq"/>
                 <outlet property="emailAddressTF" destination="HsP-Ji-dWV" id="aFT-4E-Wej"/>
                 <outlet property="firstNameTF" destination="K5L-MR-scc" id="klY-s8-oUW"/>
                 <outlet property="genderPicker" destination="ZSy-Yd-NlP" id="Vsq-gm-pxF"/>

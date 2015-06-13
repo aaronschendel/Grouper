@@ -195,6 +195,7 @@
     
     NSString *fullName = [[NSString alloc] initWithFormat:@"%@ %@", person.firstName, person.lastName];
     [cell.groupMemberLabel setText:fullName];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
      
      
      return cell;

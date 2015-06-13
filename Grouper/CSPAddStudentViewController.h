@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CSPStudentList.h"
+#import "CSPStudent.h"
 
 @interface CSPAddStudentViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>
 
@@ -21,6 +22,9 @@
 - (IBAction)addPerson:(id)sender;
 - (IBAction)cancel:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
 @property (strong, nonatomic) CSPStudentList *personList;
+@property (nonatomic) BOOL isExistingStudent;
+@property (nonatomic, strong) CSPStudent *selectedStudent;
 
 @end

@@ -31,6 +31,19 @@
     self.lastNameTF.delegate = self;
     self.emailAddressTF.delegate = self;
     
+    if (self.isExistingStudent) {
+        [self.addButton setTitle:@"Save" forState:UIControlStateNormal];
+        
+        [self.firstNameTF setText:self.selectedStudent.firstName];
+        [self.lastNameTF setText:self.selectedStudent.lastName];
+        [self.emailAddressTF setText:self.selectedStudent.emailAddress];
+        if (self.selectedStudent.gender == FEMALE) {
+            [self.genderPicker selectRow:0 inComponent:0 animated:YES];
+        } else {
+            [self.genderPicker selectRow:1 inComponent:0 animated:YES];
+        }
+    }
+    
 }
 
 
@@ -48,11 +61,8 @@
 
 - (IBAction)addPerson:(id)sender {
     
-    _person = [[CSPStudent alloc] init];
-    
-    _person.firstName = self.firstNameTF.text;
-    
-    if (_person.firstName.length == 0) {
+    if (self.firstNameTF.text.length == 0) {
+        
         UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"First Name Required"
                                                                        message:@"Please enter this student's first name"
                                                                 preferredStyle:UIAlertControllerStyleAlert];
@@ -60,27 +70,50 @@
         UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel
                                                              handler:^(UIAlertAction * action) {}];
         
-        
         [alert addAction:okAction];
         [self presentViewController:alert animated:YES completion:nil];
         return;
     }
     
-    _person.lastName = self.lastNameTF.text;
-    _person.emailAddress = self.emailAddressTF.text;
-    
-    NSInteger row = [self.genderPicker selectedRowInComponent:0];
-    NSString *selectedGender = [_pickerData objectAtIndex:row];
-    
-    if ([selectedGender  isEqual: @"Male"]) {
-        _person.gender = MALE;
-        NSLog(@"Gender is male!");
-    } else if ([selectedGender  isEqual: @"Female"]) {
-        _person.gender = FEMALE;
-        NSLog(@"Gender is female!");
+
+    if (self.isExistingStudent) {
+        // Modify existing student
+        
+        self.selectedStudent.firstName = self.firstNameTF.text;
+        self.selectedStudent.lastName = self.lastNameTF.text;
+        self.selectedStudent.emailAddress = self.emailAddressTF.text;
+        
+        NSInteger row = [self.genderPicker selectedRowInComponent:0];
+        NSString *selectedGender = [_pickerData objectAtIndex:row];
+        
+        if ([selectedGender  isEqual: @"Male"]) {
+            self.selectedStudent.gender = MALE;
+            NSLog(@"Gender is male!");
+        } else if ([selectedGender  isEqual: @"Female"]) {
+            self.selectedStudent.gender = FEMALE;
+            NSLog(@"Gender is female!");
+        }
+    } else {
+        // Create new student
+        
+        _person = [[CSPStudent alloc] init];
+        _person.firstName = self.firstNameTF.text;
+        _person.lastName = self.lastNameTF.text;
+        _person.emailAddress = self.emailAddressTF.text;
+        
+        NSInteger row = [self.genderPicker selectedRowInComponent:0];
+        NSString *selectedGender = [_pickerData objectAtIndex:row];
+        
+        if ([selectedGender  isEqual: @"Male"]) {
+            _person.gender = MALE;
+            NSLog(@"Gender is male!");
+        } else if ([selectedGender  isEqual: @"Female"]) {
+            _person.gender = FEMALE;
+            NSLog(@"Gender is female!");
+        }
+        
+        [self.personList.people addObject:_person];
     }
-    
-    [self.personList.people addObject:_person];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 
