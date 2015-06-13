@@ -11,6 +11,7 @@
 #import "CSPStudentListStore.h"
 #import "CSPGroupMemberTableViewCell.h"
 #import "CSPCreateGroupsViewController.h"
+#import <ChameleonFramework/Chameleon.h>
 
 @interface CSPSelectClassesViewController ()
 
@@ -30,6 +31,7 @@
         }
         //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     }
+
     
     return self;
 }

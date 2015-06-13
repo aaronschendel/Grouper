@@ -24,7 +24,7 @@
             <connections>
                 <outlet property="groupName" destination="jei-4f-dSE" id="Na6-5i-cd3"/>
             </connections>
-            <point key="canvasLocation" x="121" y="269"/>
+            <point key="canvasLocation" x="240" y="269"/>
         </tableViewCell>
     </objects>
 </document>

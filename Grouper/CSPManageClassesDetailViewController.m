@@ -175,6 +175,16 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CSPManageClassesDetailViewController *createEditDetailViewController = [[CSPManageClassesDetailViewController alloc] init];
+    CSPStudentList *selectedPersonList = [[[CSPStudentListStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]];
+    
+    [createEditDetailViewController setPersonList:selectedPersonList];
+    
+    [[self navigationController] pushViewController:createEditDetailViewController animated:YES];
+}
+
 
 /*
 // Override to support conditional editing of the table view.

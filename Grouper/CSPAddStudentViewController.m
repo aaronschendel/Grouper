@@ -51,6 +51,21 @@
     _person = [[CSPStudent alloc] init];
     
     _person.firstName = self.firstNameTF.text;
+    
+    if (_person.firstName.length == 0) {
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"First Name Required"
+                                                                       message:@"Please enter this student's first name"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel
+                                                             handler:^(UIAlertAction * action) {}];
+        
+        
+        [alert addAction:okAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        return;
+    }
+    
     _person.lastName = self.lastNameTF.text;
     _person.emailAddress = self.emailAddressTF.text;
     
