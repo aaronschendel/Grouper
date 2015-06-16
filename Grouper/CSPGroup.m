@@ -11,7 +11,7 @@
 
 @implementation CSPGroup
 
-@synthesize groupName, subGroups, numberOfGroups;
+@synthesize groupName, subGroups, numberOfGroups, classesCreatedFrom;
 
 - (id)initWithCoder:(NSCoder *)coder
 {
@@ -20,6 +20,7 @@
         self.groupName = [coder decodeObjectForKey:@"groupName"];
         self.subGroups = [coder decodeObjectForKey:@"subGroups"];
         self.numberOfGroups = [coder decodeIntegerForKey:@"numberOfGroups"];
+        self.classesCreatedFrom = [coder decodeObjectForKey:@"classCreatedFrom"];
     }
     return self;
 }
@@ -29,6 +30,7 @@
     [coder encodeObject:self.groupName forKey:@"groupName"];
     [coder encodeObject:self.subGroups forKey:@"subGroups"];
     [coder encodeInteger:self.numberOfGroups forKey:@"numberOfGroups"];
+    [coder encodeObject:self.classesCreatedFrom forKey:@"classesCreatedFrom"];
 }
 
 - (void)moveItemAtIndex:(NSIndexPath *)from toIndex:(NSIndexPath *)to {

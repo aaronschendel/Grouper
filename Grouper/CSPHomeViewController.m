@@ -11,7 +11,7 @@
 #import "CSPViewGroupsViewController.h"
 #import "CSPManageClassesViewController.h"
 #import "CSPAboutPageViewController.h"
-#import "CSPStudentListStore.h"
+#import "CSPClassStore.h"
 #import "CSPGroupStore.h"
 #import <ChameleonFramework/Chameleon.h>
 
@@ -45,7 +45,7 @@
     self.navigationController.navigationBarHidden = YES;
     self.navigationController.toolbarHidden = YES;
     
-    if (CSPStudentListStore.sharedPersonListStore.allPersonLists.count < 1) {
+    if (CSPClassStore.sharedPersonListStore.allPersonLists.count < 1) {
         self.createGroupsButton.enabled = NO;
         self.createGroupsButton.alpha = 0.6f;
     } else {

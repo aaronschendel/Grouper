@@ -10,7 +10,7 @@
 
 @interface CSPCreateGroupsViewController : UIViewController<UITextFieldDelegate>
 
-@property (strong, nonatomic) NSMutableArray *selectedPersonLists;
+@property (strong, nonatomic) NSMutableArray *selectedClasses;
 @property (nonatomic) NSInteger totalNumberOfPeople;
 
 @property (weak, nonatomic) IBOutlet UILabel *numberOfPeopleLabel;

@@ -13,7 +13,10 @@
 #import "CSPGroupDetailViewController.h"
 
 @interface CSPViewGroupsViewController ()
-
+{
+    NSMutableArray *_uniqueClasses;
+    NSMutableDictionary *_uniqueClassesDict;
+}
 @end
 
 @implementation CSPViewGroupsViewController
@@ -29,10 +32,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    _uniqueClasses = [NSMutableArray new];
+    _uniqueClassesDict = [NSMutableDictionary new];
+    
+    for (int i = 0; i < [[[CSPGroupStore sharedGroupStore] allGroups] count]; i++) {
+        NSMutableArray *currCreatedFrom = [[[[CSPGroupStore sharedGroupStore] allGroups] objectAtIndex:i] classesCreatedFrom];
+        NSLog(@"%@",currCreatedFrom);
+        for (int j = 0; j < currCreatedFrom.count; j++) {
+            NSString *currClass = [currCreatedFrom objectAtIndex:j];
+            if (![_uniqueClasses containsObject:currClass]) {
+                [_uniqueClasses addObject:currClass];
+                [_uniqueClassesDict setObject:@"1" forKey:currClass];
+            } else {
+                NSInteger tempInt = [[_uniqueClassesDict objectForKey:currClass] integerValue];
+                tempInt = tempInt + 1;
+                [_uniqueClassesDict setObject:[@(tempInt) stringValue] forKey:currClass];
+            }
+        }
+    }
+    NSLog(@"%lu",(unsigned long)_uniqueClasses.count);
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,15 +63,19 @@
 
 #pragma mark - Table view data source
 
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // There is only one section for this view.
-    return 1;
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *title = [[NSString alloc] initWithFormat:@"Created from: %@", [_uniqueClasses objectAtIndex:section]];
+    return title;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return _uniqueClasses.count;
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Set the number of rows to the number of groups in the GroupStore
-    return [[[CSPGroupStore sharedGroupStore] allGroups] count];
+    //
+    return [[_uniqueClassesDict valueForKey:[_uniqueClasses objectAtIndex:section]] integerValue];
 }
 
 

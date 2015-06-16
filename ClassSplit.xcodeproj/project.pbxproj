@@ -36,8 +36,8 @@
 		C69658101AB8FE2C00E84485 /* CSPGroupDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C696580F1AB8FE2C00E84485 /* CSPGroupDetailViewController.xib */; };
 		C69658141AB8FE8F00E84485 /* CSPGroupMemberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C69658121AB8FE8F00E84485 /* CSPGroupMemberTableViewCell.m */; };
 		C69658151AB8FE8F00E84485 /* CSPGroupMemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C69658131AB8FE8F00E84485 /* CSPGroupMemberTableViewCell.xib */; };
-		C69658181AB90D5700E84485 /* CSPStudentList.m in Sources */ = {isa = PBXBuildFile; fileRef = C69658171AB90D5700E84485 /* CSPStudentList.m */; };
-		C696581B1AB90D9F00E84485 /* CSPStudentListStore.m in Sources */ = {isa = PBXBuildFile; fileRef = C696581A1AB90D9F00E84485 /* CSPStudentListStore.m */; };
+		C69658181AB90D5700E84485 /* CSPClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C69658171AB90D5700E84485 /* CSPClass.m */; };
+		C696581B1AB90D9F00E84485 /* CSPClassStore.m in Sources */ = {isa = PBXBuildFile; fileRef = C696581A1AB90D9F00E84485 /* CSPClassStore.m */; };
 		C696581D1AB917A400E84485 /* CSPManageClassesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C696581C1AB917A400E84485 /* CSPManageClassesViewController.xib */; };
 		C69658211AB918CA00E84485 /* CSPClassListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C696581F1AB918CA00E84485 /* CSPClassListTableViewCell.m */; };
 		C69658221AB918CA00E84485 /* CSPClassListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C69658201AB918CA00E84485 /* CSPClassListTableViewCell.xib */; };
@@ -104,10 +104,10 @@
 		C69658111AB8FE8F00E84485 /* CSPGroupMemberTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPGroupMemberTableViewCell.h; sourceTree = "<group>"; };
 		C69658121AB8FE8F00E84485 /* CSPGroupMemberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPGroupMemberTableViewCell.m; sourceTree = "<group>"; };
 		C69658131AB8FE8F00E84485 /* CSPGroupMemberTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSPGroupMemberTableViewCell.xib; sourceTree = "<group>"; };
-		C69658161AB90D5700E84485 /* CSPStudentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPStudentList.h; sourceTree = "<group>"; };
-		C69658171AB90D5700E84485 /* CSPStudentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPStudentList.m; sourceTree = "<group>"; };
-		C69658191AB90D9F00E84485 /* CSPStudentListStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPStudentListStore.h; sourceTree = "<group>"; };
-		C696581A1AB90D9F00E84485 /* CSPStudentListStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPStudentListStore.m; sourceTree = "<group>"; };
+		C69658161AB90D5700E84485 /* CSPClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPClass.h; sourceTree = "<group>"; };
+		C69658171AB90D5700E84485 /* CSPClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPClass.m; sourceTree = "<group>"; };
+		C69658191AB90D9F00E84485 /* CSPClassStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPClassStore.h; sourceTree = "<group>"; };
+		C696581A1AB90D9F00E84485 /* CSPClassStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPClassStore.m; sourceTree = "<group>"; };
 		C696581C1AB917A400E84485 /* CSPManageClassesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSPManageClassesViewController.xib; sourceTree = "<group>"; };
 		C696581E1AB918CA00E84485 /* CSPClassListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPClassListTableViewCell.h; sourceTree = "<group>"; };
 		C696581F1AB918CA00E84485 /* CSPClassListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPClassListTableViewCell.m; sourceTree = "<group>"; };
@@ -292,10 +292,10 @@
 				9350B3AB1AB48F160042A85B /* CSPGroupStore.m */,
 				C637257B1AC73CF200E1E496 /* CSPStudent.h */,
 				C637257C1AC73CF200E1E496 /* CSPStudent.m */,
-				C69658161AB90D5700E84485 /* CSPStudentList.h */,
-				C69658171AB90D5700E84485 /* CSPStudentList.m */,
-				C69658191AB90D9F00E84485 /* CSPStudentListStore.h */,
-				C696581A1AB90D9F00E84485 /* CSPStudentListStore.m */,
+				C69658161AB90D5700E84485 /* CSPClass.h */,
+				C69658171AB90D5700E84485 /* CSPClass.m */,
+				C69658191AB90D9F00E84485 /* CSPClassStore.h */,
+				C696581A1AB90D9F00E84485 /* CSPClassStore.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -488,9 +488,9 @@
 				C696580B1AB8F60400E84485 /* CSPGroupTableViewCell.m in Sources */,
 				93474DCA1AA01A95004DFAC2 /* main.m in Sources */,
 				C69658141AB8FE8F00E84485 /* CSPGroupMemberTableViewCell.m in Sources */,
-				C69658181AB90D5700E84485 /* CSPStudentList.m in Sources */,
+				C69658181AB90D5700E84485 /* CSPClass.m in Sources */,
 				9350B3B61AB48F160042A85B /* CSPGroupStore.m in Sources */,
-				C696581B1AB90D9F00E84485 /* CSPStudentListStore.m in Sources */,
+				C696581B1AB90D9F00E84485 /* CSPClassStore.m in Sources */,
 				C67413F01AA55D6000F7FC1B /* CSPGroup.m in Sources */,
 				9350B3B51AB48F160042A85B /* CSPManageClassesViewController.m in Sources */,
 				C67F9C6A1AB5D91A00432359 /* CSPGroupDetailViewController.m in Sources */,

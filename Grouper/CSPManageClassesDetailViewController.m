@@ -8,8 +8,8 @@
 
 #import "CSPManageClassesDetailViewController.h"
 #import "CSPNameTableViewCell.h"
-#import "CSPStudentList.h"
-#import "CSPStudentListStore.h"
+#import "CSPClass.h"
+#import "CSPClassStore.h"
 #import "CSPStudent.h"
 #import "CSPAddStudentViewController.h"
 
@@ -91,14 +91,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Should be as many rows as there are names
-    return [self.personList.people count];
+    return [self.personList.students count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    
     
-    CSPStudent *person = [personList.people objectAtIndex:indexPath.row];
+    CSPStudent *person = [personList.students objectAtIndex:indexPath.row];
     
     
     NSString *uniqueIdentifier = @"NameCell";
@@ -121,7 +121,7 @@
 
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
     CSPAddStudentViewController *addStudentViewController = [[CSPAddStudentViewController alloc] init];
-    CSPStudent *selectedStudent = [self.personList.people objectAtIndex:[indexPath row]];
+    CSPStudent *selectedStudent = [self.personList.students objectAtIndex:[indexPath row]];
     
     [addStudentViewController setIsExistingStudent:true];
     [addStudentViewController setSelectedStudent:selectedStudent];
@@ -138,7 +138,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [personList.people removeObjectAtIndex:indexPath.row];
+        [personList.students removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

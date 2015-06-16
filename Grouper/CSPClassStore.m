@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Aaron. All rights reserved.
 //
 
-#import "CSPStudentListStore.h"
-#import "CSPStudentList.h"
+#import "CSPClassStore.h"
+#import "CSPClass.h"
 #import "CSPStudent.h"
 
-@implementation CSPStudentListStore
+@implementation CSPClassStore
 - (id)init
 {
     self = [super init];
@@ -70,14 +70,14 @@
     allPersonLists = [newArray mutableCopy];
 }
 
-- (CSPStudentList *)createPersonList
+- (CSPClass *)createPersonList
 {
-    CSPStudentList *personList = [[CSPStudentList alloc] init];
+    CSPClass *personList = [[CSPClass alloc] init];
     [allPersonLists addObject:personList];
     return personList;
 }
 
-- (void)removePersonList:(CSPStudentList *)g
+- (void)removePersonList:(CSPClass *)g
 {
     [allPersonLists removeObjectIdenticalTo:g];
 }
@@ -102,9 +102,9 @@
     
 }
 
-+ (CSPStudentListStore *)sharedPersonListStore
++ (CSPClassStore *)sharedPersonListStore
 {
-    static CSPStudentListStore *nameListStore = nil;
+    static CSPClassStore *nameListStore = nil;
     if (!nameListStore) {
         nameListStore = [[super allocWithZone:nil] init];
     }
@@ -116,7 +116,7 @@
         return;
     }
     
-    CSPStudentList *nl = [allPersonLists objectAtIndex:from];
+    CSPClass *nl = [allPersonLists objectAtIndex:from];
     [allPersonLists removeObjectAtIndex:from];
     [allPersonLists insertObject:nl atIndex:to];
 }

@@ -6,18 +6,18 @@
 //  Copyright (c) 2015 Aaron. All rights reserved.
 //
 
-#import "CSPStudentList.h"
+#import "CSPClass.h"
 
-@implementation CSPStudentList
+@implementation CSPClass
 
-@synthesize listName, people;
+@synthesize listName, students;
 
 - (id)init {
     self = [super init];
     if (self) {
         
-        if (!self.people) {
-            self.people = [[NSMutableArray alloc] init];
+        if (!self.students) {
+            self.students = [[NSMutableArray alloc] init];
         }
     }
     
@@ -30,7 +30,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:listName forKey:@"listName"];
-    [coder encodeObject:people forKey:@"people"];
+    [coder encodeObject:students forKey:@"people"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -38,7 +38,7 @@
     if (self) {
     
         self.listName = [decoder decodeObjectForKey:@"listName"];
-        self.people = [decoder decodeObjectForKey:@"people"];
+        self.students = [decoder decodeObjectForKey:@"people"];
     }
     return self;
 }

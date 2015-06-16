@@ -8,8 +8,8 @@
 
 #import "CSPManageClassesViewController.h"
 #import "CSPGroup.h"
-#import "CSPStudentList.h"
-#import "CSPStudentListStore.h"
+#import "CSPClass.h"
+#import "CSPClassStore.h"
 #import "CSPClassListTableViewCell.h"
 #import "CSPManageClassesDetailViewController.h"
 
@@ -115,14 +115,14 @@
                                                                [[NSNotificationCenter defaultCenter] removeObserver:self
                                                                                                                name:UITextFieldTextDidChangeNotification
                                                                                                              object:nil];
-                                                               CSPStudentList *personList = [[CSPStudentListStore sharedPersonListStore] createPersonList];
+                                                               CSPClass *personList = [[CSPClassStore sharedPersonListStore] createPersonList];
                                                                
                                                                [personList setListName:[[alert.textFields objectAtIndex:0] text]];
                                                                [self.tableView reloadData];
-                                                               NSLog(@"NameLists:  %@", [[CSPStudentListStore sharedPersonListStore] allPersonLists]);
+                                                               NSLog(@"NameLists:  %@", [[CSPClassStore sharedPersonListStore] allPersonLists]);
                                                                
                                                                CSPManageClassesDetailViewController *createEditDetailViewController = [[CSPManageClassesDetailViewController alloc] init];
-                                                               CSPStudentList *selectedPersonList = [[[CSPStudentListStore sharedPersonListStore] allPersonLists] lastObject];
+                                                               CSPClass *selectedPersonList = [[[CSPClassStore sharedPersonListStore] allPersonLists] lastObject];
                                                                
                                                                [createEditDetailViewController setPersonList:selectedPersonList];
                                                                
@@ -204,13 +204,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // The number of rows is the number of NameLists in sharedNameListStore
-    return [[[CSPStudentListStore sharedPersonListStore] allPersonLists] count];
+    return [[[CSPClassStore sharedPersonListStore] allPersonLists] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    CSPStudentList *nameList = [[[CSPStudentListStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]];
+    CSPClass *nameList = [[[CSPClassStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]];
     
     NSString *uniqueIdentifier = @"NameListCell";
     CSPClassListTableViewCell *cell = nil;
@@ -231,7 +231,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CSPManageClassesDetailViewController *createEditDetailViewController = [[CSPManageClassesDetailViewController alloc] init];
-    CSPStudentList *selectedPersonList = [[[CSPStudentListStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]];
+    CSPClass *selectedPersonList = [[[CSPClassStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]];
     
     [createEditDetailViewController setPersonList:selectedPersonList];
     
@@ -264,8 +264,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        CSPStudentList *nameListToDelete = [[[CSPStudentListStore sharedPersonListStore] allPersonLists] objectAtIndex:indexPath.row];
-        [[CSPStudentListStore sharedPersonListStore] removePersonList:nameListToDelete];
+        CSPClass *nameListToDelete = [[[CSPClassStore sharedPersonListStore] allPersonLists] objectAtIndex:indexPath.row];
+        [[CSPClassStore sharedPersonListStore] removePersonList:nameListToDelete];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -277,7 +277,7 @@
 
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-    [[CSPStudentListStore sharedPersonListStore] moveItemAtIndex:fromIndexPath.row toIndex:toIndexPath.row];
+    [[CSPClassStore sharedPersonListStore] moveItemAtIndex:fromIndexPath.row toIndex:toIndexPath.row];
 }
 
 

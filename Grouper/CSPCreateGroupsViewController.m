@@ -7,8 +7,8 @@
 //
 
 #import "CSPCreateGroupsViewController.h"
-#import "CSPStudentList.h"
-#import "CSPStudentListStore.h"
+#import "CSPClass.h"
+#import "CSPClassStore.h"
 #import "CSPGroup.h"
 #import "CSPGroupStore.h"
 #import "CSPGroupDetailViewController.h"
@@ -42,9 +42,9 @@
 
 - (void)setNumberOfPeopleValue {
     self.totalNumberOfPeople = 0;
-    for (int i = 0; i < self.selectedPersonLists.count; i++) {
-        CSPStudentList *p = [self.selectedPersonLists objectAtIndex:i];
-        self.totalNumberOfPeople = self.totalNumberOfPeople + p.people.count;
+    for (int i = 0; i < self.selectedClasses.count; i++) {
+        CSPClass *p = [self.selectedClasses objectAtIndex:i];
+        self.totalNumberOfPeople = self.totalNumberOfPeople + p.students.count;
     }
 }
 
@@ -79,10 +79,10 @@
     
     // Loop through the selected personlists to get one list of all person objects
     NSMutableArray *listOfAllPeople = [[NSMutableArray alloc] init];
-    for (int k = 0; k < self.selectedPersonLists.count; k++) {
-        CSPStudentList *personList = [self.selectedPersonLists objectAtIndex:k];
-        for (int j = 0; j < personList.people.count; j++) {
-            [listOfAllPeople addObject:[personList.people objectAtIndex:j]];
+    for (int k = 0; k < self.selectedClasses.count; k++) {
+        CSPClass *personList = [self.selectedClasses objectAtIndex:k];
+        for (int j = 0; j < personList.students.count; j++) {
+            [listOfAllPeople addObject:[personList.students objectAtIndex:j]];
         }
             
     }
@@ -118,10 +118,17 @@
         [subgroups addObject:currSubgroup];
     }
     
+    
+    NSMutableArray *selectedClassesNames = [NSMutableArray new];
+    for (int i = 0; i < self.selectedClasses.count; i++) {
+        [selectedClassesNames addObject:[[self.selectedClasses objectAtIndex:i] listName]];
+    }
+    
     CSPGroup *newGroup = [[CSPGroup alloc] init];
     [newGroup setGroupName:groupSetName];
     [newGroup setNumberOfGroups:numberOfSubgroups];
     [newGroup setSubGroups:subgroups];
+    [newGroup setClassesCreatedFrom:selectedClassesNames];
     
     [[[CSPGroupStore sharedGroupStore] allGroups] addObject:newGroup];
     

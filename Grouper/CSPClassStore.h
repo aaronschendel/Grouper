@@ -7,22 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
-@class CSPStudentList;
+@class CSPClass;
 
-@interface CSPStudentListStore : NSObject <NSCoding>
+@interface CSPClassStore : NSObject <NSCoding>
 {
     NSMutableArray *allPersonLists;
 }
 
 - (void)setAllPersonLists:(NSArray *)newArray;
 
-+ (CSPStudentListStore *)sharedPersonListStore;
++ (CSPClassStore *)sharedPersonListStore;
 
-- (void)removePersonList:(CSPStudentList *)g;
+- (void)removePersonList:(CSPClass *)g;
 - (void)removeAllNameLists;
 
 - (NSMutableArray *)allPersonLists;
-- (CSPStudentList *)createPersonList;
+- (CSPClass *)createPersonList;
 - (void)moveItemAtIndex:(int)from
                 toIndex:(int)to;
 

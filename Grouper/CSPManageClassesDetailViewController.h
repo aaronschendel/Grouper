@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CSPStudentList.h"
+#import "CSPClass.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 
 @interface CSPManageClassesDetailViewController : UITableViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
-@property (nonatomic, strong) CSPStudentList *personList;
+@property (nonatomic, strong) CSPClass *personList;
 
 - (IBAction)addNewPerson:(id)sender;
 

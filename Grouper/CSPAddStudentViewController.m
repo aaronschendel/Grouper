@@ -8,7 +8,7 @@
 
 #import "CSPAddStudentViewController.h"
 #import "CSPStudent.h"
-#import "CSPStudentList.h"
+#import "CSPClass.h"
 
 
 @interface CSPAddStudentViewController ()
@@ -112,7 +112,7 @@
             NSLog(@"Gender is female!");
         }
         
-        [self.personList.people addObject:_person];
+        [self.personList.students addObject:_person];
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];

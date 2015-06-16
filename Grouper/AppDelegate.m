@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CSPHomeViewController.h"
-#import "CSPStudentListStore.h"
+#import "CSPClassStore.h"
 #import "CSPGroupStore.h"
 
 @interface AppDelegate ()
@@ -29,7 +29,7 @@
     
     // Data Persistence
     [[CSPGroupStore sharedGroupStore] loadFromDefaults];
-    [[CSPStudentListStore sharedPersonListStore] loadFromDefaults];
+    [[CSPClassStore sharedPersonListStore] loadFromDefaults];
      
     return YES;
 }
@@ -47,7 +47,7 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
     [[CSPGroupStore sharedGroupStore] saveChanges];
-    [[CSPStudentListStore sharedPersonListStore] saveChanges];
+    [[CSPClassStore sharedPersonListStore] saveChanges];
     NSLog(@"background");
 }
 

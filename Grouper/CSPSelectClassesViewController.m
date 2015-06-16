@@ -7,8 +7,8 @@
 //
 
 #import "CSPSelectClassesViewController.h"
-#import "CSPStudentList.h"
-#import "CSPStudentListStore.h"
+#import "CSPClass.h"
+#import "CSPClassStore.h"
 #import "CSPGroupMemberTableViewCell.h"
 #import "CSPCreateGroupsViewController.h"
 #import <ChameleonFramework/Chameleon.h>
@@ -67,7 +67,7 @@
 
 - (void)createGroupsFromSelectedPersonLists:(id)sender {
     CSPCreateGroupsViewController *createGroupsVC = [[CSPCreateGroupsViewController alloc] init];
-    [createGroupsVC setSelectedPersonLists:self.selectedPersonLists];
+    [createGroupsVC setSelectedClasses:self.selectedPersonLists];
     if (self.selectedPersonLists.count > 0) {
         [[self navigationController] pushViewController:createGroupsVC animated:YES];
     }
@@ -134,12 +134,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [[[CSPStudentListStore sharedPersonListStore] allPersonLists] count];
+    return [[[CSPClassStore sharedPersonListStore] allPersonLists] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CSPStudentList *nameList = [[[CSPStudentListStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]];
+    CSPClass *nameList = [[[CSPClassStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]];
     
     NSString *uniqueIdentifier = @"GroupCell";
     CSPGroupMemberTableViewCell *cell = nil;
@@ -167,12 +167,12 @@
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone;
         //TODO: This may cause issues in the future, keep an eye on it
-        [self.selectedPersonLists removeObjectIdenticalTo:[[[CSPStudentListStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]]];
+        [self.selectedPersonLists removeObjectIdenticalTo:[[[CSPClassStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]]];
         
         
     } else if (cell.accessoryType == UITableViewCellAccessoryNone) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [self.selectedPersonLists addObject:[[[CSPStudentListStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]]];
+        [self.selectedPersonLists addObject:[[[CSPClassStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]]];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

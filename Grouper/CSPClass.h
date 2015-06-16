@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CSPStudentList : NSObject <NSCoding>
+@interface CSPClass : NSObject <NSCoding>
 {
-    NSMutableArray *people;
+    NSMutableArray *students;
 }
 
 @property (nonatomic, strong) NSString *listName;
-@property (nonatomic, strong) NSMutableArray *people;
+@property (nonatomic, strong) NSMutableArray *students;
 
 @end
