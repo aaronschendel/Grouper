@@ -36,6 +36,16 @@
     _uniqueClasses = [NSMutableArray new];
     _uniqueClassesDict = [NSMutableDictionary new];
     
+//    NSSortDescriptor *valueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"MyStringVariableName" ascending:YES];
+//    NSArray *descriptors = [NSArray arrayWithObject:valueDescriptor];
+//    NSArray *sortedArray = [myArray sortedArrayUsingDescriptors:descriptors];
+    
+//    -(NSComparisonResult)compare:(MyObject*)obj {
+//        return [self.name compare:obj.name];
+//    }
+//    
+//    [array sortUsingSelector:@selector(compare:)];
+    
     for (int i = 0; i < [[[CSPGroupStore sharedGroupStore] allGroups] count]; i++) {
         NSMutableArray *currCreatedFrom = [[[[CSPGroupStore sharedGroupStore] allGroups] objectAtIndex:i] classesCreatedFrom];
         NSLog(@"%@",currCreatedFrom);
@@ -105,8 +115,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50.0;
 }
 
-- (void)tableView:(UITableView *)tableView
-didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CSPGroupDetailViewController *groupDetailViewController = [[CSPGroupDetailViewController alloc] init];
     CSPGroup *selectedGroup = [[[CSPGroupStore sharedGroupStore] allGroups] objectAtIndex:[indexPath row]];
