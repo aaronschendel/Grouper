@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSString *groupName;
 @property (nonatomic, strong) NSMutableArray *subGroups;
 @property (nonatomic) NSInteger numberOfGroups;
-@property (nonatomic, strong) NSMutableArray *classesCreatedFrom;
+@property (nonatomic, strong) NSString *classCreatedFrom;
 
 - (void)moveItemAtIndex:(NSIndexPath*)from
                 toIndex:(NSIndexPath*)to;

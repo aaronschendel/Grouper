@@ -47,20 +47,21 @@
 //    [array sortUsingSelector:@selector(compare:)];
     
     for (int i = 0; i < [[[CSPGroupStore sharedGroupStore] allGroups] count]; i++) {
-        NSMutableArray *currCreatedFrom = [[[[CSPGroupStore sharedGroupStore] allGroups] objectAtIndex:i] classesCreatedFrom];
+        NSString *currCreatedFrom = [[[[CSPGroupStore sharedGroupStore] allGroups] objectAtIndex:i] classCreatedFrom];
         NSLog(@"%@",currCreatedFrom);
-        for (int j = 0; j < currCreatedFrom.count; j++) {
-            NSString *currClass = [currCreatedFrom objectAtIndex:j];
-            if (![_uniqueClasses containsObject:currClass]) {
-                [_uniqueClasses addObject:currClass];
-                [_uniqueClassesDict setObject:@"1" forKey:currClass];
-            } else {
-                NSInteger tempInt = [[_uniqueClassesDict objectForKey:currClass] integerValue];
-                tempInt = tempInt + 1;
-                [_uniqueClassesDict setObject:[@(tempInt) stringValue] forKey:currClass];
-            }
+        if (![_uniqueClasses containsObject:currCreatedFrom]) {
+            [_uniqueClasses addObject:currCreatedFrom];
+            [_uniqueClassesDict setObject:@"1" forKey:currCreatedFrom];
+        } else {
+            NSInteger tempInt = [[_uniqueClassesDict objectForKey:currCreatedFrom] integerValue];
+            tempInt = tempInt + 1;
+            [_uniqueClassesDict setObject:[@(tempInt) stringValue] forKey:currCreatedFrom];
         }
+        
     }
+    
+    NSLog(@"Sorted array: \n %@", sortedArray);
+    
     NSLog(@"%lu",(unsigned long)_uniqueClasses.count);
     
 }

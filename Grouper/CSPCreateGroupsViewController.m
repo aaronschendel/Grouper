@@ -119,16 +119,15 @@
     }
     
     
-    NSMutableArray *selectedClassesNames = [NSMutableArray new];
-    for (int i = 0; i < self.selectedClasses.count; i++) {
-        [selectedClassesNames addObject:[[self.selectedClasses objectAtIndex:i] listName]];
-    }
+    NSString *selectedClassName = [[self.selectedClasses firstObject] listName];
+    
+    
     
     CSPGroup *newGroup = [[CSPGroup alloc] init];
     [newGroup setGroupName:groupSetName];
     [newGroup setNumberOfGroups:numberOfSubgroups];
     [newGroup setSubGroups:subgroups];
-    [newGroup setClassesCreatedFrom:selectedClassesNames];
+    [newGroup setClassCreatedFrom:selectedClassName];
     
     [[[CSPGroupStore sharedGroupStore] allGroups] addObject:newGroup];
     
