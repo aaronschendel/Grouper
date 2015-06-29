@@ -16,6 +16,8 @@
 {
     NSMutableArray *_uniqueClasses;
     NSMutableDictionary *_uniqueClassesDict;
+    NSArray *_allGroupsSorted;
+    NSArray *_uniqueClassesSorted;
 }
 @end
 
@@ -46,9 +48,15 @@
 //    
 //    [array sortUsingSelector:@selector(compare:)];
     
-    for (int i = 0; i < [[[CSPGroupStore sharedGroupStore] allGroups] count]; i++) {
-        NSString *currCreatedFrom = [[[[CSPGroupStore sharedGroupStore] allGroups] objectAtIndex:i] classCreatedFrom];
-        NSLog(@"%@",currCreatedFrom);
+    NSMutableArray *allGroupsCopy = [[[CSPGroupStore sharedGroupStore] allGroups] copy];
+    
+    NSSortDescriptor *valueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"classCreatedFrom" ascending:YES];
+    NSArray *descriptors = [NSArray arrayWithObject:valueDescriptor];
+    _allGroupsSorted = [allGroupsCopy sortedArrayUsingDescriptors:descriptors];
+    
+    for (int i = 0; i < [_allGroupsSorted count]; i++) {
+        NSString *currCreatedFrom = [[_allGroupsSorted objectAtIndex:i] classCreatedFrom];
+        //NSLog(@"%@",currCreatedFrom);
         if (![_uniqueClasses containsObject:currCreatedFrom]) {
             [_uniqueClasses addObject:currCreatedFrom];
             [_uniqueClassesDict setObject:@"1" forKey:currCreatedFrom];
@@ -60,7 +68,13 @@
         
     }
     
-    NSLog(@"Sorted array: \n %@", sortedArray);
+    
+    _uniqueClassesSorted = [_uniqueClasses sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+
+    for (int i = 0; i < [_allGroupsSorted count]; i++) {
+        NSLog(@"Group: %@ \n", [[_allGroupsSorted objectAtIndex:i] classCreatedFrom]);
+    }
+    NSLog(@"Sorted unique classes array: \n %@", _uniqueClassesSorted);
     
     NSLog(@"%lu",(unsigned long)_uniqueClasses.count);
     
@@ -75,23 +89,23 @@
 #pragma mark - Table view data source
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSString *title = [[NSString alloc] initWithFormat:@"Created from: %@", [_uniqueClasses objectAtIndex:section]];
+    NSString *title = [[NSString alloc] initWithFormat:@"Created from: %@", [_uniqueClassesSorted objectAtIndex:section]];
     return title;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return _uniqueClasses.count;
+    return _uniqueClassesSorted.count;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //
-    return [[_uniqueClassesDict valueForKey:[_uniqueClasses objectAtIndex:section]] integerValue];
+    return [[_uniqueClassesDict valueForKey:[_uniqueClassesSorted objectAtIndex:section]] integerValue];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
-    CSPGroup *group = [[[CSPGroupStore sharedGroupStore] allGroups] objectAtIndex:[indexPath row]];
+    CSPGroup *group = [_allGroupsSorted objectAtIndex:[indexPath section]];
     
     NSString *uniqueIdentifier = @"GroupCell";
     CSPGroupTableViewCell *cell = nil;
