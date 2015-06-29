@@ -158,6 +158,19 @@
 
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    // If a row has a checkmark, do not allow any other rows to be selected
+    if ([self.selectedPersonLists count] == 1 && cell.accessoryType != UITableViewCellAccessoryCheckmark) {
+        return nil;
+    }
+    
+    // By default, allow row to be selected
+    return indexPath;
+}
+
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -166,18 +179,18 @@
     
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        //TODO: This may cause issues in the future, keep an eye on it
         [self.selectedPersonLists removeObjectIdenticalTo:[[[CSPClassStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]]];
-        
         
     } else if (cell.accessoryType == UITableViewCellAccessoryNone) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         [self.selectedPersonLists addObject:[[[CSPClassStore sharedPersonListStore] allPersonLists] objectAtIndex:[indexPath row]]];
+
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
+
 
 /*
 // Override to support conditional editing of the table view.

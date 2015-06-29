@@ -14,10 +14,10 @@
 
 @interface CSPViewGroupsViewController ()
 {
-    NSMutableArray *_uniqueClasses;
-    NSMutableDictionary *_uniqueClassesDict;
     NSArray *_allGroupsSorted;
     NSArray *_uniqueClassesSorted;
+    NSMutableDictionary *_classCounterDict;
+    int _tableViewCounter;
 }
 @end
 
@@ -35,48 +35,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _uniqueClasses = [NSMutableArray new];
-    _uniqueClassesDict = [NSMutableDictionary new];
+    // Reset the instance variables whenever on page load
+    _tableViewCounter = 0;
+    NSMutableArray  *_uniqueClasses = [NSMutableArray new];
+    _classCounterDict = [NSMutableDictionary new];
     
-//    NSSortDescriptor *valueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"MyStringVariableName" ascending:YES];
-//    NSArray *descriptors = [NSArray arrayWithObject:valueDescriptor];
-//    NSArray *sortedArray = [myArray sortedArrayUsingDescriptors:descriptors];
-    
-//    -(NSComparisonResult)compare:(MyObject*)obj {
-//        return [self.name compare:obj.name];
-//    }
-//    
-//    [array sortUsingSelector:@selector(compare:)];
-    
+    // Get a copy of allGroups and sort them alphabetically
     NSMutableArray *allGroupsCopy = [[[CSPGroupStore sharedGroupStore] allGroups] copy];
-    
     NSSortDescriptor *valueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"classCreatedFrom" ascending:YES];
     NSArray *descriptors = [NSArray arrayWithObject:valueDescriptor];
     _allGroupsSorted = [allGroupsCopy sortedArrayUsingDescriptors:descriptors];
     
+    // Populate the unique classes array and populate the classCounterDict
     for (int i = 0; i < [_allGroupsSorted count]; i++) {
         NSString *currCreatedFrom = [[_allGroupsSorted objectAtIndex:i] classCreatedFrom];
-        //NSLog(@"%@",currCreatedFrom);
         if (![_uniqueClasses containsObject:currCreatedFrom]) {
             [_uniqueClasses addObject:currCreatedFrom];
-            [_uniqueClassesDict setObject:@"1" forKey:currCreatedFrom];
+            [_classCounterDict setObject:@"1" forKey:currCreatedFrom];
         } else {
-            NSInteger tempInt = [[_uniqueClassesDict objectForKey:currCreatedFrom] integerValue];
+            NSInteger tempInt = [[_classCounterDict objectForKey:currCreatedFrom] integerValue];
             tempInt = tempInt + 1;
-            [_uniqueClassesDict setObject:[@(tempInt) stringValue] forKey:currCreatedFrom];
+            [_classCounterDict setObject:[@(tempInt) stringValue] forKey:currCreatedFrom];
         }
-        
     }
-    
     
     _uniqueClassesSorted = [_uniqueClasses sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-
-    for (int i = 0; i < [_allGroupsSorted count]; i++) {
-        NSLog(@"Group: %@ \n", [[_allGroupsSorted objectAtIndex:i] classCreatedFrom]);
-    }
-    NSLog(@"Sorted unique classes array: \n %@", _uniqueClassesSorted);
-    
-    NSLog(@"%lu",(unsigned long)_uniqueClasses.count);
     
 }
 
@@ -89,7 +72,7 @@
 #pragma mark - Table view data source
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSString *title = [[NSString alloc] initWithFormat:@"Created from: %@", [_uniqueClassesSorted objectAtIndex:section]];
+    NSString *title = [[NSString alloc] initWithFormat:@"Class: %@", [_uniqueClassesSorted objectAtIndex:section]];
     return title;
 }
 
@@ -100,12 +83,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //
-    return [[_uniqueClassesDict valueForKey:[_uniqueClassesSorted objectAtIndex:section]] integerValue];
+    return [[_classCounterDict valueForKey:[_uniqueClassesSorted objectAtIndex:section]] integerValue];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
-    CSPGroup *group = [_allGroupsSorted objectAtIndex:[indexPath section]];
+    CSPGroup *group = [_allGroupsSorted objectAtIndex:_tableViewCounter];
+    _tableViewCounter++;
     
     NSString *uniqueIdentifier = @"GroupCell";
     CSPGroupTableViewCell *cell = nil;
