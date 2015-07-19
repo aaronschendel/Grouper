@@ -86,6 +86,15 @@
     return [[_classCounterDict valueForKey:[_uniqueClassesSorted objectAtIndex:section]] integerValue];
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 2.0f;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 40;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
     CSPGroup *group = [_allGroupsSorted objectAtIndex:_tableViewCounter];
