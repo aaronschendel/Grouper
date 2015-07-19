@@ -40,6 +40,22 @@
 
 - (IBAction)autoFillSwitcher:(id)sender {
     [[NSUserDefaults standardUserDefaults] setBool:self.autoFillSwitcherOutlet.isOn forKey:@"shouldAutoFillTo"];
+    
+    if (self.autoFillSwitcherOutlet.isOn) {
+    
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Reminder"
+                                                                       message:@"The more students you have stored email addresses for, the more useful this feature will be!"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+
+        UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel
+                                                             handler:^(UIAlertAction * action) {}];
+
+
+        [alert addAction:okAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }
+    
 }
 
 - (IBAction)contactMeButton:(id)sender {

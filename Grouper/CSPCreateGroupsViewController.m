@@ -73,69 +73,83 @@
 
 - (IBAction)createGroups:(id)sender {
     
-    // Some setup for needed variables
-    NSInteger numberOfSubgroups = [self.numberOfGroupsTF.text integerValue];
-    NSString *groupSetName = self.groupSetNameTF.text;
+    if (self.numberOfGroupsTF.text.integerValue > 1) {
     
-    // Loop through the selected personlists to get one list of all person objects
-    NSMutableArray *listOfAllPeople = [[NSMutableArray alloc] init];
-    for (int k = 0; k < self.selectedClasses.count; k++) {
-        CSPClass *personList = [self.selectedClasses objectAtIndex:k];
-        for (int j = 0; j < personList.students.count; j++) {
-            [listOfAllPeople addObject:[personList.students objectAtIndex:j]];
+        // Some setup for needed variables
+        NSInteger numberOfSubgroups = [self.numberOfGroupsTF.text integerValue];
+        NSString *groupSetName = self.groupSetNameTF.text;
+        
+        // Loop through the selected personlists to get one list of all person objects
+        NSMutableArray *listOfAllPeople = [[NSMutableArray alloc] init];
+        for (int k = 0; k < self.selectedClasses.count; k++) {
+            CSPClass *personList = [self.selectedClasses objectAtIndex:k];
+            for (int j = 0; j < personList.students.count; j++) {
+                [listOfAllPeople addObject:[personList.students objectAtIndex:j]];
+            }
+                
         }
-            
-    }
-    
-    // Shuffle up the list of names
-    [self shuffleArray:listOfAllPeople];
-    
-    NSInteger amountInGroups = floor(self.totalNumberOfPeople / numberOfSubgroups);
-    NSInteger remainder = self.totalNumberOfPeople % numberOfSubgroups;
-    
-    // Group creation logic
-    NSMutableArray *subgroups = [[NSMutableArray alloc] init];
-    
-    for (int i = 0; i < numberOfSubgroups; i++) {
-        NSMutableArray *currSubgroup = [[NSMutableArray alloc] init];
-        // If the remainder var isn't 0, put an extra one in that group and then decrement the remainder var
-        if (remainder > 0) {
-            for (int j = 0; j < amountInGroups + 1; j++) {
-                if (!listOfAllPeople.count == 0) {
-                    [currSubgroup addObject:[listOfAllPeople lastObject]];
-                    [listOfAllPeople removeLastObject];
+        
+        // Shuffle up the list of names
+        [self shuffleArray:listOfAllPeople];
+        
+        NSInteger amountInGroups = floor(self.totalNumberOfPeople / numberOfSubgroups);
+        NSInteger remainder = self.totalNumberOfPeople % numberOfSubgroups;
+        
+        // Group creation logic
+        NSMutableArray *subgroups = [[NSMutableArray alloc] init];
+        
+        for (int i = 0; i < numberOfSubgroups; i++) {
+            NSMutableArray *currSubgroup = [[NSMutableArray alloc] init];
+            // If the remainder var isn't 0, put an extra one in that group and then decrement the remainder var
+            if (remainder > 0) {
+                for (int j = 0; j < amountInGroups + 1; j++) {
+                    if (!listOfAllPeople.count == 0) {
+                        [currSubgroup addObject:[listOfAllPeople lastObject]];
+                        [listOfAllPeople removeLastObject];
+                    }
+                }
+                remainder = remainder - 1;
+            } else {
+                for (int j = 0; j < amountInGroups; j++) {
+                    if (!listOfAllPeople.count == 0) {
+                        [currSubgroup addObject:[listOfAllPeople lastObject]];
+                        [listOfAllPeople removeLastObject];
+                    }
                 }
             }
-            remainder = remainder - 1;
-        } else {
-            for (int j = 0; j < amountInGroups; j++) {
-                if (!listOfAllPeople.count == 0) {
-                    [currSubgroup addObject:[listOfAllPeople lastObject]];
-                    [listOfAllPeople removeLastObject];
-                }
-            }
+            [subgroups addObject:currSubgroup];
         }
-        [subgroups addObject:currSubgroup];
+        
+        
+        NSString *selectedClassName = [[self.selectedClasses firstObject] listName];
+        
+        
+        
+        CSPGroup *newGroup = [[CSPGroup alloc] init];
+        [newGroup setGroupName:groupSetName];
+        [newGroup setNumberOfGroups:numberOfSubgroups];
+        [newGroup setSubGroups:subgroups];
+        [newGroup setClassCreatedFrom:selectedClassName];
+        
+        [[[CSPGroupStore sharedGroupStore] allGroups] addObject:newGroup];
+        
+        CSPGroupDetailViewController *groupDetailViewController = [[CSPGroupDetailViewController alloc] init];
+        [groupDetailViewController setGroup:newGroup];
+        [groupDetailViewController setIsNewGroup:YES];
+        [self.navigationController pushViewController:groupDetailViewController animated:YES];
+        
+    } else {
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Create 2 or More Groups"
+                                                                       message:@""
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel
+                                                         handler:^(UIAlertAction * action) {}];
+        
+        
+        [alert addAction:okAction];
+        [self presentViewController:alert animated:YES completion:nil];
     }
-    
-    
-    NSString *selectedClassName = [[self.selectedClasses firstObject] listName];
-    
-    
-    
-    CSPGroup *newGroup = [[CSPGroup alloc] init];
-    [newGroup setGroupName:groupSetName];
-    [newGroup setNumberOfGroups:numberOfSubgroups];
-    [newGroup setSubGroups:subgroups];
-    [newGroup setClassCreatedFrom:selectedClassName];
-    
-    [[[CSPGroupStore sharedGroupStore] allGroups] addObject:newGroup];
-    
-    CSPGroupDetailViewController *groupDetailViewController = [[CSPGroupDetailViewController alloc] init];
-    [groupDetailViewController setGroup:newGroup];
-    [groupDetailViewController setIsNewGroup:YES];
-    [self.navigationController pushViewController:groupDetailViewController animated:YES];
-    
 }
 
 

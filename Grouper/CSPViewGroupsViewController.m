@@ -11,6 +11,7 @@
 #import "CSPGroupTableViewCell.h"
 #import "CSPGroup.h"
 #import "CSPGroupDetailViewController.h"
+#import <ChameleonFramework/Chameleon.h>
 
 @interface CSPViewGroupsViewController ()
 {
@@ -18,6 +19,7 @@
     NSArray *_uniqueClassesSorted;
     NSMutableDictionary *_classCounterDict;
     int _tableViewCounter;
+    NSMutableArray *_colorPalette;
 }
 @end
 
@@ -61,6 +63,10 @@
     
     _uniqueClassesSorted = [_uniqueClasses sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     
+    _colorPalette = [[NSMutableArray alloc] initWithArray:[NSArray arrayOfColorsWithColorScheme:ColorSchemeTriadic
+                                                                                                        with:FlatSand
+                                                                                                  flatScheme:YES]];
+    self.view.backgroundColor = [_colorPalette objectAtIndex:1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,13 +92,18 @@
     return [[_classCounterDict valueForKey:[_uniqueClassesSorted objectAtIndex:section]] integerValue];
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 2.0f;
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    UITableViewHeaderFooterView *v = (UITableViewHeaderFooterView *)view;
+    v.backgroundView.backgroundColor = [UIColor flatWhiteColorDark];
 }
 
+//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+//{
+//    //return 20.0f;
+//}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 40;
+    return 30;
 }
 
 
@@ -112,7 +123,18 @@
     }
     
     [[cell groupName] setText:group.groupName];
+    cell.backgroundColor = [_colorPalette objectAtIndex:1];
     
+//    self.view.backgroundColor = [colorArray objectAtIndex:1];
+//    
+//    [self.createGroupsButton setTitleColor:[colorArray objectAtIndex:0] forState:UIControlStateNormal];
+//    [self.createGroupsButton setTitleColor:[UIColor flatGrayColor] forState:UIControlStateDisabled];
+//    
+//    [self.createEditListsButton setTitleColor:[colorArray objectAtIndex:0] forState:UIControlStateNormal];
+//    [self.viewGroupsButton setTitleColor:[colorArray objectAtIndex:0] forState:UIControlStateNormal];
+//    [self.aboutButton setTitleColor:[colorArray objectAtIndex:0] forState:UIControlStateNormal];
+//    
+//    [self.appNameLabel setTextColor:[colorArray objectAtIndex:4]];
     
     
     return cell;
@@ -145,7 +167,8 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        CSPGroup *groupToDelete = [[[CSPGroupStore sharedGroupStore] allGroups] objectAtIndex:indexPath.row];
+        CSPGroup *groupToDelete = [_allGroupsSorted objectAtIndex:indexPath.row];
+        [[[CSPGroupStore sharedGroupStore] allGroups] removeObjectIdenticalTo:groupToDelete];
         [[CSPGroupStore sharedGroupStore] removeGroup:groupToDelete];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
