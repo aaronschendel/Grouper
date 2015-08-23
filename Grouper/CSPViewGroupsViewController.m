@@ -39,29 +39,33 @@
     
     // Reset the instance variables whenever on page load
     _tableViewCounter = 0;
-    NSMutableArray  *_uniqueClasses = [NSMutableArray new];
-    _classCounterDict = [NSMutableDictionary new];
     
-    // Get a copy of allGroups and sort them alphabetically
     NSMutableArray *allGroupsCopy = [[[CSPGroupStore sharedGroupStore] allGroups] copy];
-    NSSortDescriptor *valueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"classCreatedFrom" ascending:YES];
-    NSArray *descriptors = [NSArray arrayWithObject:valueDescriptor];
-    _allGroupsSorted = [allGroupsCopy sortedArrayUsingDescriptors:descriptors];
     
+    NSMutableArray  *_uniqueClasses = [NSMutableArray new];
     // Populate the unique classes array and populate the classCounterDict
-    for (int i = 0; i < [_allGroupsSorted count]; i++) {
-        NSString *currCreatedFrom = [[_allGroupsSorted objectAtIndex:i] classCreatedFrom];
-        if (![_uniqueClasses containsObject:currCreatedFrom]) {
-            [_uniqueClasses addObject:currCreatedFrom];
-            [_classCounterDict setObject:@"1" forKey:currCreatedFrom];
-        } else {
-            NSInteger tempInt = [[_classCounterDict objectForKey:currCreatedFrom] integerValue];
-            tempInt = tempInt + 1;
-            [_classCounterDict setObject:[@(tempInt) stringValue] forKey:currCreatedFrom];
+    for (CSPGroup *currGroup in allGroupsCopy) {
+        if (![_uniqueClasses containsObject:[currGroup classCreatedFrom]]) {
+            [_uniqueClasses addObject:[currGroup classCreatedFrom]];
         }
     }
     
-    _uniqueClassesSorted = [_uniqueClasses sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    NSMutableArray *classesCreatedFromArrays = [NSMutableArray new];
+    for (NSString *currClass in _uniqueClasses) {
+        
+    }
+    
+    //http://www.ioscreator.com/tutorials/customizing-headers-footers-table-view-ios7
+    NSMutableDictionary *classesCreatedFromDict = [NSMutableDictionary new];
+    
+    //loop through all unique classes and then for each class loop through every group seeing if they match, if they do then put them in an array and build the dictionary based on that.
+    for (CSPGroup *currGroup in allGroupsCopy) {
+        if ([currGroup.classCreatedFrom isEqualToString:@""]) {
+            
+        }
+    }
+    
+    //_uniqueClassesSorted = [_uniqueClasses sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     
     _colorPalette = [[NSMutableArray alloc] initWithArray:[NSArray arrayOfColorsWithColorScheme:ColorSchemeTriadic
                                                                                                         with:FlatSand
@@ -110,6 +114,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
     CSPGroup *group = [_allGroupsSorted objectAtIndex:_tableViewCounter];
     _tableViewCounter++;
+    
+    
+    
+    
     
     NSString *uniqueIdentifier = @"GroupCell";
     CSPGroupTableViewCell *cell = nil;
@@ -168,7 +176,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         CSPGroup *groupToDelete = [_allGroupsSorted objectAtIndex:indexPath.row];
-        [[[CSPGroupStore sharedGroupStore] allGroups] removeObjectIdenticalTo:groupToDelete];
+        //[[[CSPGroupStore sharedGroupStore] allGroups] removeObjectIdenticalTo:groupToDelete];
         [[CSPGroupStore sharedGroupStore] removeGroup:groupToDelete];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
