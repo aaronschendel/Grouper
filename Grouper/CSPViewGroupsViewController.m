@@ -15,11 +15,8 @@
 
 @interface CSPViewGroupsViewController ()
 {
-    NSArray *_allGroupsSorted;
-    NSArray *_uniqueClassesSorted;
-    NSMutableDictionary *_classCounterDict;
-    int _tableViewCounter;
     NSMutableArray *_colorPalette;
+    NSMutableArray *_classesCreatedFromArrays;
 }
 @end
 
@@ -38,7 +35,6 @@
     [super viewDidLoad];
     
     // Reset the instance variables whenever on page load
-    _tableViewCounter = 0;
     
     NSMutableArray *allGroupsCopy = [[[CSPGroupStore sharedGroupStore] allGroups] copy];
     
@@ -50,22 +46,22 @@
         }
     }
     
-    NSMutableArray *classesCreatedFromArrays = [NSMutableArray new];
-    for (NSString *currClass in _uniqueClasses) {
-        
-    }
-    
     //http://www.ioscreator.com/tutorials/customizing-headers-footers-table-view-ios7
     NSMutableDictionary *classesCreatedFromDict = [NSMutableDictionary new];
     
     //loop through all unique classes and then for each class loop through every group seeing if they match, if they do then put them in an array and build the dictionary based on that.
-    for (CSPGroup *currGroup in allGroupsCopy) {
-        if ([currGroup.classCreatedFrom isEqualToString:@""]) {
-            
+    _classesCreatedFromArrays = [NSMutableArray new];
+    for (NSString *currClass in _uniqueClasses) {
+        NSMutableArray *currClassArray = [NSMutableArray new];
+        for (CSPGroup *currGroup in allGroupsCopy) {
+            if ([currGroup.classCreatedFrom isEqualToString:currClass]) {
+                [currClassArray addObject:currGroup];
+            }
         }
+        [_classesCreatedFromArrays addObject:currClassArray];
     }
     
-    //_uniqueClassesSorted = [_uniqueClasses sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+
     
     _colorPalette = [[NSMutableArray alloc] initWithArray:[NSArray arrayOfColorsWithColorScheme:ColorSchemeTriadic
                                                                                                         with:FlatSand
@@ -82,18 +78,17 @@
 #pragma mark - Table view data source
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSString *title = [[NSString alloc] initWithFormat:@"Class: %@", [_uniqueClassesSorted objectAtIndex:section]];
+    NSString *title = [[NSString alloc] initWithFormat:@"Class: %@", [[[_classesCreatedFromArrays objectAtIndex:section] objectAtIndex:0] classCreatedFrom]];
     return title;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return _uniqueClassesSorted.count;
+    return _classesCreatedFromArrays.count;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //
-    return [[_classCounterDict valueForKey:[_uniqueClassesSorted objectAtIndex:section]] integerValue];
+    return [[_classesCreatedFromArrays objectAtIndex:section] count];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
@@ -112,8 +107,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
-    CSPGroup *group = [_allGroupsSorted objectAtIndex:_tableViewCounter];
-    _tableViewCounter++;
+    CSPGroup *group = [[_classesCreatedFromArrays objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
     
     
@@ -156,7 +150,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CSPGroupDetailViewController *groupDetailViewController = [[CSPGroupDetailViewController alloc] init];
-    CSPGroup *selectedGroup = [[[CSPGroupStore sharedGroupStore] allGroups] objectAtIndex:[indexPath row]];
+    CSPGroup *selectedGroup = [[_classesCreatedFromArrays objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
     [groupDetailViewController setGroup:selectedGroup];
     
@@ -175,8 +169,8 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        CSPGroup *groupToDelete = [_allGroupsSorted objectAtIndex:indexPath.row];
-        //[[[CSPGroupStore sharedGroupStore] allGroups] removeObjectIdenticalTo:groupToDelete];
+        CSPGroup *groupToDelete = [[_classesCreatedFromArrays objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        [[_classesCreatedFromArrays objectAtIndex:indexPath.section] removeObjectAtIndex:indexPath.row];
         [[CSPGroupStore sharedGroupStore] removeGroup:groupToDelete];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
