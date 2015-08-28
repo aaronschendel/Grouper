@@ -152,15 +152,6 @@
     return _pickerData.count;
 }
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    // Handle which row was selected
-    if (row == 0) {
-        //NSLog(@"Female picked");
-        //_person.gender = FEMALE;
-    } else if (row == 1) {
-        //NSLog(@"Male picked");
-        //_person.gender = MALE;
-    }
-}
+
 
 @end

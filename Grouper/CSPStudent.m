@@ -47,6 +47,16 @@
     [aCoder encodeInt:self.gender forKey:@"gender"];
 }
 
+- (id) copyWithZone:(NSZone *)zone {
+    CSPStudent *copy = [[[self class] allocWithZone: zone] init];
+    [copy setFirstName:self.firstName];
+    [copy setLastName:self.lastName];
+    [copy setGender:self.gender];
+    [copy setEmailAddress:self.emailAddress];
+    return copy;
+    
+}
+
 
 
 @end

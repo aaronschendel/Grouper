@@ -27,6 +27,8 @@
 		C64D413A1ABA59AC000473B1 /* CSPManageClassesDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64D41381ABA59AC000473B1 /* CSPManageClassesDetailViewController.xib */; };
 		C64D413E1ABA6053000473B1 /* CSPNameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C64D413C1ABA6053000473B1 /* CSPNameTableViewCell.m */; };
 		C64D413F1ABA6053000473B1 /* CSPNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64D413D1ABA6053000473B1 /* CSPNameTableViewCell.xib */; };
+		C664FA241B8FC7F10045F346 /* CSPExclusionRulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C664FA221B8FC7F10045F346 /* CSPExclusionRulesViewController.m */; };
+		C664FA251B8FC7F10045F346 /* CSPExclusionRulesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C664FA231B8FC7F10045F346 /* CSPExclusionRulesViewController.xib */; };
 		C67413F01AA55D6000F7FC1B /* CSPGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C67413EF1AA55D6000F7FC1B /* CSPGroup.m */; };
 		C67413F11AA55E0E00F7FC1B /* CSPGroup.h in Sources */ = {isa = PBXBuildFile; fileRef = C67413EE1AA55D6000F7FC1B /* CSPGroup.h */; };
 		C67F9C6A1AB5D91A00432359 /* CSPGroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67F9C681AB5D91A00432359 /* CSPGroupDetailViewController.m */; };
@@ -92,6 +94,9 @@
 		C64D413B1ABA6053000473B1 /* CSPNameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPNameTableViewCell.h; sourceTree = "<group>"; };
 		C64D413C1ABA6053000473B1 /* CSPNameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPNameTableViewCell.m; sourceTree = "<group>"; };
 		C64D413D1ABA6053000473B1 /* CSPNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSPNameTableViewCell.xib; sourceTree = "<group>"; };
+		C664FA211B8FC7F10045F346 /* CSPExclusionRulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPExclusionRulesViewController.h; sourceTree = "<group>"; };
+		C664FA221B8FC7F10045F346 /* CSPExclusionRulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPExclusionRulesViewController.m; sourceTree = "<group>"; };
+		C664FA231B8FC7F10045F346 /* CSPExclusionRulesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSPExclusionRulesViewController.xib; sourceTree = "<group>"; };
 		C67413EE1AA55D6000F7FC1B /* CSPGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPGroup.h; sourceTree = "<group>"; };
 		C67413EF1AA55D6000F7FC1B /* CSPGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPGroup.m; sourceTree = "<group>"; };
 		C67F9C671AB5D91A00432359 /* CSPGroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPGroupDetailViewController.h; sourceTree = "<group>"; };
@@ -241,6 +246,16 @@
 			name = HomeView;
 			sourceTree = "<group>";
 		};
+		C664FA201B8FC7810045F346 /* ExclusionRules */ = {
+			isa = PBXGroup;
+			children = (
+				C664FA211B8FC7F10045F346 /* CSPExclusionRulesViewController.h */,
+				C664FA221B8FC7F10045F346 /* CSPExclusionRulesViewController.m */,
+				C664FA231B8FC7F10045F346 /* CSPExclusionRulesViewController.xib */,
+			);
+			name = ExclusionRules;
+			sourceTree = "<group>";
+		};
 		C67413E91AA5580400F7FC1B /* ViewGroups */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +294,7 @@
 				C62A541C1AE47923000CE47B /* CSPCreateGroupsViewController.h */,
 				C62A541D1AE47923000CE47B /* CSPCreateGroupsViewController.m */,
 				C62A541E1AE47923000CE47B /* CSPCreateGroupsViewController.xib */,
+				C664FA201B8FC7810045F346 /* ExclusionRules */,
 			);
 			name = MakeGroups;
 			sourceTree = "<group>";
@@ -425,6 +441,7 @@
 				C6A9CEEF1AB5E7AD006A1D4B /* CSPHomeViewController.xib in Resources */,
 				C64D413A1ABA59AC000473B1 /* CSPManageClassesDetailViewController.xib in Resources */,
 				C696581D1AB917A400E84485 /* CSPManageClassesViewController.xib in Resources */,
+				C664FA251B8FC7F10045F346 /* CSPExclusionRulesViewController.xib in Resources */,
 				C696580C1AB8F60400E84485 /* CSPGroupTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +495,7 @@
 			files = (
 				C67413F11AA55E0E00F7FC1B /* CSPGroup.h in Sources */,
 				C64D41391ABA59AC000473B1 /* CSPManageClassesDetailViewController.m in Sources */,
+				C664FA241B8FC7F10045F346 /* CSPExclusionRulesViewController.m in Sources */,
 				C64D413E1ABA6053000473B1 /* CSPNameTableViewCell.m in Sources */,
 				9350B3BB1AB48F160042A85B /* CSPViewGroupsViewController.m in Sources */,
 				C637257D1AC73CF200E1E496 /* CSPStudent.m in Sources */,

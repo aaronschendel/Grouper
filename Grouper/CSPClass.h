@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CSPClass : NSObject <NSCoding>
+@interface CSPClass : NSObject <NSCoding, NSCopying>
 {
     NSMutableArray *students;
 }

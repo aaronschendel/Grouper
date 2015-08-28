@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CSPStudent : NSObject <NSCoding>
+@interface CSPStudent : NSObject <NSCoding, NSCopying>
 
 typedef NS_ENUM(NSUInteger, Gender) {
     UNDEFINED,

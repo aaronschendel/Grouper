@@ -43,4 +43,12 @@
     return self;
 }
 
+- (id) copyWithZone:(NSZone *)zone {
+    CSPClass *copy = [[[self class] allocWithZone: zone] init];
+    [copy setStudents:self.students];
+    [copy setListName:self.listName];
+    return copy;
+
+}
+
 @end

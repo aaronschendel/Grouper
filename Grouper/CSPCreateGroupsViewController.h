@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *numberOfGroupsTF;
 @property (weak, nonatomic) IBOutlet UITextField *groupSetNameTF;
 
+- (IBAction)setExclusionRules:(id)sender;
 - (IBAction)createGroups:(id)sender;
 
 @end
