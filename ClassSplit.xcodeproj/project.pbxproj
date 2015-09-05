@@ -29,6 +29,8 @@
 		C64D413F1ABA6053000473B1 /* CSPNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64D413D1ABA6053000473B1 /* CSPNameTableViewCell.xib */; };
 		C664FA241B8FC7F10045F346 /* CSPExclusionRulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C664FA221B8FC7F10045F346 /* CSPExclusionRulesViewController.m */; };
 		C664FA251B8FC7F10045F346 /* CSPExclusionRulesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C664FA231B8FC7F10045F346 /* CSPExclusionRulesViewController.xib */; };
+		C673AE031B9B6ADE00A9895A /* CSPExclusionRuleRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = C673AE011B9B6ADE00A9895A /* CSPExclusionRuleRootController.m */; };
+		C673AE041B9B6ADE00A9895A /* CSPExclusionRuleRootController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C673AE021B9B6ADE00A9895A /* CSPExclusionRuleRootController.xib */; };
 		C67413F01AA55D6000F7FC1B /* CSPGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C67413EF1AA55D6000F7FC1B /* CSPGroup.m */; };
 		C67413F11AA55E0E00F7FC1B /* CSPGroup.h in Sources */ = {isa = PBXBuildFile; fileRef = C67413EE1AA55D6000F7FC1B /* CSPGroup.h */; };
 		C67F9C6A1AB5D91A00432359 /* CSPGroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C67F9C681AB5D91A00432359 /* CSPGroupDetailViewController.m */; };
@@ -97,6 +99,9 @@
 		C664FA211B8FC7F10045F346 /* CSPExclusionRulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPExclusionRulesViewController.h; sourceTree = "<group>"; };
 		C664FA221B8FC7F10045F346 /* CSPExclusionRulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPExclusionRulesViewController.m; sourceTree = "<group>"; };
 		C664FA231B8FC7F10045F346 /* CSPExclusionRulesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSPExclusionRulesViewController.xib; sourceTree = "<group>"; };
+		C673AE001B9B6ADE00A9895A /* CSPExclusionRuleRootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPExclusionRuleRootController.h; sourceTree = "<group>"; };
+		C673AE011B9B6ADE00A9895A /* CSPExclusionRuleRootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPExclusionRuleRootController.m; sourceTree = "<group>"; };
+		C673AE021B9B6ADE00A9895A /* CSPExclusionRuleRootController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSPExclusionRuleRootController.xib; sourceTree = "<group>"; };
 		C67413EE1AA55D6000F7FC1B /* CSPGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPGroup.h; sourceTree = "<group>"; };
 		C67413EF1AA55D6000F7FC1B /* CSPGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPGroup.m; sourceTree = "<group>"; };
 		C67F9C671AB5D91A00432359 /* CSPGroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPGroupDetailViewController.h; sourceTree = "<group>"; };
@@ -249,6 +254,9 @@
 		C664FA201B8FC7810045F346 /* ExclusionRules */ = {
 			isa = PBXGroup;
 			children = (
+				C673AE001B9B6ADE00A9895A /* CSPExclusionRuleRootController.h */,
+				C673AE011B9B6ADE00A9895A /* CSPExclusionRuleRootController.m */,
+				C673AE021B9B6ADE00A9895A /* CSPExclusionRuleRootController.xib */,
 				C664FA211B8FC7F10045F346 /* CSPExclusionRulesViewController.h */,
 				C664FA221B8FC7F10045F346 /* CSPExclusionRulesViewController.m */,
 				C664FA231B8FC7F10045F346 /* CSPExclusionRulesViewController.xib */,
@@ -440,6 +448,7 @@
 				C641F0921B0D3E8C00FC994E /* CSPAboutPageViewController.xib in Resources */,
 				C6A9CEEF1AB5E7AD006A1D4B /* CSPHomeViewController.xib in Resources */,
 				C64D413A1ABA59AC000473B1 /* CSPManageClassesDetailViewController.xib in Resources */,
+				C673AE041B9B6ADE00A9895A /* CSPExclusionRuleRootController.xib in Resources */,
 				C696581D1AB917A400E84485 /* CSPManageClassesViewController.xib in Resources */,
 				C664FA251B8FC7F10045F346 /* CSPExclusionRulesViewController.xib in Resources */,
 				C696580C1AB8F60400E84485 /* CSPGroupTableViewCell.xib in Resources */,
@@ -513,6 +522,7 @@
 				9350B3B51AB48F160042A85B /* CSPManageClassesViewController.m in Sources */,
 				C67F9C6A1AB5D91A00432359 /* CSPGroupDetailViewController.m in Sources */,
 				93161D8D1ADF27E00071CC16 /* CSPSelectClassesViewController.m in Sources */,
+				C673AE031B9B6ADE00A9895A /* CSPExclusionRuleRootController.m in Sources */,
 				C6A9CEEE1AB5E7AD006A1D4B /* CSPHomeViewController.m in Sources */,
 				C6A945FE1B0BFD3B00633F07 /* CSPAddStudentViewController.m in Sources */,
 			);

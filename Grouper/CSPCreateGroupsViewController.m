@@ -14,6 +14,7 @@
 #import "CSPGroupDetailViewController.h"
 #import "CSPStudent.h"
 #import "CSPExclusionRulesViewController.h"
+#import "CSPExclusionRuleRootController.h"
 
 @interface CSPCreateGroupsViewController ()
 
@@ -73,10 +74,10 @@
 
 
 - (IBAction)setExclusionRules:(id)sender {
-    CSPExclusionRulesViewController *exclusionRuleViewController = [CSPExclusionRulesViewController new];
-    exclusionRuleViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    exclusionRuleViewController.selectedClass = [self.selectedClasses objectAtIndex:0];
-    [self.navigationController presentViewController:exclusionRuleViewController animated:YES completion:nil];
+    CSPExclusionRuleRootController *exclusionRuleRootController = [CSPExclusionRuleRootController new];
+    exclusionRuleRootController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    exclusionRuleRootController.selectedClass = [self.selectedClasses objectAtIndex:0];
+    [self.navigationController presentViewController:exclusionRuleRootController animated:YES completion:nil];
 }
 
 - (IBAction)createGroups:(id)sender {

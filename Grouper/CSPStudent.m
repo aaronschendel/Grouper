@@ -40,6 +40,10 @@
     return self;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
+}
+
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.lastName forKey:@"lastName"];
     [aCoder encodeObject:self.firstName forKey:@"firstName"];

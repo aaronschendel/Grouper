@@ -13,6 +13,7 @@
 @interface CSPExclusionRulesViewController ()
 {
     NSArray *_pickerData;
+    NSMutableArray *_exclusionRules;
 }
 @end
 
@@ -72,9 +73,16 @@
 }
 
 - (IBAction)createExclusionRule:(id)sender {
-    NSInteger row = [self.pickerView1 selectedRowInComponent:0];
-    NSString *selectedName1 = [[_pickerData objectAtIndex:row] firstName];
-    NSLog(@"%@", selectedName1);
+    NSInteger row1 = [self.pickerView1 selectedRowInComponent:0];
+    CSPStudent *selectedStudent1 = [_pickerData objectAtIndex:row1];
+    NSInteger row2 = [self.pickerView2 selectedRowInComponent:0];
+    CSPStudent *selectedStudent2 = [_pickerData objectAtIndex:row2];
     
+    NSLog(@"%@", selectedStudent1);
+    NSLog(@"%@", selectedStudent2);
+    
+    NSArray *newExclusionRule = [NSArray arrayWithObjects:selectedStudent1, selectedStudent2, nil];
+    
+
 }
 @end

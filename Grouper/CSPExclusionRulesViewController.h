@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView1;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView2;
 
+@property (assign, nonatomic) NSInteger index;
+
 - (IBAction)cancel:(id)sender;
 - (IBAction)createExclusionRule:(id)sender;
 
