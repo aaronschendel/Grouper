@@ -72,5 +72,9 @@
 }
 
 - (IBAction)createExclusionRule:(id)sender {
+    NSInteger row = [self.pickerView1 selectedRowInComponent:0];
+    NSString *selectedName1 = [[_pickerData objectAtIndex:row] firstName];
+    NSLog(@"%@", selectedName1);
+    
 }
 @end

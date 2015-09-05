@@ -47,7 +47,6 @@
     }
     
     //http://www.ioscreator.com/tutorials/customizing-headers-footers-table-view-ios7
-    NSMutableDictionary *classesCreatedFromDict = [NSMutableDictionary new];
     
     //loop through all unique classes and then for each class loop through every group seeing if they match, if they do then put them in an array and build the dictionary based on that.
     _classesCreatedFromArrays = [NSMutableArray new];
